@@ -1,4 +1,5 @@
 \documentclass[9pt]{article}
+\usepackage{natbib}  % or \usepackage{biblatex} for newer bibliography support
 \usepackage{enumitem}
 \usepackage{latexsym}
 \usepackage{amsfonts}
@@ -77,7 +78,7 @@ Our approach is to build a universal Python interpreter that translates Python c
 \subsection{Likely Challenges and Mitigation Strategies: }
     One of the key challenges in this project is ensuring that the translations preserve the technical accuracy and readability of the original Python code. Languages with complex grammatical structures may require more sophisticated translation models. Another challenge is maintaining consistency in translation, especially when handling right-to-left languages or non-Latin scripts. To mitigate these issues, we will rely on native speakers to review and annotate translations, and we will incorporate techniques like domain adaptation and crowd-sourced corrections to improve translation accuracy. If the translation accuracy does not meet expectations, we plan to fine-tune models with additional data and feedback.
 
-\section{Related Work:}
+\section{Related Work}
     \begin{itemize}
         \item C. Piech and S. Abu-El-Haija, “Human languages in source code: Autotranslation for localized instruction,” in \textit{Proceedings of the Seventh AC Conference on Learning@ Scale}, 2020, pp. 167–174.
 
@@ -184,4 +185,12 @@ The error analysis phase systematically identifies both successful translations 
 
 \section{Conclusion}
 Our project, PyLinguist, contributes a novel approach to translating Python code syntax, keywords, and comments into Hindi, with plans to expand into other languages to enhance programming accessibility globally. Starting with a custom Hindi dataset, we fine-tune pre-trained language models to address the unique challenges of programming language translation. This work establishes a foundation for future multilingual support, promoting inclusivity in coding education and development. 
+
+\bibliographystyle{ieeetr}  % or other styles like 'ieeetr', 'acm', etc.
+
+\begin{thebibliography}
+    \bibitem"Towards a Universal Python: Translating the Natural Modality of Python into Other Human Languages" by \textit{Otten, Joshua and Anastasopoulos, Antonios and Moran, Kevin P}, [Online]. Available: \url{https://nlp.cs.gmu.edu/publication/otten-etal-23-unipy/} [Accessed October 23, 2024]
+\end{thebibliography}
+
+
 \end{document}
