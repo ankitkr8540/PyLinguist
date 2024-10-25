@@ -1,4 +1,4 @@
-\documentclass[9pt]{article}
+\documentclass[9pt]{papertex}
 \usepackage{natbib}  % or \usepackage{biblatex} for newer bibliography support
 \usepackage{enumitem}
 \usepackage{latexsym}
@@ -13,7 +13,6 @@
 \usepackage{float}
 \usepackage{subfigure}
 \usepackage[utf8]{inputenc}
-
 \usepackage{amsmath} % Add the necessary package for the control sequence
 \usepackage{setspace} % Add the necessary package for adjusting line spacing
 \usepackage{hyperref}
@@ -58,8 +57,10 @@
 
 % Title, author, course, and date
 \title{Mid Review Report}
+\edition{CS678} % Edition number
+\title{Mid-Project Review Report - PyLinguist} % Your title here
 \author{Antara Tewary (G01413546), Homa Haghighi (G01145449), Ankit Kumar (G01436204)}
-\date{CS 678, Advanced NLP\\\today}
+% \date{CS 678, Advanced NLP\\\today}
 
 \begin{document}
 
@@ -124,12 +125,9 @@ for i in range(5):  # Loop 5 times
 """
 # Breaks down into:
 components = {
-    'keywords': ['for', 'in'],
-    'built_ins': ['range', 'print'],
-    'variables': ['i'],
+    'keywords': ['for', 'in', 'i','range', 'print'],
     'comments': ['Loop 5 times', 
-                'Print current number']
-}
+                'Print current number']}
 \end{lstlisting}
 
 \subsection{Translation System Development}
@@ -189,7 +187,7 @@ Our project, PyLinguist, contributes a novel approach to translating Python code
 \bibliographystyle{ieeetr}  % or other styles like 'ieeetr', 'acm', etc.
 
 \begin{thebibliography}
-    \bibitem"Towards a Universal Python: Translating the Natural Modality of Python into Other Human Languages" by \textit{Otten, Joshua and Anastasopoulos, Antonios and Moran, Kevin P}, [Online]. Available: \url{https://nlp.cs.gmu.edu/publication/otten-etal-23-unipy/} [Accessed October 23, 2024]
+    \bibitem[1]  "Towards a Universal Python: Translating the Natural Modality of Python into Other Human Languages" by \textit{Otten, Joshua and Anastasopoulos, Antonios and Moran, Kevin P}, [Online]. Available: \url{https://nlp.cs.gmu.edu/publication/otten-etal-23-unipy/} [Accessed October 23, 2024]
 \end{thebibliography}
 
 
