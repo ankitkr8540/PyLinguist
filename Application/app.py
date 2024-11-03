@@ -4,9 +4,9 @@ import streamlit_ace
 import time
 import os
 import sys
-from Backend.server import test_translation
+from server import test_translation
 # Import the service module
-import Frontend.service as serv
+import service as serv
 
 # Initialize session state
 if 'swap_requested' not in st.session_state:
