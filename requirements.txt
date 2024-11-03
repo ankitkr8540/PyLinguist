@@ -1,0 +1,5 @@
+streamlit
+pandas
+streamlit-ace
+torch
+deep-translator
