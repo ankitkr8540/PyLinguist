@@ -7,11 +7,26 @@ import pandas as pd
 warnings.filterwarnings('ignore')
 
 
-def load_keywords():
+def load_keywords(target_language):
+    print(target_language)
     keywords = pd.read_csv('segregated_data.csv')
-    keywords.drop(columns=['FrenchKey.txt','SpanishKey.txt','KurdishKey.txt','BengaliKey.txt','MandarinKey.txt','GreekKey.txt'], inplace=True)
     keywords.dropna(inplace=True)
-    keywords_dict = {row['EnglishKey.txt']: row['HindiKey.txt'] for _, row in keywords.iterrows()}
+    if target_language == 'hi':
+        keywords_dict = {row['EnglishKey.txt']: row['HindiKey.txt'] for _, row in keywords.iterrows()}
+    elif target_language == 'fr':
+        keywords_dict = {row['EnglishKey.txt']: row['FrenchKey.txt'] for _, row in keywords.iterrows()}
+    elif target_language == 'es':
+        keywords_dict = {row['EnglishKey.txt']: row['SpanishKey.txt'] for _, row in keywords.iterrows()}
+    elif target_language == 'ku':
+        keywords_dict = {row['EnglishKey.txt']: row['KurdishKey.txt'] for _, row in keywords.iterrows()}
+    elif target_language == 'bn':
+        keywords_dict = {row['EnglishKey.txt']: row['BengaliKey.txt'] for _, row in keywords.iterrows()}
+    elif target_language == 'zh-CN':
+        keywords_dict = {row['EnglishKey.txt']: row['MandarinKey.txt'] for _, row in keywords.iterrows()}
+    elif target_language == 'el':
+        keywords_dict = {row['EnglishKey.txt']: row['GreekKey.txt'] for _, row in keywords.iterrows()}
+    else:    
+        keywords_dict = {row['EnglishKey.txt']: row['EnglishKey.txt'] for _, row in keywords.iterrows()}
     return keywords_dict
 
 class HindiCodeConverter:
@@ -136,7 +151,7 @@ def translate_to_hindi(english_code, source_language, target_language, keywords_
     """
     if keywords_dict is None:
         # Load default keywords if not provided
-        keywords_dict = load_keywords()
+        keywords_dict = load_keywords(target_language)
     
     # Initialize converter
     converter = HindiCodeConverter(keywords_dict,source_language, target_language)
