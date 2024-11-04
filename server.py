@@ -38,12 +38,12 @@ class HindiCodeConverter:
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
         # Add common translations
-        self.special_translations = {
-            'i': 'ई',
-            'j': 'जे',
-            'k': 'के'
-        }
-        self.keywords.update(self.special_translations)
+        # self.special_translations = {
+        #     'i': 'ई',
+        #     'j': 'जे',
+        #     'k': 'के'
+        # }
+        # self.keywords.update(self.special_translations)
 
     
     def safe_translate(self, text, max_retries=3):
