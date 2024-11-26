@@ -7,3 +7,5 @@
 
 __pycache__/
 .DS_Store
+*/data
+api_key.txt
