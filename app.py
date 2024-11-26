@@ -15,15 +15,33 @@ if 'source_index' not in st.session_state:
     st.session_state.source_index = 0  # Default to English
 if 'target_index' not in st.session_state:
     st.session_state.target_index = 1  # Default to Hindi
+if 'source_code' not in st.session_state:
+    st.session_state.source_code = "print('Hello, World!')"
 if 'translated_code' not in st.session_state:
     st.session_state.translated_code = ""
+if 'previous_source_lang' not in st.session_state:
+    st.session_state.previous_source_lang = None
+if 'previous_target_lang' not in st.session_state:
+    st.session_state.previous_target_lang = None
+if 'editor_key' not in st.session_state:
+    st.session_state.editor_key = 0
 
 def request_swap():
     """Request languages to be swapped"""
-    # Store current indices
+    # Swap languages
     temp_source = st.session_state.source_index
     st.session_state.source_index = st.session_state.target_index
     st.session_state.target_index = temp_source
+    
+    # Swap code content
+    if st.session_state.translated_code:  # Only swap if there is translated code
+        temp_code = st.session_state.source_code
+        st.session_state.source_code = st.session_state.translated_code
+        st.session_state.translated_code = temp_code
+        
+        # Increment editor key to force re-render
+        st.session_state.editor_key += 1
+    
     st.session_state.swap_requested = True
 
 # Page setup
@@ -43,7 +61,7 @@ with col1:
         index=st.session_state.source_index,
         key='source_language'
     )
-    source_language_code = serv.get_language_code(source_language)
+    source_language_code = source_language
 
 with col2:
     st.write("")
@@ -58,11 +76,19 @@ with col3:
         index=st.session_state.target_index,
         key='target_language'
     )
-    target_language_code = serv.get_language_code(target_language)
+    target_language_code = target_language
 
 # Update indices based on current selections
 st.session_state.source_index = languages.index(source_language)
 st.session_state.target_index = languages.index(target_language)
+
+# Track language changes
+if (st.session_state.previous_source_lang != source_language or 
+    st.session_state.previous_target_lang != target_language):
+    if not st.session_state.swap_requested:  # Only clear if not swapping
+        st.session_state.translated_code = ""
+    st.session_state.previous_source_lang = source_language
+    st.session_state.previous_target_lang = target_language
 
 # give padding below the language selection
 st.write("")
@@ -83,12 +109,19 @@ with col1:
         wrap=True,
         auto_update=True,
         height=400,
-        value="print('Hello, World!')",
-        key='code_input'
+        value=st.session_state.source_code,
+        key=f'code_input_{st.session_state.editor_key}'  # Dynamic key
     )
     
+    # Update source code in session state when editor content changes
+    if code_input != st.session_state.source_code:
+        st.session_state.source_code = code_input
+        st.session_state.translated_code = ""  # Clear previous translation
+    
     def translate_code():
-        translated_code = test_translation(code_input,source_language_code, target_language_code)
+        translated_code = test_translation(st.session_state.source_code, 
+                                        source_language_code, 
+                                        target_language_code)
         st.session_state.translated_code = translated_code
 
     translate_button = st.button('Translate')
@@ -98,7 +131,7 @@ with col1:
         st.success("Translation complete!")
 
 with col2:
-    if translate_button:
+    if st.session_state.translated_code:
         translated_code_output = streamlit_ace.st_ace(
             language='python',
             theme='monokai',
@@ -111,8 +144,12 @@ with col2:
             auto_update=True,
             height=400,
             value=st.session_state.translated_code,
-            key='translated_code_output',
+            key=f'translated_code_output_{st.session_state.editor_key}',  # Dynamic key
             readonly=True
         )
     else:
         st.info("Waiting for translation...")
+
+# Reset swap flag at the end of the script
+if st.session_state.swap_requested:
+    st.session_state.swap_requested = False
