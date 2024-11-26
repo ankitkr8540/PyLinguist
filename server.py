@@ -6,7 +6,7 @@ warnings.filterwarnings('ignore')
 
 
 # Initialize the OpenAI client and translator
-API_KEY = open("api_key.txt").read().strip()
+API_KEY = st.secrets["openai"]['api_key']
 client = OpenAI(api_key=API_KEY)
 translator = google_translator()
 
