@@ -1,0 +1,531 @@
+English_code,Hindi_code
+"
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def has_digit_7(num):
+    while num > 0:
+        if num % 10 == 7:
+            return True
+        num //= 10
+    return False
+
+def sum_of_primes():
+    sum_of_primes = 0
+    for num in range(1000000, 2000001):
+        if is_prime(num) and not has_digit_7(num):
+            sum_of_primes += num
+    return sum_of_primes
+
+result = sum_of_primes()
+print(""The sum of all prime numbers between 1 million and 2 million, excluding prime numbers that contain the digit 7, is:"", result)
+","परिभाषा है_मुख्य(संख्या):
+    यदि संख्या <= 1:
+        वापस असत्य
+    के_लिए ई में रेंज(2, अंक(संख्या**0.5) + 1):
+        यदि संख्या % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा है_अंक_7(संख्या):
+    जबतक संख्या > 0:
+        यदि संख्या % 10 == 7:
+            वापस सत्य
+        संख्या //= 10
+    वापस असत्य
+
+परिभाषा प्रधान_संख्याओं_का_योग():
+    प्रधान_संख्याओं_का_योग = 0
+    के_लिए संख्या में रेंज(1000000, 2000001):
+        यदि है_मुख्य(संख्या) और ना है_अंक_7(संख्या):
+            प्रधान_संख्याओं_का_योग += संख्या
+    वापस प्रधान_संख्याओं_का_योग
+
+परिणाम = प्रधान_संख्याओं_का_योग()
+छापिये(""1 मिलियन और 2 मिलियन के बीच सभी प्रधान संख्याओं का योग, जो अंक 7 को शामिल नहीं करती हैं, है:"", परिणाम)"
+"
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def find_prime_sum_array(N, M, X):
+    prime_sum_array = []
+    current_number = M
+    sum_so_far = 0
+
+    while len(prime_sum_array) < N and current_number <= X:
+        if is_prime(sum_so_far + current_number):
+            prime_sum_array.append(current_number)
+            sum_so_far += current_number
+        current_number += M
+
+    if not is_prime(sum_so_far):
+        return []
+
+    return prime_sum_array
+
+# Example usage
+N = 5
+M = 3
+X = 20
+
+result = find_prime_sum_array(N, M, X)
+print(result)
+","परिभाषा है_मुख्य(संख्या):
+    यदि संख्या < 2:
+        वापस असत्य
+    के_लिए ई में रेंज(2, अंक(संख्या ** 0.5) + 1):
+        यदि संख्या % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा खोजें_मुख्य_योग_सरणी(एन, एम, एक्स):
+    मुख्य_योग_सरणी = []
+    वर्तमान_संख्या = एम
+    योग_अब_तक = 0
+
+    जबतक लंबाई(मुख्य_योग_सरणी) < एन और वर्तमान_संख्या <= एक्स:
+        यदि है_मुख्य(योग_अब_तक + वर्तमान_संख्या):
+            मुख्य_योग_सरणी.संलग्न(वर्तमान_संख्या)
+            योग_अब_तक += वर्तमान_संख्या
+        वर्तमान_संख्या += एम
+
+    यदि ना है_मुख्य(योग_अब_तक):
+        वापस []
+
+    वापस मुख्य_योग_सरणी
+
+# उदाहरण उपयोग
+एन = 5
+एम = 3
+एक्स = 20
+
+परिणाम = खोजें_मुख्य_योग_सरणी(एन, एम, एक्स)
+छापिये(परिणाम)"
+"
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def max_prime_difference(arr):
+    primes = []
+    for num in arr:
+        if is_prime(abs(num)):
+            primes.append(abs(num))
+    if len(primes) < 2:
+        return 0
+    max_diff = 0
+    for i in range(len(primes)-1):
+        diff = abs(primes[i] - primes[i+1])
+        if diff > max_diff:
+            max_diff = diff
+    return max_diff
+","परिभाषा है_मुख्य(एन):
+    यदि एन < 2:
+        वापस असत्य
+    के_लिए ई में रेंज(2, अंक(एन**0.5) + 1):
+        यदि एन % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा अधिकतम_मुख्य_अंतर(ऐरे):
+    मुख्य = []
+    के_लिए संख्या में ऐरे:
+        यदि है_मुख्य(निरपेक्ष_मान(संख्या)):
+            मुख्य.संलग्न(निरपेक्ष_मान(संख्या))
+    यदि लंबाई(मुख्य) < 2:
+        वापस 0
+    अधिकतम_अंतर = 0
+    के_लिए ई में रेंज(लंबाई(मुख्य)-1):
+        अंतर = निरपेक्ष_मान(मुख्य[ई] - मुख्य[ई+1])
+        यदि अंतर > अधिकतम_अंतर:
+            अधिकतम_अंतर = अंतर
+    वापस अधिकतम_अंतर"
+"
+import math
+
+def calculate_triangle_height(angle, side_lengths, opposite_side_length, side_ratio):
+    # Convert angle from degrees to radians
+    angle_rad = math.radians(angle)
+
+    # Calculate the height using the Law of Sines
+    height = opposite_side_length * math.sin(angle_rad) / side_ratio
+
+    # Calculate the length of the adjacent side using the Law of Cosines
+    adjacent_side_length = math.sqrt(side_lengths**2 + opposite_side_length**2 - 2 * side_lengths * opposite_side_length * math.cos(angle_rad))
+
+    # Calculate the hypotenuse of the triangle
+    hypotenuse = side_lengths / math.cos(angle_rad)
+
+    # Calculate the remaining side using Pythagorean theorem
+    remaining_side_length = math.sqrt(hypotenuse**2 - adjacent_side_length**2)
+
+    # Calculate the final height of the triangle
+    height += remaining_side_length
+
+    return height
+
+
+def simulate_triangle_motion(initial_velocity, angle, time_interval, air_resistance=True):
+    # Initialize variables
+    x = 0.0
+    y = 0.0
+    time = 0.0
+
+    # Convert angle from degrees to radians
+    angle_rad = math.radians(angle)
+
+    # Calculate initial velocities
+    vx = initial_velocity * math.cos(angle_rad)
+    vy = initial_velocity * math.sin(angle_rad)
+
+    # Simulate the motion until the y-coordinate becomes negative (reached the ground)
+    while y >= 0:
+        # Calculate the acceleration due to air resistance
+        if air_resistance:
+            air_resistance_acceleration = -0.5 * vy**2  # Simplified model for air resistance
+        else:
+            air_resistance_acceleration = 0.0  # No air resistance
+
+        # Calculate the new velocities using the kinematic equations
+        vx += air_resistance_acceleration * math.cos(angle_rad) * time_interval
+        vy += (-9.8 + air_resistance_acceleration * math.sin(angle_rad)) * time_interval
+
+        # Calculate the new position using the kinematic equations
+        x += vx * time_interval
+        y += vy * time_interval
+
+        # Increment the time
+        time += time_interval
+
+    return x, y, time
+
+
+# Example usage
+angle = 45  # Angle in degrees
+side_lengths = 5
+opposite_side_length = 3
+side_ratio = 2
+height = calculate_triangle_height(angle, side_lengths, opposite_side_length, side_ratio)
+print(f""The height of the triangle is: {height}"")
+
+initial_velocity = 10  # m/s
+time_interval = 0.01  # seconds
+x, y, total_time = simulate_triangle_motion(initial_velocity, angle, time_interval, air_resistance=True)
+print(f""The triangle reached the ground at coordinates (x={x:.2f}m, y={y:.2f}m) in {total_time:.2f}s."")
+","आयात गणित
+
+परिभाषा गणना_त्रिकोण_ऊँचाई(कोण, पक्ष_लंबाई, विपरीत_पक्ष_लंबाई, पक्ष_अनुपात):
+    #कोण को डिग्री से रेडियन में परिवर्तित करें
+    कोण_रेड = गणित.रेडियन(कोण)
+
+    #साइन के नियम का उपयोग करके ऊँचाई की गणना करें
+    ऊँचाई = विपरीत_पक्ष_लंबाई * गणित.साइन(कोण_रेड) / पक्ष_अनुपात
+
+    #कोसाइन के नियम का उपयोग करके सन्निकट पक्ष की लंबाई की गणना करें
+    सन्निकट_पक्ष_लंबाई = गणित.स्क्वायर_रूट(pक्ष_लंबाई**2 + विपरीत_पक्ष_लंबाई**2 - 2 * पक्ष_लंबाई * विपरीत_पक्ष_लंबाई * गणित.कोस(कोण_रेड))
+
+    #त्रिकोण की कर्ण की गणना करें
+    कर्ण = पक्ष_लंबाई / गणित.कोस(कोण_रेड)
+
+    #पाइथागोरस के प्रमेय का उपयोग करके शेष पक्ष की गणना करें
+    शेष_पक्ष_लंबाई = गणित.स्क्वायर_रूट(कर्ण**2 - सन्निकट_पक्ष_लंबाई**2)
+
+    #त्रिकोण की अंतिम ऊँचाई की गणना करें
+    ऊँचाई += शेष_पक्ष_लंबाई
+
+    वापस ऊँचाई
+
+
+परिभाषा अनुकरण_त्रिकोण_गति(प्रारंभिक_गति, कोण, समय_अंतराल, वायु_प्रतिरोध=सत्य):
+    #चर प्रारंभ करें
+    एक्स = 0.0
+    वाई = 0.0
+    समय = 0.0
+
+    #कोण को डिग्री से रेडियन में परिवर्तित करें
+    कोण_रेड = गणित.रेडियन(कोण)
+
+    #प्रारंभिक गतियों की गणना करें
+    वीएक्स = प्रारंभिक_गति * गणित.कोस(कोण_रेड)
+    वीवाई = प्रारंभिक_गति * गणित.साइन(कोण_रेड)
+
+    #जब तक y-निर्देशांक नकारात्मक न हो जाए (भूमि पर पहुँच जाए)
+    जबतक वाई >= 0:
+        #वायु प्रतिरोध के कारण त्वरण की गणना करें
+        यदि वायु_प्रतिरोध:
+            वायु_प्रतिरोध_त्वरण = -0.5 * वीवाई**2  #वायु प्रतिरोध के लिए सरल मॉडल
+        वरना:
+            वायु_प्रतिरोध_त्वरण = 0.0  #कोई वायु प्रतिरोध नहीं
+
+        #गति समीकरणों का उपयोग करके नई गतियों की गणना करें
+        वीएक्स += वायु_प्रतिरोध_त्वरण * गणित.कोस(कोण_रेड) * समय_अंतराल
+        वीवाई += (-9.8 + वायु_प्रतिरोध_त्वरण * गणित.साइन(कोण_रेड)) * समय_अंतराल
+
+        #गति समीकरणों का उपयोग करके नई स्थिति की गणना करें
+        एक्स += वीएक्स * समय_अंतराल
+        वाई += वीवाई * समय_अंतराल
+
+        #समय बढ़ाएँ
+        समय += समय_अंतराल
+
+    वापस एक्स, वाई, समय
+
+
+#उदाहरण उपयोग
+कोण = 45  #कोण में डिग्री
+पक्ष_लंबाई = 5
+विपरीत_पक्ष_लंबाई = 3
+पक्ष_अनुपात = 2
+ऊँचाई = गणना_त्रिकोण_ऊँचाई(कोण, पक्ष_लंबाई, विपरीत_पक्ष_लंबाई, पक्ष_अनुपात)
+छापिये (f""त्रिकोण की ऊँचाई है: {ऊँचाई}"")
+
+प्रारंभिक_गति = 10  # मीटर/सेकंड
+समय_अंतराल = 0.01  # सेकंड
+एक्स, वाई, कुल_समय = अनुकरण_त्रिकोण_गति(प्रारंभिक_गति, कोण, समय_अंतराल, वायु_प्रतिरोध=सत्य)
+छापिये (f""त्रिकोण भूमि पर पहुँच गया है (x={एक्स:.2f} मी, y={वाई:.2f} मी) में {कुल_समय:.2f} सेकंड."")"
+"
+import math
+
+def calculate_circle_area(radius):
+    try:
+        radius = float(radius)
+        if radius <= 0:
+            return ""Error: Radius must be a positive number""
+        area = math.pi * radius**2
+        return ""{:.2f}"".format(area)
+    except ValueError:
+        return ""Error: Invalid input. Radius must be a number""
+","आयात गणित
+
+परिभाषा गणना_वृत्त_क्षेत्रफल(त्रिज्या):
+    प्रयत्न:
+        त्रिज्या = दश(त्रिज्या)
+        यदि त्रिज्या <= 0:
+            वापस ""त्रुटि: त्रिज्या एक सकारात्मक संख्या होनी चाहिए""
+        क्षेत्रफल = गणित.pi * त्रिज्या**2
+        वापस ""{:.2f}"".प्रारूप(क्षेत्रफल)
+    सिवाय मान_त्रुटि:
+        वापस ""त्रुटि: अमान्य इनपुट. त्रिज्या एक संख्या होनी चाहिए"""
+"
+def multiply_matrices(A, B):
+    a, b, c = A[0][0], A[0][1], A[1][0]
+    d, e, f = B[0][0], B[0][1], B[1][0]
+    
+    return [
+        [a*d + b*e, a*e + b*f],
+        [c*d + e*d, c*e + e*f]
+    ]
+
+
+def power_matrix(A, n):
+    if n == 0:
+        return [[1, 0], [0, 1]]  # Identity matrix
+    
+    result = power_matrix(A, n // 2)
+    result = multiply_matrices(result, result)
+    
+    if n % 2 == 1:
+        result = multiply_matrices(result, A)
+    
+    return result
+
+
+def fibonacci(n):
+    if n == 0:
+        return 0
+    
+    matrix = [[1, 1], [1, 0]]
+    result = power_matrix(matrix, n - 1)
+    
+    return result[0][0]
+","परिभाषा गुणा_मैट्रिक्स(ए, बी):
+    ए, बी, सी = ए[0][0], ए[0][1], ए[1][0]
+    डी, ई, एफ = बी[0][0], बी[0][1], बी[1][0]
+    
+    वापस [
+        [ए*डी + बी*ई, ए*ई + बी*एफ],
+        [सी*डी + ई*डी, सी*ई + ई*एफ]
+    ]
+
+
+परिभाषा शक्ति_मैट्रिक्स(ए, एन):
+    यदि एन == 0:
+        वापस [[1, 0], [0, 1]]  # पहचान_मैट्रिक्स
+    
+    परिणाम = शक्ति_मैट्रिक्स(ए, एन // 2)
+    परिणाम = गुणा_मैट्रिक्स(परिणाम, परिणाम)
+    
+    यदि एन % 2 == 1:
+        परिणाम = गुणा_मैट्रिक्स(परिणाम, ए)
+    
+    वापस परिणाम
+
+
+परिभाषा फिबोनाच्ची(एन):
+    यदि एन == 0:
+        वापस 0
+    
+    मैट्रिक्स = [[1, 1], [1, 0]]
+    परिणाम = शक्ति_मैट्रिक्स(मैट्रिक्स, एन - 1)
+    
+    वापस परिणाम[0][0]"
+"
+def debug_program(arr):
+    n = len(arr)
+    return binary_search(arr, 0, n - 1)
+
+def binary_search(arr, start, end):
+    if start > end:
+        return -1
+    
+    mid = (start + end) // 2
+    
+    if arr[mid] == mid:
+        return mid
+    
+    left_result = binary_search(arr, start, min(mid - 1, arr[mid]))
+    right_result = binary_search(arr, max(mid + 1, arr[mid]), end)
+    
+    return max(left_result, right_result)
+","परिभाषा डिबग_कार्यक्रम(ऐरे):
+    एन = लंबाई(ऐरे)
+    वापस बाइनरी_खोज(ऐरे, 0, एन - 1)
+
+परिभाषा बाइनरी_खोज(ऐरे, प्रारंभ, अंत):
+    यदि प्रारंभ > अंत:
+        वापस -1
+    
+    मध्य = (प्रारंभ + अंत) // 2
+    
+    यदि ऐरे[mid] == मध्य:
+        वापस मध्य
+    
+    बायाँ_परिणाम = बाइनरी_खोज(ऐरे, प्रारंभ, न्यूनतम(mid - 1, ऐरे[mid]))
+    दायाँ_परिणाम = बाइनरी_खोज(ऐरे, अधिकतम(mid + 1, ऐरे[mid]), अंत)
+    
+    वापस अधिकतम(बायाँ_परिणाम, दायाँ_परिणाम)"
+"
+import math
+
+def power(x, y):
+    # Check for invalid inputs
+    if not isinstance(x, (int, float)) or not isinstance(y, int):
+        return ""Error: Invalid input. Please enter numeric values for x and y.""
+
+    # Check if x is between 1 and 10
+    if not 1 <= x <= 10:
+        return ""Error: x should be between 1 and 10.""
+
+    # Check if y is between 0 and 5
+    if not 0 <= y <= 5:
+        return ""Error: y should be between 0 and 5.""
+
+    # Custom algorithm for calculating power
+    result = x ** y
+
+    # Check if result exceeds threshold for scientific notation
+    if result > 1e6:
+        return ""{:.2e}"".format(result)
+    else:
+        return result
+
+# Example usage
+x = 2.5
+y = 3
+result = power(x, y)
+print(result)
+","आयात गणित
+
+परिभाषा शक्ति(एक्स, वाई):
+    #जाँचें_के_लिए अमान्य_इनपुट
+    यदि ना उदाहरण_है(एक्स, (अंक, दश)) या ना उदाहरण_है(वाई, अंक):
+        वापस ""त्रुटि: अमान्य इनपुट। कृपया संख्या मान के लिए एक्स और वाई दर्ज करें।""
+
+    #जाँचें यदि एक्स है 1 और 10 के बीच
+    यदि ना 1 <= एक्स <= 10:
+        वापस ""त्रुटि: एक्स 1 और 10 के बीच होना चाहिए।""
+
+    #जाँचें यदि वाई है 0 और 5 के बीच
+    यदि ना 0 <= वाई <= 5:
+        वापस ""त्रुटि: वाई 0 और 5 के बीच होना चाहिए।""
+
+    #कस्टम एल्गोरिदम के लिए शक्ति की गणना
+    परिणाम = एक्स ** वाई
+
+    #जाँचें यदि परिणाम सीमा से अधिक है के लिए वैज्ञानिक संकेतन
+    यदि परिणाम > 1e6:
+        वापस ""{:.2e}"".प्रारूप(परिणाम)
+    वरना:
+        वापस परिणाम
+
+#उदाहरण उपयोग
+एक्स = 2.5
+वाई = 3
+परिणाम = शक्ति(एक्स, वाई)
+छापिये(परिणाम)"
+"
+def bubble_sort_descending(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if arr[j] < arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+arr = [3, 2, 1, 5, 4]
+sorted_arr = bubble_sort_descending(arr)
+print(sorted_arr)
+","परिभाषा बुलबुला_क्रम_उल्टा(arr):
+    n = लंबाई(arr)
+    के_लिए i में रेंज(n - 1):
+        के_लिए j में रेंज(n - i - 1):
+            यदि arr[j] < arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    वापस arr
+
+arr = [3, 2, 1, 5, 4]
+sorted_arr = बुलबुला_क्रम_उल्टा(arr)
+छापिये(sorted_arr)"
+"
+def sum_prime_numbers(arr):
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    prime_sum = 0
+    for num in arr:
+        if is_prime(num):
+            prime_sum += num
+    return prime_sum
+","परिभाषा जोड़ें_मुख्य_संख्याएँ(ऐरे):
+    परिभाषा है_मुख्य(एन):
+        यदि एन <= 1:
+            वापस असत्य
+        के_लिए ई में रेंज(2, अंक(एन**0.5) + 1):
+            यदि एन % ई == 0:
+                वापस असत्य
+        वापस सत्य
+
+    मुख्य_योग = 0
+    के_लिए संख्या में ऐरे:
+        यदि है_मुख्य(संख्या):
+            मुख्य_योग += संख्या
+    वापस मुख्य_योग"
