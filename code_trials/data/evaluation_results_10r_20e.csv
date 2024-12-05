@@ -1,4 +1,4 @@
-English_code,Hindi_code
+original,hindi,back_translated,bleu_score
 "
 def reverse_matrix(matrix):
     new_matrix = []
@@ -55,7 +55,34 @@ print(reverse_matrix(matrix3))
            [3, 4],
            [5, 6]]
 # अपेक्षित आउटपुट: [[6, 5], [4, 3], [2, 1]]
-छापिये(उलटें_मैट्रिक्स(मैट्रिक्स3))"
+छापिये(उलटें_मैट्रिक्स(मैट्रिक्स3))","def reverse_matrix(matrix):
+    new_matrix = []
+    for i in range(len(matrix)):
+        new_matrix.append([])
+        for j in range(len(matrix[i])):
+            new_matrix[i].insert(0, matrix[i][j])
+    return new_matrix
+
+
+# Test case 1
+matrix1 = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]]
+# Expected output: [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+print(reverse_matrix(matrix1))
+
+# Test case 2
+matrix2 = [[1, 2, 3, 4],
+           [5, 6, 7, 8]]
+# Expected output: [[8, 7, 6, 5], [4, 3, 2, 1]]
+print(reverse_matrix(matrix2))
+
+# Test case 3
+matrix3 = [[1, 2],
+           [3, 4],
+           [5, 6]]
+# Expected output: [[6, 5], [4, 3], [2, 1]]
+print(reverse_matrix(matrix3))",1.0
 "
 def fibonacci(n):
     if n == 0:
@@ -80,7 +107,18 @@ print(f""The Fibonacci number at index {n} is {fibonacci_number}."")
 #उदाहरण_उपयोग
 एन = 10
 फाइबोनैचि_संख्या = फाइबोनैचि(एन)
-छापिये (एफ"" फाइबोनैचि संख्या पर सूचक {एन} है {फाइबोनैचि_संख्या}."")"
+छापिये (एफ"" फाइबोनैचि संख्या पर सूचक {एन} है {फाइबोनैचि_संख्या}."")","def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+# example_usage
+n = 10
+fibonacci_number = fibonacci(n)
+print(f"" Fibonacci number at index {n} is {fibonacci_number}."")",0.9011935495061624
 "
 def count_unique_consonants(string):
     consonants = set()
@@ -95,7 +133,13 @@ def count_unique_consonants(string):
     के_लिए चार में छोटे_डोरी:
         यदि चार.अक्षर_है() और चार ना में 'ए', 'ई', 'आई', 'ओ', 'यू':
             व्यंजन.योग(चार)
-    वापस लंबाई(व्यंजन)"
+    वापस लंबाई(व्यंजन)","def count_unique_consonants(string):
+    consonants = set()
+    lower_string = string.lower()
+    for char in lower_string:
+        if char.isalpha() and char not in 'ए', 'ई', 'आई', 'ओ', 'यू':
+            consonants.add(char)
+    return len(consonants)",0.5709978146393282
 "
 def filter_and_replace(string):
     vowels = ['a', 'e', 'i', 'o', 'u']
@@ -152,7 +196,34 @@ print(output_string)
 #उदाहरण_उपयोग:
 इनपुट_डोरी = ""नमस्ते दुनिया! यह एक परीक्षण डोरी है। मुझे फ़िल्टर करें यदि मैं संख्याएँ या विशेष वर्ण शामिल करता हूँ।""
 आउटपुट_डोरी = फ़िल्टर_और_बदलें(इनपुट_डोरी)
-छापिये(आउटपुट_डोरी)"
+छापिये(आउटपुट_डोरी)","def filter_and_replace(string):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    filtered_words = []
+    
+    words = string.split()
+    
+    for word in words:
+        if any(char.isdigit() or not char.isalpha() for char in word):
+            continue
+        
+        if len(word) > 3 and any(char in vowels for char in word):
+            filtered_word = """"
+            for char in word:
+                if char in vowels:
+                    vowel_index = vowels.index(char)
+                    next_vowel = vowels[(vowel_index + 1) % len(vowels)]
+                    filtered_word += next_vowel
+                else:
+                    filtered_word += char
+            filtered_words.append(filtered_word)
+    
+    return "" "".join(filtered_words)
+
+
+# Example usage:
+input_string = ""Hello world! This is a test string. Please filter me if I include numbers or special characters.""
+output_string = filter_and_replace(input_string)
+print(output_string)",0.9616928024369856
 "
 def isOddPrimeGreaterThan100(number):
     if number <= 100 or number % 2 == 0:  # Check if number is less than or equal to 100 or even
@@ -189,7 +260,24 @@ def findSecondSmallestOddPrimeGreaterThan100(array):
                 सबसे_छोटा = संख्या
             वरना_यदि संख्या < दूसरा_सबसे_छोटा:
                 दूसरा_सबसे_छोटा = संख्या
-    वापस दूसरा_सबसे_छोटा"
+    वापस दूसरा_सबसे_छोटा","def is_odd_prime_above_100(number):
+    if number <= 100 or number % 2 == 0:  # Check if number is less than or equal to 100 or is even
+        return False 
+    for i in range(3, int(number**0.5) + 1, 2):  # Check divisibility by only odd numbers
+        if number % i == 0:
+            return False 
+    return True 
+
+def find_second_smallest_odd_prime_above_100(arrival):
+    smallest = second_smallest = float('inf')
+    for number in arrival:
+        if is_odd_prime_above_100(number):
+            if number < smallest:
+                second_smallest = smallest
+                smallest = number
+            elif number < second_smallest:
+                second_smallest = number
+    return second_smallest",0.7636474694409227
 "
 class SeparatorNotFoundError(Exception):
     pass
@@ -252,7 +340,37 @@ except Exception as e:
     छापिये (""गलती:"", e)
 
 सिवाय अपवाद की तरह e:
-    छापिये (""गलती:"", e)"
+    छापिये (""गलती:"", e)","class SeparatorNotFoundError(Exception):
+    pass
+
+class MultipleSeparatorsError(Exception):
+    pass
+
+try:
+    my_string = ""Hello, world!""
+    separator = ""#""
+
+    # Incorrect way to split string by separator
+    split_string = my_string.split(separator, 1)
+    if not split_string:
+        raise SeparatorNotFoundError(""Separator not found in string"")
+
+    # Additional requirement:
+    # If separator found in string more than once, raise a custom Exception ""MultipleSeparatorsError""
+
+    # Incorrect way to split string by separator
+    split_string = my_string.split(separator)
+    if len(split_string) > 2:
+        raise MultipleSeparatorsError(""Multiple separators found in string"")
+
+except SeparatorNotFoundError as e:
+    print(""Error:"", e)
+
+except MultipleSeparatorsError as e:
+    print(""Error:"", e)
+
+except Exception as e:
+    print(""Error:"", e)",0.7759729188619556
 "
 def create_index_dictionary(list_one, list_two):
     if len(list_one) != len(list_two):
@@ -327,7 +445,43 @@ def create_index_dictionary(list_one, list_two):
         वरना:
             सूचकांक_शब्दकोश[ई] = (सूची_एक[ई], सूची_दो[ई])
     
-    वापस सूचकांक_शब्दकोश"
+    वापस सूचकांक_शब्दकोश","def create_index_dictionary(list_one, list_two):
+    if len(list_one) != len(list_two):
+        raise ValueError(""input lists must have the same length"")
+    
+    index_dictionary = {}
+    for i in range(len(list_one)):
+        if isinstance(list_one[i], (list, dict, tuple)) and isinstance(list_two[i], (list, dict, tuple)):
+            if isinstance(list_one[i], set) or isinstance(list_two[i], set):
+                raise ValueError(""input lists cannot be in set"")
+            
+            nested_dictionary = {}
+            if isinstance(list_one[i], dict) and isinstance(list_two[i], dict):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""nested dictionaries must have the same number of elements"")
+                
+                for key in list_one[i].keys():
+                    if key not in list_two[i]:
+                        raise ValueError(""nested dictionaries must have the same keys"")
+                    nested_dictionary[key] = (list_one[i][key], list_two[i][key])
+            elif isinstance(list_one[i], list) and isinstance(list_two[i], list):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""nested lists must have the same length"")
+                
+                for j in range(len(list_one[i])):
+                    nested_dictionary[j] = (list_one[i][j], list_two[i][j])
+            elif isinstance(list_one[i], tuple) and isinstance(list_two[i], tuple):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""tuples must have the same length"")
+                
+                for j in range(len(list_one[i])):
+                    nested_dictionary[j] = (list_one[i][j], list_two[i][j])
+            
+            index_dictionary[i] = nested_dictionary
+        else:
+            index_dictionary[i] = (list_one[i], list_two[i])
+    
+    return index_dictionary",0.8882143888834391
 "
 def find_maximum(a, b, c):
     # Convert the numbers to binary
@@ -364,7 +518,24 @@ def find_maximum(a, b, c):
     वरना_यदि बी_गिनें > ए_गिनें और बी_गिनें > सी_गिनें:
         वापस बी
     वरना:
-        वापस सी"
+        वापस सी","def find_maximum(A, B, C):
+    # Convert_numbers_to_binary
+    A_bin = bin(A)
+    B_bin = bin(B)
+    C_bin = bin(C)
+    
+    # Count_1s_in_each_number's_binary_representation
+    A_count = A_bin.count('1')
+    B_count = B_bin.count('1')
+    C_count = C_bin.count('1')
+    
+    # Compare_counts_to_find_the_maximum
+    if A_count > B_count and A_count > C_count:
+        return A
+    elif B_count > A_count and B_count > C_count:
+        return B
+    else:
+        return C",0.19239642721944358
 "
 def quick_sort(arr):
     if len(arr) <= 1:
@@ -401,11 +572,30 @@ print(""Number of Comparisons:"", comparisons)
 आगमन = [5, 3, 9, 5, 2, 8, 4]
 क्रमबद्ध_आगमन, तुलना = त्वरित_क्रम(आगमन)
 छापिये(""क्रमबद्ध आगमन:"", क्रमबद्ध_आगमन)
-छापिये(""तुलनाओं की संख्या:"", तुलना)"
+छापिये(""तुलनाओं की संख्या:"", तुलना)","def quick_sort(arrival):
+    if len(arrival) <= 1:
+        return arrival, 0
+    else:
+        pivot = arrival[0]
+        less = [x for x in arrival[1:] if x <= pivot]
+        greater = [x for x in arrival[1:] if x > pivot]
+        sorted_less, comparisons_less = quick_sort(less)
+        sorted_greater, comparisons_greater = quick_sort(greater)
+        comparisons = len(arrival) - 1 + comparisons_less + comparisons_greater
+        sorted_arrival = sorted_greater + [pivot] + sorted_less
+        return sorted_arrival, comparisons
+
+# Testing the code
+arrival = [5, 3, 9, 5, 2, 8, 4]
+sorted_arrival, comparisons = quick_sort(arrival)
+print(""sorted arrival:"", sorted_arrival)
+print(""number of comparisons:"", comparisons)",0.7243688740108664
 "
 def calculate_distance(point1, point2):
     distance = ((point2[0] - point1[0])**2 + (point2[1] - point1[1])**2 + (point2[2] - point1[2])**2) ** 0.5
     return distance
 ","परिभाषा calculate_दूरी(बिंदु1, बिंदु2):
     दूरी = ((बिंदु2[0] - बिंदु1[0])**2 + (बिंदु2[1] - बिंदु1[1])**2 + (बिंदु2[2] - बिंदु1[2])**2) ** 0.5
-    वापस दूरी"
+    वापस दूरी","def calculate_distance(point1, point2):
+    distance = ((point2[0] - point1[0])**2 + (point2[1] - point1[1])**2 + (point2[2] - point1[2])**2) ** 0.5
+    return distance",1.0
