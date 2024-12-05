@@ -1,5 +1,5 @@
 streamlit
 pandas
 streamlit-ace
-torch
-deep-translator
+openai
+google-trans-new==1.1.9
