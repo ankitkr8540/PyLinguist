@@ -1,0 +1,175 @@
+\usepackage[dvipsnames,table,xcdraw]{xcolor}
+\usepackage[export]{adjustbox}
+\usepackage{anyfontsize}
+\usepackage[T1]{fontenc}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{hyphenat}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{lmodern}
+\usepackage{multicol}
+\usepackage{vwcol}  
+\usepackage{tikz}
+\usepackage{enumitem}
+% BOXES IN MAKEMAIN
+\usepackage[most]{tcolorbox}
+\tcbset{center title}
+
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\newcommand\postermargin{1cm}
+\usepackage[margin=\postermargin, top=0cm, bottom=0cm]{geometry}
+% \usepackage[paperwidth=36in, paperheight=24in, margin=\postermargin]{geometry}
+\renewcommand{\familydefault}{\sfdefault}
+\pagenumbering{gobble}
+\graphicspath{{./images/}}
+
+% poster color
+\definecolor{purple}{RGB}{73,56,120}
+% \definecolor{teal}{RGB}{1, 96, 100}
+\definecolor{mason-yellow}{RGB}{253, 233, 146}
+\definecolor{mason-green}{RGB}{0, 102, 51}
+\definecolor{bias-color}{RGB}{255, 165, 0}
+\definecolor{green-color}{RGB}{61, 237, 151}
+\definecolor{red-color}{RGB}{253, 92, 99}
+\definecolor{blue-link}{RGB}{130, 238, 253}
+\definecolor{orange-email}{RGB}{252,195,163} %{130, 238, 253}
+\definecolor{languages-color}{RGB}{255, 255, 255}
+
+\colorlet{exp}{mason-green}
+\colorlet{methods}{Maroon}
+\colorlet{theory}{MidnightBlue}
+
+\tcbset{colback=mason-green!10, colframe=mason-green!60!black}
+
+
+\makeatletter 
+\newcommand\semiHuge{\@setfontsize\semiHuge{22.72}{27.38}}
+\newcommand\semihuge{\@setfontsize\semihuge{18.93}{23.45}}
+\newcommand\semiLARGE{\@setfontsize\semiLARGE{15.77}{19.90}}
+\newcommand\semiLarge{\@setfontsize\semiLarge{13.15}{15.87}}% 15.18?
+\newcommand\semilarge{\@setfontsize\semilarge{11.46}{13.80}}
+\newcommand\seminormal{\@setfontsize\seminormal{10.46}{12.77}}
+\makeatother 
+
+
+\makeatletter
+\def\@maketitle{
+  \vspace*{1cm} % Space above the title
+  \noindent
+  \begin{minipage}[b]{\linewidth}
+  \begin{flushleft}
+    \semihuge\bfseries \@title
+    \vspace{5pt} % Space between title and author
+    \large\textcolor{gray}{\\\@author}
+  \end{flushleft}
+  \end{minipage}%
+  \hfill 
+  \hspace{-10cm} % Adjust this and the minipage size for more logos
+  \begin{minipage}[b]{6cm} 
+  
+  \vspace{-\baselineskip}
+    \raisebox{-\height+1.4cm}[0pt][0pt]{
+      \hspace{10pt}% Space between logos, adjust as needed
+      \includegraphics[height=2cm,keepaspectratio]{images/gmu-horizontal.jpg}
+    }
+
+    % \vspace{-\baselineskip}
+    % \raisebox{-\height+2.4cm}[0pt][0pt]{
+    %   \hspace{100pt}% Space between logos, adjust as needed
+    %   \includegraphics[height=3.2cm,keepaspectratio]{images/gmu-stacked.jpg}
+    % }
+    
+  \end{minipage}
+  \vspace{1em}
+}
+\makeatother
+
+
+\newcommand\headerheight{0.18}
+\newcommand{\makefinding}[2]{ % Now takes two parameters: #1 for the logo and #2 for the text
+    \vspace*{-1cm} % Remove random white space
+    \noindent\makebox[\linewidth][c]{
+      \colorbox{exp}{
+        \parbox[t][\headerheight\paperheight][c]{\paperwidth}{
+          \hspace*{\dimexpr\hoffset+\oddsidemargin+1in\relax}%
+          % \hspace{25mm}
+          \begin{minipage}[c]{0.3\textwidth}
+            \includegraphics[height=5cm, keepaspectratio]{#1}
+          \end{minipage}%
+          \hspace{1mm}
+          \begin{minipage}[c]{0.7\textwidth}
+            \textcolor{white}{
+              % {\fontsize{36}{50}\selectfont
+              % \begin{center}
+              %   \nohyphens{#2}
+              % \end{center}
+              % }
+              {\fontsize{30}{40}\selectfont
+              \begin{center}
+                \nohyphens{#2}
+              \end{center}
+              }
+            }
+          \end{minipage}
+        }
+      }
+    }\par\medskip
+}
+
+\newcommand{\newfinding}[1]{ % New command with one parameter
+    \vspace*{-1cm} % Remove random white space
+    \noindent\makebox[\linewidth][c]{
+      \colorbox{exp}{
+        \parbox[t][\headerheight\paperheight][c]{\paperwidth}{
+          \hspace*{\dimexpr\hoffset+\oddsidemargin+1in\relax}%
+          \begin{minipage}[c]{\textwidth}
+            \textcolor{white}{
+              {\fontsize{30}{40}\selectfont
+              \begin{center}
+                \nohyphens{#1}
+              \end{center}
+              }
+            }
+          \end{minipage}
+        }
+      }
+    }\par\medskip
+}
+
+
+\newcommand\footerheight{0.10}
+\newcommand{\makealtfooter}[1]{
+    \vspace*{\fill}
+    \noindent\makebox[\linewidth][c]{
+      \colorbox{\postertype}{
+        \parbox[c][\footerheight\paperheight][c]{\paperwidth}{
+          \hspace*{\dimexpr\hoffset+\oddsidemargin+1in\relax}
+          \begin{minipage}[c][\footerheight\paperheight][c]{0.4\textwidth}
+            \begin{flushleft}
+                \textcolor{mason-yellow}{\Large{Email}}
+                \textcolor{mason-yellow}{\Large{$\rightarrow$}}
+                \textcolor{mason-yellow}{\Large{ sakter6@gmu.edu}}
+            \end{flushleft}
+          \end{minipage}
+          \hfill
+          \begin{minipage}[c][\footerheight\paperheight][c]{0.2\textwidth}
+           \includegraphics[height=0.09\paperheight, left]{#1}
+          \end{minipage}
+        }
+      }
+    }\par\medskip
+}
+
+
+\newcommand{\makemain}[1]{
+    \noindent
+    \parbox[t][0.14\paperheight][t]{\linewidth}{
+        {\let\newpage\relax\maketitle}
+    }
+    \parbox[t][0.40\paperheight][t]{\linewidth}{
+        #1
+    }
+}
