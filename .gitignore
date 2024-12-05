@@ -11,5 +11,7 @@
 
 __pycache__/
 .DS_Store
-*/data
+*/data/python_code_dataset.csv
+*/data/translation_checkpoint.json
 .streamlit/
+API.txt

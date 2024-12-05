@@ -1,0 +1,2621 @@
+English_code,Hindi_code
+"
+for i in range(10):  # First digit
+    for j in range(10):  # Second digit
+        for k in range(10):  # Third digit
+            # Checking for the conditions
+            if i != 5 and j != 5 and k != 5 and i != j and i != k and j != k:
+                print(i, j, k)
+","
+के_लिए ई में रेंज(10): #पहला_अंक
+    के_लिए जे में रेंज(10): #दूसरा_अंक
+        के_लिए के में रेंज(10): #तीसरा_अंक
+            #शर्तों_की_जाँच
+            यदि ई != 5 और जे != 5 और के != 5 और ई != जे और ई != के और जे != के:
+                छापिये_(ई, जे, के)
+"
+"
+def count_distinct_states(matrix):
+    count = 0
+    states = set()
+    for row in matrix:
+        for col in row:
+            state = ''.join(col)
+            if state not in states:
+                count += 1
+            states.add(state)
+    return count
+
+matrix = [['A', 'B', 'C'],
+          ['A', 'B', 'D'],
+          ['A', 'B', 'C']]
+print(count_distinct_states(matrix))
+# Output: 4
+","
+परिभाषा गिनें_विशिष्ट_राज्य_अमेरिका(मैट्रिक्स):
+    गिनें = 0
+    राज्य_अमेरिका = सेट()
+    के_लिए पंक्ति में मैट्रिक्स:
+        के_लिए कर्नल में पंक्ति:
+            राज्य = ''.जोड़(कर्नल)
+            यदि राज्य ना में राज्य_अमेरिका:
+                गिनें += 1
+            राज्य_अमेरिका.योग(राज्य)
+    वापस गिनें
+
+मैट्रिक्स = [['ए', 'बी', 'सी'],
+          ['ए', 'बी', 'डी'],
+          ['ए', 'बी', 'सी']]
+छापिये_(गिनें_विशिष्ट_राज्य_अमेरिका(मैट्रिक्स))
+#आउटपुट:_4
+"
+"
+def remove_spaces_and_punctuation(s):
+    result = """"
+    for char in s:
+        if char.isalnum():
+            result += char
+    return result
+","
+परिभाषा निकाल_खाली_स्थान_और_विराम_चिह्न(एस):
+    परिणाम = """"
+    के_लिए चार में एस:
+        यदि चार.अंकाक्षर_है():
+            परिणाम += चार
+    वापस परिणाम
+"
+"
+import math
+
+def is_prime(n):
+    # Check if the number is less than 2 or not an integer
+    if n < 2 or not isinstance(n, int):
+        return ""Not Prime""
+
+    # Check if the number is divisible by any integer from 2 to the square root of n
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
+            return ""Not Prime""
+
+    return ""Prime""
+","
+आयात गणित
+
+परिभाषा है_मुख्य(एन):
+    #जाँचें_कि_संख्या_2_से_कम_है_या_पूर्णांक_नहीं_है
+    यदि एन < 2 या ना उदाहरण_है(एन, अंक):
+        वापस ""नहीं मुख्य""
+
+    #जाँच_करें_कि_संख्या_2_से_n_के_वर्गमूल_तक_किसी_भी_पूर्णांक_से_विभाज्य_है_या_नहीं
+    के_लिए ई में रेंज(2, गणित.आईएसक्यूआरटी(एन) + 1):
+        यदि एन % ई == 0:
+            वापस ""नहीं मुख्य""
+
+    वापस ""मुख्य""
+"
+"
+class String:
+    def __init__(self, string):
+        self.string = string
+
+    def replace_odd_occurrences(self, substring, replace_with):
+        count = self.string.count(substring)
+        if count % 2 == 0 or count == 0:
+            return self.string
+
+        result = """"
+        stack = []
+
+        for i in range(len(self.string)):
+            if self.string[i:i+len(substring)] == substring:
+                if len(stack) > 0 and (stack[-1] == '(' or stack[-1] == '['):
+                    stack.append(substring)
+                    result += substring
+                elif len(stack) > 0 and (stack[-1] == ')' or stack[-1] == ']'):
+                    stack.pop()
+                    result += substring
+                else:
+                    stack.append(substring)
+                    result += replace_with
+            else:
+                result += self.string[i]
+
+            if len(stack) > 0 and stack[-1] == substring:
+                stack.pop()
+
+        return result
+","
+वर्ग डोरी:
+    परिभाषा इस_में(खुद, डोरी):
+        खुद.डोरी = डोरी
+
+    परिभाषा बदल_विषम_घटनाओं(खुद, सबस्ट्रिंग, बदल_साथ):
+        गिनें = खुद.डोरी.गिनें(सबस्ट्रिंग)
+        यदि गिनें % 2 == 0 या गिनें == 0:
+            वापस खुद.डोरी
+
+        परिणाम = """"
+        ढेर = []
+
+        के_लिए ई में रेंज(लंबाई(खुद.डोरी)):
+            यदि खुद.डोरी[ई:ई+लंबाई(सबस्ट्रिंग)] == सबस्ट्रिंग:
+                यदि लंबाई(ढेर) > 0 और (ढेर[-1] == '(' या ढेर[-1] == '['):
+                    ढेर.संलग्न(सबस्ट्रिंग)
+                    परिणाम += सबस्ट्रिंग
+                वरना_यदि लंबाई(ढेर) > 0 और (ढेर[-1] == ')' या ढेर[-1] == ']'):
+                    ढेर.पॉप()
+                    परिणाम += सबस्ट्रिंग
+                वरना:
+                    ढेर.संलग्न(सबस्ट्रिंग)
+                    परिणाम += बदल_साथ
+            वरना:
+                परिणाम += खुद.डोरी[ई]
+
+            यदि लंबाई(ढेर) > 0 और ढेर[-1] == सबस्ट्रिंग:
+                ढेर.पॉप()
+
+        वापस परिणाम
+"
+"
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def has_digit_7(num):
+    while num > 0:
+        if num % 10 == 7:
+            return True
+        num //= 10
+    return False
+
+def sum_of_primes():
+    sum_of_primes = 0
+    for num in range(1000000, 2000001):
+        if is_prime(num) and not has_digit_7(num):
+            sum_of_primes += num
+    return sum_of_primes
+
+result = sum_of_primes()
+print(""The sum of all prime numbers between 1 million and 2 million, excluding prime numbers that contain the digit 7, is:"", result)
+","
+परिभाषा है_मुख्य(संख्या):
+    यदि संख्या <= 1:
+        वापस असत्य
+    के_लिए ई में रेंज(2, अंक(संख्या**0.5) + 1):
+        यदि संख्या % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा है_अंक7(संख्या):
+    जबतक संख्या > 0:
+        यदि संख्या % 10 == 7:
+            वापस सत्य
+        संख्या //= 10
+    वापस असत्य
+
+परिभाषा योग_का_अभाज्य():
+    योग_का_अभाज्य = 0
+    के_लिए संख्या में रेंज(1000000, 2000001):
+        यदि है_मुख्य(संख्या) और ना है_अंक7(संख्या):
+            योग_का_अभाज्य += संख्या
+    वापस योग_का_अभाज्य
+
+परिणाम = योग_का_अभाज्य()
+छापिये_("" योग का सब मुख्य नंबर बीच_में 1 दस_लाख और 2 दस_लाख, के_सिवा मुख्य नंबर वह रोकना  अंक 7, है:"", परिणाम)
+"
+"
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def find_prime_sum_array(N, M, X):
+    prime_sum_array = []
+    current_number = M
+    sum_so_far = 0
+
+    while len(prime_sum_array) < N and current_number <= X:
+        if is_prime(sum_so_far + current_number):
+            prime_sum_array.append(current_number)
+            sum_so_far += current_number
+        current_number += M
+
+    if not is_prime(sum_so_far):
+        return []
+
+    return prime_sum_array
+
+# Example usage
+N = 5
+M = 3
+X = 20
+
+result = find_prime_sum_array(N, M, X)
+print(result)
+","
+परिभाषा है_मुख्य(संख्या):
+    यदि संख्या < 2:
+        वापस असत्य
+    के_लिए ई में रेंज(2, अंक(संख्या ** 0.5) + 1):
+        यदि संख्या % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा ढूँढो_मुख्य_योग_सरणी(एन, एम, एक्स):
+    मुख्य_योग_सरणी = []
+    मौजूदा_संख्या = एम
+    योग_इसलिए_दूर = 0
+
+    जबतक लंबाई(मुख्य_योग_सरणी) < एन और मौजूदा_संख्या <= एक्स:
+        यदि है_मुख्य(योग_इसलिए_दूर + मौजूदा_संख्या):
+            मुख्य_योग_सरणी.संलग्न(मौजूदा_संख्या)
+            योग_इसलिए_दूर += मौजूदा_संख्या
+        मौजूदा_संख्या += एम
+
+    यदि ना है_मुख्य(योग_इसलिए_दूर):
+        वापस []
+
+    वापस मुख्य_योग_सरणी
+
+#उपयोग_का_उदाहरण
+एन = 5
+एम = 3
+एक्स = 20
+
+परिणाम = ढूँढो_मुख्य_योग_सरणी(एन, एम, एक्स)
+छापिये_(परिणाम)
+"
+"
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def max_prime_difference(arr):
+    primes = []
+    for num in arr:
+        if is_prime(abs(num)):
+            primes.append(abs(num))
+    if len(primes) < 2:
+        return 0
+    max_diff = 0
+    for i in range(len(primes)-1):
+        diff = abs(primes[i] - primes[i+1])
+        if diff > max_diff:
+            max_diff = diff
+    return max_diff
+","
+परिभाषा है_मुख्य(एन):
+    यदि एन < 2:
+        वापस असत्य
+    के_लिए ई में रेंज(2, अंक(एन**0.5) + 1):
+        यदि एन % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा अधिकतम_मुख्य_अंतर(आगमन):
+    अभाज्य = []
+    के_लिए संख्या में आगमन:
+        यदि है_मुख्य(निरपेक्ष_मान(संख्या)):
+            अभाज्य.संलग्न(निरपेक्ष_मान(संख्या))
+    यदि लंबाई(अभाज्य) < 2:
+        वापस 0
+    अधिकतम_अंतर = 0
+    के_लिए ई में रेंज(लंबाई(अभाज्य)-1):
+        अंतर = निरपेक्ष_मान(अभाज्य[ई] - अभाज्य[ई+1])
+        यदि अंतर > अधिकतम_अंतर:
+            अधिकतम_अंतर = अंतर
+    वापस अधिकतम_अंतर
+"
+"
+import math
+
+def calculate_triangle_height(angle, side_lengths, opposite_side_length, side_ratio):
+    # Convert angle from degrees to radians
+    angle_rad = math.radians(angle)
+
+    # Calculate the height using the Law of Sines
+    height = opposite_side_length * math.sin(angle_rad) / side_ratio
+
+    # Calculate the length of the adjacent side using the Law of Cosines
+    adjacent_side_length = math.sqrt(side_lengths**2 + opposite_side_length**2 - 2 * side_lengths * opposite_side_length * math.cos(angle_rad))
+
+    # Calculate the hypotenuse of the triangle
+    hypotenuse = side_lengths / math.cos(angle_rad)
+
+    # Calculate the remaining side using Pythagorean theorem
+    remaining_side_length = math.sqrt(hypotenuse**2 - adjacent_side_length**2)
+
+    # Calculate the final height of the triangle
+    height += remaining_side_length
+
+    return height
+
+
+def simulate_triangle_motion(initial_velocity, angle, time_interval, air_resistance=True):
+    # Initialize variables
+    x = 0.0
+    y = 0.0
+    time = 0.0
+
+    # Convert angle from degrees to radians
+    angle_rad = math.radians(angle)
+
+    # Calculate initial velocities
+    vx = initial_velocity * math.cos(angle_rad)
+    vy = initial_velocity * math.sin(angle_rad)
+
+    # Simulate the motion until the y-coordinate becomes negative (reached the ground)
+    while y >= 0:
+        # Calculate the acceleration due to air resistance
+        if air_resistance:
+            air_resistance_acceleration = -0.5 * vy**2  # Simplified model for air resistance
+        else:
+            air_resistance_acceleration = 0.0  # No air resistance
+
+        # Calculate the new velocities using the kinematic equations
+        vx += air_resistance_acceleration * math.cos(angle_rad) * time_interval
+        vy += (-9.8 + air_resistance_acceleration * math.sin(angle_rad)) * time_interval
+
+        # Calculate the new position using the kinematic equations
+        x += vx * time_interval
+        y += vy * time_interval
+
+        # Increment the time
+        time += time_interval
+
+    return x, y, time
+
+
+# Example usage
+angle = 45  # Angle in degrees
+side_lengths = 5
+opposite_side_length = 3
+side_ratio = 2
+height = calculate_triangle_height(angle, side_lengths, opposite_side_length, side_ratio)
+print(f""The height of the triangle is: {height}"")
+
+initial_velocity = 10  # m/s
+time_interval = 0.01  # seconds
+x, y, total_time = simulate_triangle_motion(initial_velocity, angle, time_interval, air_resistance=True)
+print(f""The triangle reached the ground at coordinates (x={x:.2f}m, y={y:.2f}m) in {total_time:.2f}s."")
+","
+आयात गणित
+
+परिभाषा calculate_त्रिकोण_ऊंचाई(कोण, ओर_लंबाई, विलोम_ओर_लंबाई, ओर_अनुपात):
+    #कोण_को_डिग्री_से_रेडियन_में_बदलें
+    कोण_रेड = गणित.रेडियंस(कोण)
+
+    #साइन_के_नियम_का_उपयोग_करके_ऊंचाई_की_गणना_करें
+    ऊंचाई = विलोम_ओर_लंबाई * गणित.पाप(कोण_रेड) / ओर_अनुपात
+
+    #कोसाइन_के_नियम_का_उपयोग_करके_आसन्न_भुजा_की_लंबाई_की_गणना_करें
+    नज़दीक_ओर_लंबाई = गणित.एसक्यूआरटी(ओर_लंबाई**2 + विलोम_ओर_लंबाई**2 - 2 * ओर_लंबाई * विलोम_ओर_लंबाई * गणित.ओल(कोण_रेड))
+
+    #त्रिभुज_के_कर्ण_की_गणना_करें
+    कर्ण = ओर_लंबाई / गणित.ओल(कोण_रेड)
+
+    #पाइथागोरस_प्रमेय_का_उपयोग_करके_शेष_भुजा_की_गणना_करें
+    शेष_ओर_लंबाई = गणित.एसक्यूआरटी(कर्ण**2 - नज़दीक_ओर_लंबाई**2)
+
+    #त्रिभुज_की_अंतिम_ऊंचाई_की_गणना_करें
+    ऊंचाई += शेष_ओर_लंबाई
+
+    वापस ऊंचाई
+
+
+परिभाषा अनुकरण_त्रिकोण_गति(प्रारंभिक_वेग, कोण, समय_अंतराल, वायु_प्रतिरोध=सत्य):
+    #चर_आरंभ_करें
+    एक्स = 0.0
+    य = 0.0
+    समय = 0.0
+
+    #कोण_को_डिग्री_से_रेडियन_में_बदलें
+    कोण_रेड = गणित.रेडियंस(कोण)
+
+    #प्रारंभिक_वेग_की_गणना_करें
+    वीएक्स = प्रारंभिक_वेग * गणित.ओल(कोण_रेड)
+    वी = प्रारंभिक_वेग * गणित.पाप(कोण_रेड)
+
+    #गति_का_अनुकरण_तब_तक_करें_जब_तक_y-निर्देशांक_ऋणात्मक_न_हो_जाए_(जमीन_तक_पहुंच_जाए)
+    जबतक य >= 0:
+        #वायु_प्रतिरोध_के_कारण_त्वरण_की_गणना_करें
+        यदि वायु_प्रतिरोध:
+            वायु_प्रतिरोध_त्वरण = -0.5 * वी**2 #वायु_प्रतिरोध_के_लिए_सरलीकृत_मॉडल
+        वरना:
+            वायु_प्रतिरोध_त्वरण = 0.0 #कोई_वायु_प्रतिरोध_नहीं
+
+        #गतिज_समीकरणों_का_उपयोग_करके_नए_वेगों_की_गणना_करें
+        वीएक्स += वायु_प्रतिरोध_त्वरण * गणित.ओल(कोण_रेड) * समय_अंतराल
+        वी += (-9.8 + वायु_प्रतिरोध_त्वरण * गणित.पाप(कोण_रेड)) * समय_अंतराल
+
+        #गतिज_समीकरणों_का_उपयोग_करके_नई_स्थिति_की_गणना_करें
+        एक्स += वीएक्स * समय_अंतराल
+        य += वी * समय_अंतराल
+
+        #समय_बढ़ाएँ
+        समय += समय_अंतराल
+
+    वापस एक्स, य, समय
+
+
+#उपयोग_का_उदाहरण
+कोण = 45 #डिग्री_में_कोण
+ओर_लंबाई = 5
+विलोम_ओर_लंबाई = 3
+ओर_अनुपात = 2
+ऊंचाई = calculate_त्रिकोण_ऊंचाई(कोण, ओर_लंबाई, विलोम_ओर_लंबाई, ओर_अनुपात)
+छापिये_(एफ"" ऊंचाई का  त्रिकोण है: {ऊंचाई}"")
+
+प्रारंभिक_वेग = 10 #एमएस
+समय_अंतराल = 0.01 #सेकंड
+एक्स, य, कुल_समय = अनुकरण_त्रिकोण_गति(प्रारंभिक_वेग, कोण, समय_अंतराल, वायु_प्रतिरोध=सत्य)
+छापिये_(एफ"" त्रिकोण पहुँच_गया  मैदान पर COORDINATES (एक्स={एक्स:.2एफ}एम, य={य:.2एफ}एम) में {कुल_समय:.2एफ}एस."")
+"
+"
+import math
+
+def calculate_circle_area(radius):
+    try:
+        radius = float(radius)
+        if radius <= 0:
+            return ""Error: Radius must be a positive number""
+        area = math.pi * radius**2
+        return ""{:.2f}"".format(area)
+    except ValueError:
+        return ""Error: Invalid input. Radius must be a number""
+","
+आयात गणित
+
+परिभाषा calculate_घेरा_क्षेत्र(RADIUS):
+    प्रयत्न:
+        RADIUS = दश(RADIUS)
+        यदि RADIUS <= 0:
+            वापस ""गलती: RADIUS अवश्य होना ए सकारात्मक संख्या""
+        क्षेत्र = गणित.अनुकरणीय * RADIUS**2
+        वापस ""{:.2एफ}"".प्रारूप(क्षेत्र)
+    सिवाय मान_त्रुटि:
+        वापस ""गलती: अमान्य इनपुट. RADIUS अवश्य होना ए संख्या""
+"
+"
+def multiply_matrices(A, B):
+    a, b, c = A[0][0], A[0][1], A[1][0]
+    d, e, f = B[0][0], B[0][1], B[1][0]
+    
+    return [
+        [a*d + b*e, a*e + b*f],
+        [c*d + e*d, c*e + e*f]
+    ]
+
+
+def power_matrix(A, n):
+    if n == 0:
+        return [[1, 0], [0, 1]]  # Identity matrix
+    
+    result = power_matrix(A, n // 2)
+    result = multiply_matrices(result, result)
+    
+    if n % 2 == 1:
+        result = multiply_matrices(result, A)
+    
+    return result
+
+
+def fibonacci(n):
+    if n == 0:
+        return 0
+    
+    matrix = [[1, 1], [1, 0]]
+    result = power_matrix(matrix, n - 1)
+    
+    return result[0][0]
+","
+परिभाषा गुणा_मैट्रिक्स(ए, बी):
+    ए, बी, सी = ए[0][0], ए[0][1], ए[1][0]
+    डी, ई, एफ = बी[0][0], बी[0][1], बी[1][0]
+
+    वापस [
+        [ए*डी + बी*ई, ए*ई + बी*एफ],
+        [सी*डी + ई*डी, सी*ई + ई*एफ]
+    ]
+
+
+परिभाषा शक्ति_मैट्रिक्स(ए, एन):
+    यदि एन == 0:
+        वापस [[1, 0], [0, 1]] #शिनाख्त_सांचा
+
+    परिणाम = शक्ति_मैट्रिक्स(ए, एन // 2)
+    परिणाम = गुणा_मैट्रिक्स(परिणाम, परिणाम)
+
+    यदि एन % 2 == 1:
+        परिणाम = गुणा_मैट्रिक्स(परिणाम, ए)
+
+    वापस परिणाम
+
+
+परिभाषा फाइबोनैचि(एन):
+    यदि एन == 0:
+        वापस 0
+
+    मैट्रिक्स = [[1, 1], [1, 0]]
+    परिणाम = शक्ति_मैट्रिक्स(मैट्रिक्स, एन - 1)
+
+    वापस परिणाम[0][0]
+"
+"
+def debug_program(arr):
+    n = len(arr)
+    return binary_search(arr, 0, n - 1)
+
+def binary_search(arr, start, end):
+    if start > end:
+        return -1
+    
+    mid = (start + end) // 2
+    
+    if arr[mid] == mid:
+        return mid
+    
+    left_result = binary_search(arr, start, min(mid - 1, arr[mid]))
+    right_result = binary_search(arr, max(mid + 1, arr[mid]), end)
+    
+    return max(left_result, right_result)
+","
+परिभाषा डिबग_कार्यक्रम(आगमन):
+    एन = लंबाई(आगमन)
+    वापस द्विआधारी_खोज(आगमन, 0, एन - 1)
+
+परिभाषा द्विआधारी_खोज(आगमन, शुरू, अंत):
+    यदि शुरू > अंत:
+        वापस -1
+
+    मध्य = (शुरू + अंत) // 2
+
+    यदि आगमन[मध्य] == मध्य:
+        वापस मध्य
+
+    बाएं_परिणाम = द्विआधारी_खोज(आगमन, शुरू, न्यूनतम(मध्य - 1, आगमन[मध्य]))
+    सही_परिणाम = द्विआधारी_खोज(आगमन, अधिकतम(मध्य + 1, आगमन[मध्य]), अंत)
+
+    वापस अधिकतम(बाएं_परिणाम, सही_परिणाम)
+"
+"
+import math
+
+def power(x, y):
+    # Check for invalid inputs
+    if not isinstance(x, (int, float)) or not isinstance(y, int):
+        return ""Error: Invalid input. Please enter numeric values for x and y.""
+
+    # Check if x is between 1 and 10
+    if not 1 <= x <= 10:
+        return ""Error: x should be between 1 and 10.""
+
+    # Check if y is between 0 and 5
+    if not 0 <= y <= 5:
+        return ""Error: y should be between 0 and 5.""
+
+    # Custom algorithm for calculating power
+    result = x ** y
+
+    # Check if result exceeds threshold for scientific notation
+    if result > 1e6:
+        return ""{:.2e}"".format(result)
+    else:
+        return result
+
+# Example usage
+x = 2.5
+y = 3
+result = power(x, y)
+print(result)
+","
+आयात गणित
+
+परिभाषा शक्ति(एक्स, य):
+    #अमान्य_इनपुट_की_जाँच_करें
+    यदि ना उदाहरण_है(एक्स, (अंक, दश)) या ना उदाहरण_है(य, अंक):
+        वापस ""गलती: अमान्य इनपुट. कृपया प्रवेश_करना संख्यात्मक मान के_लिए एक्स और य.""
+
+    #जाँचें_कि_क्या_x_1_और_10_के_बीच_है
+    यदि ना 1 <= एक्स <= 10:
+        वापस ""गलती: एक्स चाहिए होना बीच_में 1 और 10.""
+
+    #जाँचें_कि_y_0_और_5_के_बीच_है_या_नहीं
+    यदि ना 0 <= य <= 5:
+        वापस ""गलती: य चाहिए होना बीच_में 0 और 5.""
+
+    #शक्ति_की_गणना_के_लिए_कस्टम_एल्गोरिदम
+    परिणाम = एक्स ** य
+
+    #जाँच_करें_कि_क्या_परिणाम_वैज्ञानिक_संकेतन_की_सीमा_से_अधिक_है
+    यदि परिणाम > 1ई6:
+        वापस ""{:.2ई}"".प्रारूप(परिणाम)
+    वरना:
+        वापस परिणाम
+
+#उपयोग_का_उदाहरण
+एक्स = 2.5
+य = 3
+परिणाम = शक्ति(एक्स, य)
+छापिये_(परिणाम)
+"
+"
+def bubble_sort_descending(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if arr[j] < arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+arr = [3, 2, 1, 5, 4]
+sorted_arr = bubble_sort_descending(arr)
+print(sorted_arr)
+","
+परिभाषा बुलबुला_क्रमित_अवरोही(आगमन):
+    एन = लंबाई(आगमन)
+    के_लिए ई में रेंज(एन - 1):
+        के_लिए जे में रेंज(एन - ई - 1):
+            यदि आगमन[जे] < आगमन[जे + 1]:
+                आगमन[जे], आगमन[जे + 1] = आगमन[जे + 1], आगमन[जे]
+    वापस आगमन
+
+आगमन = [3, 2, 1, 5, 4]
+क्रमबद्ध_आगमन = बुलबुला_क्रमित_अवरोही(आगमन)
+छापिये_(क्रमबद्ध_आगमन)
+"
+"
+def sum_prime_numbers(arr):
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    prime_sum = 0
+    for num in arr:
+        if is_prime(num):
+            prime_sum += num
+    return prime_sum
+","
+परिभाषा योग_मुख्य_नंबर(आगमन):
+    परिभाषा है_मुख्य(एन):
+        यदि एन <= 1:
+            वापस असत्य
+        के_लिए ई में रेंज(2, अंक(एन**0.5) + 1):
+            यदि एन % ई == 0:
+                वापस असत्य
+        वापस सत्य
+
+    मुख्य_योग = 0
+    के_लिए संख्या में आगमन:
+        यदि है_मुख्य(संख्या):
+            मुख्य_योग += संख्या
+    वापस मुख्य_योग
+"
+"
+def calculate_factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * calculate_factorial(n - 1)
+
+def calculate_factorials(arr):
+    result = []
+    for num in arr:
+        result.append(calculate_factorial(num))
+    return result
+
+arr = [1, 2, 3, 4, 5]
+factorials = calculate_factorials(arr)
+print(factorials)
+","
+परिभाषा calculate_कारख़ाने_का(एन):
+    यदि एन == 0:
+        वापस 1
+    वरना:
+        वापस एन * calculate_कारख़ाने_का(एन - 1)
+
+परिभाषा calculate_फैक्टोरियल(आगमन):
+    परिणाम = []
+    के_लिए संख्या में आगमन:
+        परिणाम.संलग्न(calculate_कारख़ाने_का(संख्या))
+    वापस परिणाम
+
+आगमन = [1, 2, 3, 4, 5]
+फैक्टोरियल = calculate_फैक्टोरियल(आगमन)
+छापिये_(फैक्टोरियल)
+"
+"
+def count_vowels(text):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    vowel_counts = {vowel: 0 for vowel in vowels}
+    
+    for char in text:
+        if char.lower() in vowels:
+            vowel_counts[char.lower()] += 1
+    
+    return vowel_counts
+
+text = ""Hello World!""
+result = count_vowels(text)
+print(result)
+","
+परिभाषा गिनें_स्वर(मूलपाठ):
+    स्वर = ['ए', 'ई', 'ई', 'हे', 'यू']
+    स्वर_गिनता = {स्वर: 0 के_लिए स्वर में स्वर}
+
+    के_लिए चार में मूलपाठ:
+        यदि चार.छोटा() में स्वर:
+            स्वर_गिनता[चार.छोटा()] += 1
+
+    वापस स्वर_गिनता
+
+मूलपाठ = ""नमस्ते दुनिया!""
+परिणाम = गिनें_स्वर(मूलपाठ)
+छापिये_(परिणाम)
+"
+"
+import random
+
+def generate_random_number():
+    num = 0
+    while bin(num).count('1') != 4:
+        num = random.randint(0, 15)
+    return num
+
+random_number = generate_random_number()
+print(random_number)
+","
+आयात यादृच्छिक
+
+परिभाषा उत्पन्न_यादृच्छिक_संख्या():
+    संख्या = 0
+    जबतक द्वि(संख्या).गिनें('1') != 4:
+        संख्या = यादृच्छिक.रैंडिंट(0, 15)
+    वापस संख्या
+
+यादृच्छिक_संख्या = उत्पन्न_यादृच्छिक_संख्या()
+छापिये_(यादृच्छिक_संख्या)
+"
+"
+def multiply(a, b):
+    # Calculate the sign of the result
+    sign = -1 if (a < 0) ^ (b < 0) else 1
+
+    # Convert both numbers to positive
+    a = abs(a)
+    b = abs(b)
+
+    # Initialize the result
+    result = 0
+
+    # Multiply the numbers using bitwise operations
+    while b:
+        # If b is odd, add a to the result
+        if b & 1:
+            result += a
+
+        # Shift a to the left by 1 bit
+        a <<= 1
+
+        # Shift b to the right by 1 bit
+        b >>= 1
+
+    return sign * result
+","
+परिभाषा गुणा(ए, बी):
+    #परिणाम_के_चिह्न_की_गणना_करें
+    संकेत = -1 यदि (ए < 0) ^ (बी < 0) वरना 1
+
+    #दोनों_संख्याओं_को_धनात्मक_में_बदलें
+    ए = निरपेक्ष_मान(ए)
+    बी = निरपेक्ष_मान(बी)
+
+    #परिणाम_आरंभ_करें
+    परिणाम = 0
+
+    #बिटवाइज़_ऑपरेशन_का_उपयोग_करके_संख्याओं_को_गुणा_करें
+    जबतक बी:
+        #यदि_b_विषम_है,_तो_परिणाम_में_a_जोड़ें
+        यदि बी & 1:
+            परिणाम += ए
+
+        #a_को_1_बिट_बायीं_ओर_खिसकाएँ
+        ए <<= 1
+
+        #b_को_1_बिट_दाईं_ओर_खिसकाएँ
+        बी >>= 1
+
+    वापस संकेत * परिणाम
+"
+"
+def find_longest_element(lst):
+    longest_element = ''
+    longest_index = -1
+    longest_count = 0
+    
+    for i, element in enumerate(lst):
+        if len(str(element)) > len(longest_element):
+            longest_element = str(element)
+            longest_index = i
+            longest_count = 1
+        elif len(str(element)) == len(longest_element):
+            longest_count += 1
+    
+    return longest_element, longest_index, longest_count
+
+# Example usage:
+lst = [1, 2.5, 'abc', 'defg', 10.25, -5, 'abcdefg']
+longest_element, longest_index, longest_count = find_longest_element(lst)
+
+print(""Longest Element:"", longest_element)
+print(""Index of Longest Element:"", longest_index)
+print(""Total Occurrences of Longest Element:"", longest_count)
+","
+परिभाषा ढूँढो_सबसे_लंबे_समय_तक_तत्व(प्रथम):
+    सबसे_लंबे_समय_तक_तत्व = ''
+    सबसे_लंबे_समय_तक_सूचक = -1
+    सबसे_लंबे_समय_तक_गिनें = 0
+
+    के_लिए ई, तत्व में गणना(प्रथम):
+        यदि लंबाई(स्ट्रिंग(तत्व)) > लंबाई(सबसे_लंबे_समय_तक_तत्व):
+            सबसे_लंबे_समय_तक_तत्व = स्ट्रिंग(तत्व)
+            सबसे_लंबे_समय_तक_सूचक = ई
+            सबसे_लंबे_समय_तक_गिनें = 1
+        वरना_यदि लंबाई(स्ट्रिंग(तत्व)) == लंबाई(सबसे_लंबे_समय_तक_तत्व):
+            सबसे_लंबे_समय_तक_गिनें += 1
+
+    वापस सबसे_लंबे_समय_तक_तत्व, सबसे_लंबे_समय_तक_सूचक, सबसे_लंबे_समय_तक_गिनें
+
+#उदाहरण_उपयोग:
+प्रथम = [1, 2.5, 'एबीसी', 'डीईएफ़जी', 10.25, -5, 'एबीसीडीईएफजी']
+सबसे_लंबे_समय_तक_तत्व, सबसे_लंबे_समय_तक_सूचक, सबसे_लंबे_समय_तक_गिनें = ढूँढो_सबसे_लंबे_समय_तक_तत्व(प्रथम)
+
+छापिये_(""सबसे_लंबे_समय_तक तत्व:"", सबसे_लंबे_समय_तक_तत्व)
+छापिये_(""अनुक्रमणिका का सबसे_लंबे_समय_तक तत्व:"", सबसे_लंबे_समय_तक_सूचक)
+छापिये_(""कुल पुनरावृत्तियां का सबसे_लंबे_समय_तक तत्व:"", सबसे_लंबे_समय_तक_गिनें)
+"
+"
+import math
+
+def is_prime(num):
+    if num <= 1:
+        return ""Composite""
+
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return ""Composite""
+
+    return ""Prime""
+","
+आयात गणित
+
+परिभाषा है_मुख्य(संख्या):
+    यदि संख्या <= 1:
+        वापस ""कम्पोजिट""
+
+    के_लिए ई में रेंज(2, अंक(गणित.एसक्यूआरटी(संख्या)) + 1):
+        यदि संख्या % ई == 0:
+            वापस ""कम्पोजिट""
+
+    वापस ""मुख्य""
+"
+"
+def print_primes_without_five(lower, upper):
+    # Step 1: Create a boolean array ""is_prime[0..upper]"" and initialize
+    # all entries it as true.
+    is_prime = [True] * (upper + 1)
+    is_prime[0] = is_prime[1] = False
+
+    # Step 2: Mark all the multiples of prime numbers starting from 2
+    # as false.
+    p = 2
+    while p * p <= upper:
+        if is_prime[p]:
+            for i in range(p * p, upper + 1, p):
+                is_prime[i] = False
+        p += 1
+
+    # Step 3: Print all prime numbers in the given range excluding
+    # numbers containing the digit 5.
+    for num in range(lower, upper + 1):
+        if is_prime[num] and '5' not in str(num):
+            print(num)
+","
+परिभाषा छापिये _अभाज्य_बिना_पाँच(छोटा, बड़ा):
+    #चरण_1:_एक_बूलियन_सरणी_""is_prime[0..upper]""_बनाएं_और_आरंभ_करें
+    #सभी_प्रविष्टियों_को_सत्य_मानें।
+    है_मुख्य = [सत्य] * (बड़ा + 1)
+    है_मुख्य[0] = है_मुख्य[1] = असत्य
+
+    #चरण_2:_2_से_शुरू_करके_सभी_अभाज्य_संख्याओं_के_गुणजों_को_चिह्नित_करें
+    #झूठा_है।
+    पी = 2
+    जबतक पी * पी <= बड़ा:
+        यदि है_मुख्य[पी]:
+            के_लिए ई में रेंज(पी * पी, बड़ा + 1, पी):
+                है_मुख्य[ई] = असत्य
+        पी += 1
+
+    #चरण_3:_दी_गई_श्रेणी_में_सभी_अभाज्य_संख्याओं_को_प्रिंट_करें
+    #अंक_5_वाली_संख्याएँ.
+    के_लिए संख्या में रेंज(छोटा, बड़ा + 1):
+        यदि है_मुख्य[संख्या] और '5' ना में स्ट्रिंग(संख्या):
+            छापिये_(संख्या)
+"
+"
+import time
+
+# Function to check if a number is prime
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Caching mechanism for prime numbers
+prime_cache = {}
+
+# Modified function to check if a number is prime using caching
+def is_prime_cached(n):
+    if n in prime_cache:
+        return prime_cache[n]
+    prime = is_prime(n)
+    prime_cache[n] = prime
+    return prime
+
+# Timer function
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f""Execution time: {end - start} seconds"")
+        return result
+    return wrapper
+
+# List comprehension to generate the list of prime numbers
+@timer
+def generate_prime_palindromic_fibonacci():
+    return [num for num in range(10000, 20001) if is_prime_cached(num) and str(num) == str(num)[::-1] and is_fibonacci(num)]
+
+# Function to check if a number is a Fibonacci number
+def is_fibonacci(n):
+    a, b = 0, 1
+    while b < n:
+        a, b = b, a + b
+    return b == n
+
+# Test the function
+primes = generate_prime_palindromic_fibonacci()
+print(primes)
+","
+आयात समय
+
+#यह_जाँचने_के_लिए_फ़ंक्शन_कि_कोई_संख्या_अभाज्य_है_या_नहीं
+परिभाषा है_मुख्य(एन):
+    यदि एन < 2:
+        वापस असत्य
+    के_लिए ई में रेंज(2, अंक(एन**0.5) + 1):
+        यदि एन % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+#अभाज्य_संख्याओं_के_लिए_कैशिंग_तंत्र
+मुख्य_कैश = {}
+
+#कैशिंग_का_उपयोग_करके_यह_जांचने_के_लिए_संशोधित_फ़ंक्शन_कि_कोई_संख्या_अभाज्य_है_या_नहीं
+परिभाषा है_मुख्य_कैश_की_गई(एन):
+    यदि एन में मुख्य_कैश:
+        वापस मुख्य_कैश[एन]
+    मुख्य = है_मुख्य(एन)
+    मुख्य_कैश[एन] = मुख्य
+    वापस मुख्य
+
+#टाइमर_फ़ंक्शन
+परिभाषा घड़ी(समारोह):
+    परिभाषा आवरण(*आर्ग, **क्वार्ग्स):
+        शुरू = समय.समय()
+        परिणाम = समारोह(*आर्ग, **क्वार्ग्स)
+        अंत = समय.समय()
+        छापिये_(एफ""कार्यान्वयन समय: {अंत - शुरू} सेकंड"")
+        वापस परिणाम
+    वापस आवरण
+
+#अभाज्य_संख्याओं_की_सूची_बनाने_के_लिए_सूची_समझ
+@घड़ी
+परिभाषा उत्पन्न_मुख्य_मुरजबंध_संबंधी_फाइबोनैचि():
+    वापस [संख्या के_लिए संख्या में रेंज(10000, 20001) यदि है_मुख्य_कैश_की_गई(संख्या) और स्ट्रिंग(संख्या) == स्ट्रिंग(संख्या)[::-1] और है_फाइबोनैचि(संख्या)]
+
+#यह_जाँचने_के_लिए_फ़ंक्शन_कि_कोई_संख्या_फिबोनाची_संख्या_है_या_नहीं
+परिभाषा है_फाइबोनैचि(एन):
+    ए, बी = 0, 1
+    जबतक बी < एन:
+        ए, बी = बी, ए + बी
+    वापस बी == एन
+
+#फ़ंक्शन_का_परीक्षण_करें
+अभाज्य = उत्पन्न_मुख्य_मुरजबंध_संबंधी_फाइबोनैचि()
+छापिये_(अभाज्य)
+"
+"
+import math
+
+def average_list(lst):
+    if not lst:
+        return None
+    
+    if len(lst) == 1:
+        return lst[0]
+    
+    total = 0
+    count = 0
+    
+    for num in lst:
+        if not isinstance(num, (int, float)):
+            raise ValueError(""List contains non-numeric elements"")
+        
+        if isinstance(num, complex):
+            raise ValueError(""List contains complex numbers"")
+        
+        if math.isnan(num):
+            raise ValueError(""List contains NaN values"")
+        
+        if math.isinf(num):
+            raise ValueError(""List contains infinity or negative infinity values"")
+        
+        if abs(num) > 1e308:
+            raise ValueError(""List contains numbers that are too large"")
+        
+        total += num
+        count += 1
+    
+    return total / count
+","
+आयात गणित
+
+परिभाषा औसत_सूची(प्रथम):
+    यदि ना प्रथम:
+        वापस कोई_नहीं
+
+    यदि लंबाई(प्रथम) == 1:
+        वापस प्रथम[0]
+
+    कुल = 0
+    गिनें = 0
+
+    के_लिए संख्या में प्रथम:
+        यदि ना उदाहरण_है(संख्या, (अंक, दश)):
+            उठाओ मान_त्रुटि(""सूची रोकना गैर-संख्यात्मक तत्वों"")
+
+        यदि उदाहरण_है(संख्या, समिश्र):
+            उठाओ मान_त्रुटि(""सूची रोकना समिश्र नंबर"")
+
+        यदि गणित.इस्नान(संख्या):
+            उठाओ मान_त्रुटि(""सूची रोकना नेन मान"")
+
+        यदि गणित.आइसिन्फ़(संख्या):
+            उठाओ मान_त्रुटि(""सूची रोकना अनंत या नकारात्मक अनंत मान"")
+
+        यदि निरपेक्ष_मान(संख्या) > 1ई308:
+            उठाओ मान_त्रुटि(""सूची रोकना नंबर वह हैं बहुत बड़ा"")
+
+        कुल += संख्या
+        गिनें += 1
+
+    वापस कुल / गिनें
+"
+"
+import sqlite3
+
+def delete_row(connection):
+    try:
+        # Start a transaction
+        connection.execute(""BEGIN TRANSACTION"")
+
+        # Execute the complex query
+        cursor = connection.execute(""SELECT ..."")
+
+        # Fetch the row to be deleted
+        row = cursor.fetchone()
+
+        if row:
+            # Delete the row using its primary key
+            connection.execute(""DELETE FROM table_name WHERE id=?"", (row['id'],))
+
+        # Commit the transaction
+        connection.execute(""COMMIT"")
+
+        # Close the cursor
+        cursor.close()
+
+    except sqlite3.Error as error:
+        # Rollback the transaction in case of any exception
+        connection.execute(""ROLLBACK"")
+
+        # Display the error message
+        print(f""Error: {error}"")
+
+    finally:
+        # Close the database connection
+        connection.close()
+
+# Create a connection to the SQLite database
+connection = sqlite3.connect(""database.db"")
+
+# Call the function to delete the row
+delete_row(connection)
+","
+आयात SQLite3
+
+परिभाषा मिटाना_पंक्ति(कनेक्शन):
+    प्रयत्न:
+        #लेन-देन_शुरू_करें
+        कनेक्शन.निष्पादित_करना(""शुरू लेन-देन"")
+
+        #जटिल_क्वेरी_निष्पादित_करें
+        कर्सर = कनेक्शन.निष्पादित_करना(""चुनना ..."")
+
+        #हटाई_जाने_वाली_पंक्ति_प्राप्त_करें
+        पंक्ति = कर्सर.फ़ेचऑन()
+
+        यदि पंक्ति:
+            #प्राथमिक_कुंजी_का_उपयोग_करके_पंक्ति_को_हटाएं
+            कनेक्शन.निष्पादित_करना(""मिटाना से मेज़_नाम कहाँ पहचान=?"", (पंक्ति['पहचान'],))
+
+        #लेन-देन_को_प्रतिबद्ध_करें
+        कनेक्शन.निष्पादित_करना(""प्रतिबद्ध"")
+
+        #कर्सर_बंद_करें
+        कर्सर.बंद()
+
+    सिवाय SQLite3.गलती की_तरह गलती:
+        #किसी_भी_अपवाद_की_स्थिति_में_लेनदेन_को_वापस_ले_लें
+        कनेक्शन.निष्पादित_करना(""रोलबैक"")
+
+        #त्रुटि_संदेश_प्रदर्शित_करें
+        छापिये_(एफ""गलती: {गलती}"")
+
+    अंत_में:
+        #डेटाबेस_कनेक्शन_बंद_करें
+        कनेक्शन.बंद()
+
+#sqlite_डेटाबेस_से_कनेक्शन_बनाएं
+कनेक्शन = SQLite3.जोड़ना(""डेटाबेस.डाटाबेस"")
+
+#पंक्ति_को_हटाने_के_लिए_फ़ंक्शन_को_कॉल_करें
+मिटाना_पंक्ति(कनेक्शन)
+"
+"
+import re
+
+def extract_emails(string):
+    # Use regular expression pattern to find all email addresses in the string
+    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'
+    matches = re.findall(pattern, string)
+    
+    # Remove any duplicate email addresses
+    unique_emails = list(set(matches))
+    
+    return unique_emails
+","
+आयात दोबारा
+
+परिभाषा निकालना_ईमेल(डोरी):
+    #स्ट्रिंग_में_सभी_ईमेल_पते_खोजने_के_लिए_नियमित_अभिव्यक्ति_पैटर्न_का_उपयोग_करें
+    नमूना = आर'\बी[ए-ज़ा-जेड0-9.%+-]+@[ए-ज़ा-जेड0-9.-]+\.[ए-ज़ा-जेड]{2,}\बी'
+    माचिस = दोबारा.सभी_खोजें(नमूना, डोरी)
+
+    #किसी_भी_डुप्लिकेट_ईमेल_पते_को_हटाएँ
+    अद्वितीय_ईमेल = सूची(सेट(माचिस))
+
+    वापस अद्वितीय_ईमेल
+"
+"
+def clean_and_sort(lst):
+   result = []
+   for element in lst:
+      if type(element) == int:
+         result.append(element + 5)
+   # implement your own sorting algorithm here
+   n = len(result)
+   for i in range(n):
+      for j in range(0, n-i-1):
+         if result[j] < result[j+1]:
+            result[j], result[j+1] = result[j+1], result[j]
+   return result
+
+print(clean_and_sort([1, 2, ""hello""]))
+","
+परिभाषा साफ_और_क्रमित(प्रथम):
+   परिणाम = []
+   के_लिए तत्व में प्रथम:
+      यदि प्रकार(तत्व) == अंक:
+         परिणाम.संलग्न(तत्व + 5)
+   #अपना_स्वयं_का_सॉर्टिंग_एल्गोरिदम_यहां_लागू_करें
+   एन = लंबाई(परिणाम)
+   के_लिए ई में रेंज(एन):
+      के_लिए जे में रेंज(0, एन-ई-1):
+         यदि परिणाम[जे] < परिणाम[जे+1]:
+            परिणाम[जे], परिणाम[जे+1] = परिणाम[जे+1], परिणाम[जे]
+   वापस परिणाम
+
+छापिये_(साफ_और_क्रमित([1, 2, ""नमस्ते""]))
+"
+"
+def is_valid_palindrome(s):
+    # Convert the string to lowercase
+    s = s.lower()
+    
+    # Initialize the two pointers
+    left = 0
+    right = len(s) - 1
+    
+    while left < right:
+        # Check if the left character is not alphabetic
+        if not s[left].isalpha():
+            left += 1
+            continue
+        
+        # Check if the right character is not alphabetic
+        if not s[right].isalpha():
+            right -= 1
+            continue
+        
+        # Check if the characters at the two positions are equal
+        if s[left] != s[right]:
+            return False
+        
+        # Move the pointers towards the middle
+        left += 1
+        right -= 1
+    
+    return True
+","
+परिभाषा है_वैध_विलोमपद(एस):
+    #स्ट्रिंग_को_लोअरकेस_में_बदलें
+    एस = एस.छोटा()
+
+    #दो_पॉइंटर्स_को_आरंभ_करें
+    बाएं = 0
+    सही = लंबाई(एस) - 1
+
+    जबतक बाएं < सही:
+        #जाँचें_कि_क्या_बायाँ_अक्षर_वर्णमाला_में_नहीं_है
+        यदि ना एस[बाएं].अक्षर_है():
+            बाएं += 1
+            जारी
+
+        #जाँचें_कि_क्या_सही_अक्षर_वर्णमाला_में_नहीं_है
+        यदि ना एस[सही].अक्षर_है():
+            सही -= 1
+            जारी
+
+        #जाँच_करें_कि_क्या_दोनों_स्थानों_पर_अक्षर_समान_हैं
+        यदि एस[बाएं] != एस[सही]:
+            वापस असत्य
+
+        #पॉइंटर्स_को_मध्य_की_ओर_ले_जाएं
+        बाएं += 1
+        सही -= 1
+
+    वापस सत्य
+"
+"
+def is_palindrome(num):
+    # Convert the number to string
+    num_str = str(num)
+    
+    # Check if the number is positive
+    if num <= 0:
+        return False
+    
+    # Check if the number has at least 5 digits
+    if len(num_str) < 5:
+        return False
+    
+    # Check if the number consists of unique digits
+    if len(set(num_str)) != len(num_str):
+        return False
+    
+    # Check if the number is divisible by 7
+    if num % 7 != 0:
+        return False
+    
+    # Check if the number is a palindrome
+    if num_str == num_str[::-1]:
+        return True
+    
+    # Check for palindromic substrings within the number
+    for i in range(len(num_str)):
+        for j in range(i+2, len(num_str)+1):
+            sub_num = num_str[i:j]
+            if sub_num == sub_num[::-1]:
+                return True
+    
+    return False
+
+# Testing the script
+# Decimal number
+num_decimal = 12321
+print(f""Is {num_decimal} a palindrome? {is_palindrome(num_decimal)}"")
+
+# Hexadecimal number
+num_hexadecimal = 0x12321
+print(f""Is {num_hexadecimal} a palindrome? {is_palindrome(num_hexadecimal)}"")
+
+# Other test cases
+print(f""Is 12345 a palindrome? {is_palindrome(12345)}"")
+print(f""Is 1234567 a palindrome? {is_palindrome(1234567)}"")
+print(f""Is 12321 a palindrome? {is_palindrome(12321)}"")
+","
+परिभाषा है_विलोमपद(संख्या):
+    #संख्या_को_स्ट्रिंग_में_बदलें
+    संख्या_स्ट्रिंग = स्ट्रिंग(संख्या)
+
+    #जाँचें_कि_संख्या_सकारात्मक_है_या_नहीं
+    यदि संख्या <= 0:
+        वापस असत्य
+
+    #जाँचें_कि_संख्या_में_कम_से_कम_5_अंक_हैं_या_नहीं
+    यदि लंबाई(संख्या_स्ट्रिंग) < 5:
+        वापस असत्य
+
+    #जाँच_करें_कि_संख्या_में_अद्वितीय_अंक_हैं_या_नहीं
+    यदि लंबाई(सेट(संख्या_स्ट्रिंग)) != लंबाई(संख्या_स्ट्रिंग):
+        वापस असत्य
+
+    #जाँचें_कि_संख्या_7_से_विभाज्य_है_या_नहीं
+    यदि संख्या % 7 != 0:
+        वापस असत्य
+
+    #जाँच_करें_कि_क्या_संख्या_पैलिंड्रोम_है
+    यदि संख्या_स्ट्रिंग == संख्या_स्ट्रिंग[::-1]:
+        वापस सत्य
+
+    #संख्या_के_भीतर_पैलिंड्रोमिक_सबस्ट्रिंग_की_जाँच_करें
+    के_लिए ई में रेंज(लंबाई(संख्या_स्ट्रिंग)):
+        के_लिए जे में रेंज(ई+2, लंबाई(संख्या_स्ट्रिंग)+1):
+            उप_संख्या = संख्या_स्ट्रिंग[ई:जे]
+            यदि उप_संख्या == उप_संख्या[::-1]:
+                वापस सत्य
+
+    वापस असत्य
+
+#स्क्रिप्ट_का_परीक्षण
+#दशमलव_संख्या
+संख्या_दशमलव = 12321
+छापिये_(एफ""है {संख्या_दशमलव} ए विलोमपद? {है_विलोमपद(संख्या_दशमलव)}"")
+
+#हेक्साडेसिमल_संख्या
+संख्या_हेक्साडेसिमल = 0एक्स12321
+छापिये_(एफ""है {संख्या_हेक्साडेसिमल} ए विलोमपद? {है_विलोमपद(संख्या_हेक्साडेसिमल)}"")
+
+#अन्य_परीक्षण_मामले
+छापिये_(एफ""है 12345 ए विलोमपद? {है_विलोमपद(12345)}"")
+छापिये_(एफ""है 1234567 ए विलोमपद? {है_विलोमपद(1234567)}"")
+छापिये_(एफ""है 12321 ए विलोमपद? {है_विलोमपद(12321)}"")
+"
+"
+import re
+
+def remove_vowels(string):
+    return re.sub(r'[aeiouAEIOU]', '', string)
+
+def sort_characters(string):
+    frequency = {}
+    for char in string:
+        frequency[char] = frequency.get(char, 0) + 1
+    sorted_chars = sorted(frequency.keys(), key=lambda x: (-frequency[x], x))
+    return sorted_chars
+
+def remove_vowels_and_sort(string):
+    string_without_vowels = remove_vowels(string)
+    sorted_string = sort_characters(string_without_vowels)
+    return ''.join(sorted_string)
+","
+आयात दोबारा
+
+परिभाषा निकाल_स्वर(डोरी):
+    वापस दोबारा.उप(आर'[ऐइउउएइउ]', '', डोरी)
+
+परिभाषा क्रमित_वर्ण(डोरी):
+    आवृत्ति = {}
+    के_लिए चार में डोरी:
+        आवृत्ति[चार] = आवृत्ति.पाना(चार, 0) + 1
+    क्रमबद्ध_घर_का_काम = क्रमबद्ध(आवृत्ति.कीज़(), चाबी=लैम्ब्डा एक्स: (-आवृत्ति[एक्स], एक्स))
+    वापस क्रमबद्ध_घर_का_काम
+
+परिभाषा निकाल_स्वर_और_क्रमित(डोरी):
+    डोरी_बिना_स्वर = निकाल_स्वर(डोरी)
+    क्रमबद्ध_डोरी = क्रमित_वर्ण(डोरी_बिना_स्वर)
+    वापस ''.जोड़(क्रमबद्ध_डोरी)
+"
+"
+def reverse_matrix(matrix):
+    new_matrix = []
+    for i in range(len(matrix)):
+        new_matrix.append([])
+        for j in range(len(matrix[i])):
+            new_matrix[i].insert(0, matrix[i][j])
+    return new_matrix
+
+
+# Test case 1
+matrix1 = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]]
+# Expected output: [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+print(reverse_matrix(matrix1))
+
+# Test case 2
+matrix2 = [[1, 2, 3, 4],
+           [5, 6, 7, 8]]
+# Expected output: [[8, 7, 6, 5], [4, 3, 2, 1]]
+print(reverse_matrix(matrix2))
+
+# Test case 3
+matrix3 = [[1, 2],
+           [3, 4],
+           [5, 6]]
+# Expected output: [[6, 5], [4, 3], [2, 1]]
+print(reverse_matrix(matrix3))
+","
+परिभाषा उलट_मैट्रिक्स(मैट्रिक्स):
+    नया_मैट्रिक्स = []
+    के_लिए ई में रेंज(लंबाई(मैट्रिक्स)):
+        नया_मैट्रिक्स.संलग्न([])
+        के_लिए जे में रेंज(लंबाई(मैट्रिक्स[ई])):
+            नया_मैट्रिक्स[ई].डाल(0, मैट्रिक्स[ई][जे])
+    वापस नया_मैट्रिक्स
+
+
+#परीक्षण_मामला_1
+मैट्रिक्स1 = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]]
+#अपेक्षित_आउटपुट:_[[9,_8,_7],_[6,_5,_4],_[3,_2,_1]]
+छापिये_(उलट_मैट्रिक्स(मैट्रिक्स1))
+
+#परीक्षण_मामला_2
+मैट्रिक्स2 = [[1, 2, 3, 4],
+           [5, 6, 7, 8]]
+#अपेक्षित_आउटपुट:_[[8,_7,_6,_5],_[4,_3,_2,_1]]
+छापिये_(उलट_मैट्रिक्स(मैट्रिक्स2))
+
+#परीक्षण_मामला_3
+मैट्रिक्स3 = [[1, 2],
+           [3, 4],
+           [5, 6]]
+#अपेक्षित_आउटपुट:_[[6,_5],_[4,_3],_[2,_1]]
+छापिये_(उलट_मैट्रिक्स(मैट्रिक्स3))
+"
+"
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+# Example usage
+n = 10
+fibonacci_number = fibonacci(n)
+print(f""The Fibonacci number at index {n} is {fibonacci_number}."")
+","
+परिभाषा फाइबोनैचि(एन):
+    यदि एन == 0:
+        वापस 0
+    वरना_यदि एन == 1:
+        वापस 1
+    वरना:
+        वापस फाइबोनैचि(एन-1) + फाइबोनैचि(एन-2)
+
+#उपयोग_का_उदाहरण
+एन = 10
+फाइबोनैचि_संख्या = फाइबोनैचि(एन)
+छापिये_(एफ"" फाइबोनैचि संख्या पर सूचक {एन} है {फाइबोनैचि_संख्या}."")
+"
+"
+def count_unique_consonants(string):
+    consonants = set()
+    lowercase_string = string.lower()
+    for char in lowercase_string:
+        if char.isalpha() and char not in 'aeiou':
+            consonants.add(char)
+    return len(consonants)
+","
+परिभाषा गिनें_अद्वितीय_व्यंजन(डोरी):
+    व्यंजन = सेट()
+    छोटे_डोरी = डोरी.छोटा()
+    के_लिए चार में छोटे_डोरी:
+        यदि चार.अक्षर_है() और चार ना में 'ऐइयो':
+            व्यंजन.योग(चार)
+    वापस लंबाई(व्यंजन)
+"
+"
+def filter_and_replace(string):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    filtered_words = []
+    
+    words = string.split()
+    
+    for word in words:
+        if any(char.isdigit() or not char.isalpha() for char in word):
+            continue
+        
+        if len(word) > 3 and any(char in vowels for char in word):
+            filtered_word = """"
+            for char in word:
+                if char in vowels:
+                    vowel_index = vowels.index(char)
+                    next_vowel = vowels[(vowel_index + 1) % len(vowels)]
+                    filtered_word += next_vowel
+                else:
+                    filtered_word += char
+            filtered_words.append(filtered_word)
+    
+    return "" "".join(filtered_words)
+
+
+# Example usage:
+input_string = ""Hello world! This is a test string. Filter me out if I contain numbers or special characters.""
+output_string = filter_and_replace(input_string)
+print(output_string)
+","
+परिभाषा छानें_और_बदल(डोरी):
+    स्वर = ['ए', 'ई', 'ई', 'हे', 'यू']
+    छाना_हुआ_शब्द = []
+
+    शब्द = डोरी.बाँट()
+
+    के_लिए शब्द में शब्द:
+        यदि कोई(चार.अंक_है() या ना चार.अक्षर_है() के_लिए चार में शब्द):
+            जारी
+
+        यदि लंबाई(शब्द) > 3 और कोई(चार में स्वर के_लिए चार में शब्द):
+            छाना_हुआ_शब्द = """"
+            के_लिए चार में शब्द:
+                यदि चार में स्वर:
+                    स्वर_सूचक = स्वर.सूचक(चार)
+                    अगला_स्वर = स्वर[(स्वर_सूचक + 1) % लंबाई(स्वर)]
+                    छाना_हुआ_शब्द += अगला_स्वर
+                वरना:
+                    छाना_हुआ_शब्द += चार
+            छाना_हुआ_शब्द.संलग्न(छाना_हुआ_शब्द)
+
+    वापस "" "".जोड़(छाना_हुआ_शब्द)
+
+
+#उदाहरण_उपयोग:
+इनपुट_डोरी = ""नमस्ते दुनिया! यह है ए परीक्षा डोरी. फ़िल्टर मुझे बाहर यदि मैं रोकना नंबर या विशेष वर्ण.""
+आउटपुट_डोरी = छानें_और_बदल(इनपुट_डोरी)
+छापिये_(आउटपुट_डोरी)
+"
+"
+def isOddPrimeGreaterThan100(number):
+    if number <= 100 or number % 2 == 0:  # Check if number is less than or equal to 100 or even
+        return False
+    for i in range(3, int(number**0.5) + 1, 2):  # Check divisibility by odd numbers only
+        if number % i == 0:
+            return False
+    return True
+
+def findSecondSmallestOddPrimeGreaterThan100(array):
+    smallest = secondSmallest = float('inf')
+    for number in array:
+        if isOddPrimeGreaterThan100(number):
+            if number < smallest:
+                secondSmallest = smallest
+                smallest = number
+            elif number < secondSmallest:
+                secondSmallest = number
+    return secondSmallest
+","
+परिभाषा isoddप्राइमग्रेटरथन100(संख्या):
+    यदि संख्या <= 100 या संख्या % 2 == 0: #जाँचें_कि_संख्या_100_से_कम_या_बराबर_है_या_सम
+        वापस असत्य
+    के_लिए ई में रेंज(3, अंक(संख्या**0.5) + 1, 2): #केवल_विषम_संख्याओं_से_विभाज्यता_की_जाँच_करें
+        यदि संख्या % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा दूसरासबसे_छोटा,_अजीब,_प्राइम,_ग्रेटर_थान_ढूंढें100(सरणी):
+    सबसे_छोटा = दूसरासबसे_छोटा = दश('जानकारी')
+    के_लिए संख्या में सरणी:
+        यदि isoddप्राइमग्रेटरथन100(संख्या):
+            यदि संख्या < सबसे_छोटा:
+                दूसरासबसे_छोटा = सबसे_छोटा
+                सबसे_छोटा = संख्या
+            वरना_यदि संख्या < दूसरासबसे_छोटा:
+                दूसरासबसे_छोटा = संख्या
+    वापस दूसरासबसे_छोटा
+"
+"
+class SeparatorNotFoundError(Exception):
+    pass
+
+class MultipleSeparatorsError(Exception):
+    pass
+
+try:
+    mystring = ""Hello, World!""
+    separator = ""#""
+
+    # Incorrect way to split the string on a separator
+    split_string = mystring.split(separator, 1)
+    if not split_string:
+        raise SeparatorNotFoundError(""Separator not found in string"")
+
+    # Additional Requirement:
+    # If the separator is found more than once in the string, raise a custom exception called ""MultipleSeparatorsError""
+
+    # Incorrect way to split the string on a separator
+    split_string = mystring.split(separator)
+    if len(split_string) > 2:
+        raise MultipleSeparatorsError(""Multiple separators found in string"")
+
+except SeparatorNotFoundError as e:
+    print(""Error:"", e)
+
+except MultipleSeparatorsError as e:
+    print(""Error:"", e)
+
+except Exception as e:
+    print(""Error:"", e)
+","
+वर्ग विभाजकनहींमिलात्रुटि(अपवाद):
+    जाने_दो
+
+वर्ग मल्टिपलसेपरेटर्सत्रुटि(अपवाद):
+    जाने_दो
+
+प्रयत्न:
+    माईस्ट्रिंग = ""नमस्ते, दुनिया!""
+    सेपरेटर = "" #""
+
+    #विभाजक_पर_स्ट्रिंग_को_विभाजित_करने_का_गलत_तरीका
+    बाँट_डोरी = माईस्ट्रिंग.बाँट(सेपरेटर, 1)
+    यदि ना बाँट_डोरी:
+        उठाओ विभाजकनहींमिलात्रुटि(""सेपरेटर ना मिला में डोरी"")
+
+    #अतिरिक्त_मांग:
+    #यदि_स्ट्रिंग_में_विभाजक_एक_से_अधिक_बार_पाया_जाता_है,_तो_""multipleseparatorserror""_नामक_एक_कस्टम_अपवाद_उठाएं
+
+    #विभाजक_पर_स्ट्रिंग_को_विभाजित_करने_का_गलत_तरीका
+    बाँट_डोरी = माईस्ट्रिंग.बाँट(सेपरेटर)
+    यदि लंबाई(बाँट_डोरी) > 2:
+        उठाओ मल्टिपलसेपरेटर्सत्रुटि(""विभिन्न विभाजक मिला में डोरी"")
+
+सिवाय विभाजकनहींमिलात्रुटि की_तरह ई:
+    छापिये_(""गलती:"", ई)
+
+सिवाय मल्टिपलसेपरेटर्सत्रुटि की_तरह ई:
+    छापिये_(""गलती:"", ई)
+
+सिवाय अपवाद की_तरह ई:
+    छापिये_(""गलती:"", ई)
+"
+"
+def create_index_dictionary(list_one, list_two):
+    if len(list_one) != len(list_two):
+        raise ValueError(""Input lists must be of equal length"")
+    
+    index_dict = {}
+    for i in range(len(list_one)):
+        if isinstance(list_one[i], (list, dict, tuple)) and isinstance(list_two[i], (list, dict, tuple)):
+            if isinstance(list_one[i], set) or isinstance(list_two[i], set):
+                raise ValueError(""Input lists cannot contain sets"")
+            
+            nested_dict = {}
+            if isinstance(list_one[i], dict) and isinstance(list_two[i], dict):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""Nested dictionaries must have the same number of elements"")
+                
+                for key in list_one[i].keys():
+                    if key not in list_two[i]:
+                        raise ValueError(""Keys in nested dictionaries must be the same"")
+                    nested_dict[key] = (list_one[i][key], list_two[i][key])
+            elif isinstance(list_one[i], list) and isinstance(list_two[i], list):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""Nested lists must have the same length"")
+                
+                for j in range(len(list_one[i])):
+                    nested_dict[j] = (list_one[i][j], list_two[i][j])
+            elif isinstance(list_one[i], tuple) and isinstance(list_two[i], tuple):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""Tuples must have the same length"")
+                
+                for j in range(len(list_one[i])):
+                    nested_dict[j] = (list_one[i][j], list_two[i][j])
+            
+            index_dict[i] = nested_dict
+        else:
+            index_dict[i] = (list_one[i], list_two[i])
+    
+    return index_dict
+","
+परिभाषा बनाएं_सूचक_शब्दकोष(सूची_एक, सूची_दो):
+    यदि लंबाई(सूची_एक) != लंबाई(सूची_दो):
+        उठाओ मान_त्रुटि(""इनपुट सूचियों अवश्य होना का बराबर लंबाई"")
+
+    सूचक_कोश = {}
+    के_लिए ई में रेंज(लंबाई(सूची_एक)):
+        यदि उदाहरण_है(सूची_एक[ई], (सूची, कोश, ट्यूपल)) और उदाहरण_है(सूची_दो[ई], (सूची, कोश, ट्यूपल)):
+            यदि उदाहरण_है(सूची_एक[ई], सेट) या उदाहरण_है(सूची_दो[ई], सेट):
+                उठाओ मान_त्रुटि(""इनपुट सूचियों नही_सकता रोकना सेट"")
+
+            नेस्ट_कोश = {}
+            यदि उदाहरण_है(सूची_एक[ई], कोश) और उदाहरण_है(सूची_दो[ई], कोश):
+                यदि लंबाई(सूची_एक[ई]) != लंबाई(सूची_दो[ई]):
+                    उठाओ मान_त्रुटि(""नेस्टेड शब्दकोश: अवश्य पास_होना  वही संख्या का तत्वों"")
+
+                के_लिए चाबी में सूची_एक[ई].कीज़():
+                    यदि चाबी ना में सूची_दो[ई]:
+                        उठाओ मान_त्रुटि(""कुंजियाँ में नेस्ट शब्दकोश: अवश्य होना  वही"")
+                    नेस्ट_कोश[चाबी] = (सूची_एक[ई][चाबी], सूची_दो[ई][चाबी])
+            वरना_यदि उदाहरण_है(सूची_एक[ई], सूची) और उदाहरण_है(सूची_दो[ई], सूची):
+                यदि लंबाई(सूची_एक[ई]) != लंबाई(सूची_दो[ई]):
+                    उठाओ मान_त्रुटि(""नेस्टेड सूचियों अवश्य पास_होना  वही लंबाई"")
+
+                के_लिए जे में रेंज(लंबाई(सूची_एक[ई])):
+                    नेस्ट_कोश[जे] = (सूची_एक[ई][जे], सूची_दो[ई][जे])
+            वरना_यदि उदाहरण_है(सूची_एक[ई], ट्यूपल) और उदाहरण_है(सूची_दो[ई], ट्यूपल):
+                यदि लंबाई(सूची_एक[ई]) != लंबाई(सूची_दो[ई]):
+                    उठाओ मान_त्रुटि(""ट्यूपल्स अवश्य पास_होना  वही लंबाई"")
+
+                के_लिए जे में रेंज(लंबाई(सूची_एक[ई])):
+                    नेस्ट_कोश[जे] = (सूची_एक[ई][जे], सूची_दो[ई][जे])
+
+            सूचक_कोश[ई] = नेस्ट_कोश
+        वरना:
+            सूचक_कोश[ई] = (सूची_एक[ई], सूची_दो[ई])
+
+    वापस सूचक_कोश
+"
+"
+def find_maximum(a, b, c):
+    # Convert the numbers to binary
+    a_bin = bin(a)
+    b_bin = bin(b)
+    c_bin = bin(c)
+    
+    # Count the number of 1s in the binary representation of each number
+    a_count = a_bin.count('1')
+    b_count = b_bin.count('1')
+    c_count = c_bin.count('1')
+    
+    # Compare the counts to find the maximum
+    if a_count > b_count and a_count > c_count:
+        return a
+    elif b_count > a_count and b_count > c_count:
+        return b
+    else:
+        return c
+","
+परिभाषा ढूँढो_अधिकतम(ए, बी, सी):
+    #संख्याओं_को_बाइनरी_में_बदलें
+    ए_द्वि = द्वि(ए)
+    बी_द्वि = द्वि(बी)
+    सी_द्वि = द्वि(सी)
+
+    #प्रत्येक_संख्या_के_बाइनरी_निरूपण_में_1_की_संख्या_गिनें
+    ए_गिनें = ए_द्वि.गिनें('1')
+    बी_गिनें = बी_द्वि.गिनें('1')
+    सी_गिनें = सी_द्वि.गिनें('1')
+
+    #अधिकतम_ज्ञात_करने_के_लिए_गणनाओं_की_तुलना_करें
+    यदि ए_गिनें > बी_गिनें और ए_गिनें > सी_गिनें:
+        वापस ए
+    वरना_यदि बी_गिनें > ए_गिनें और बी_गिनें > सी_गिनें:
+        वापस बी
+    वरना:
+        वापस सी
+"
+"
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr, 0
+    else:
+        pivot = arr[0]
+        less = [x for x in arr[1:] if x <= pivot]
+        greater = [x for x in arr[1:] if x > pivot]
+        sorted_less, comparisons_less = quick_sort(less)
+        sorted_greater, comparisons_greater = quick_sort(greater)
+        comparisons = len(arr) - 1 + comparisons_less + comparisons_greater
+        sorted_arr = sorted_greater + [pivot] + sorted_less
+        return sorted_arr, comparisons
+
+# Testing the code
+arr = [5, 3, 9, 5, 2, 8, 4]
+sorted_arr, comparisons = quick_sort(arr)
+print(""Sorted Array:"", sorted_arr)
+print(""Number of Comparisons:"", comparisons)
+","
+परिभाषा जल्दी_क्रमित(आगमन):
+    यदि लंबाई(आगमन) <= 1:
+        वापस आगमन, 0
+    वरना:
+        धुरी = आगमन[0]
+        कम = [एक्स के_लिए एक्स में आगमन[1:] यदि एक्स <= धुरी]
+        ग्रेटर = [एक्स के_लिए एक्स में आगमन[1:] यदि एक्स > धुरी]
+        क्रमबद्ध_कम, तुलना_कम = जल्दी_क्रमित(कम)
+        क्रमबद्ध_ग्रेटर, तुलना_ग्रेटर = जल्दी_क्रमित(ग्रेटर)
+        तुलना = लंबाई(आगमन) - 1 + तुलना_कम + तुलना_ग्रेटर
+        क्रमबद्ध_आगमन = क्रमबद्ध_ग्रेटर + [धुरी] + क्रमबद्ध_कम
+        वापस क्रमबद्ध_आगमन, तुलना
+
+#कोड_का_परीक्षण
+आगमन = [5, 3, 9, 5, 2, 8, 4]
+क्रमबद्ध_आगमन, तुलना = जल्दी_क्रमित(आगमन)
+छापिये_(""क्रमबद्ध सरणी:"", क्रमबद्ध_आगमन)
+छापिये_(""संख्या का तुलना:"", तुलना)
+"
+"
+def calculate_distance(point1, point2):
+    distance = ((point2[0] - point1[0])**2 + (point2[1] - point1[1])**2 + (point2[2] - point1[2])**2) ** 0.5
+    return distance
+","
+परिभाषा calculate_दूरी(बिंदु1, बिंदु2):
+    दूरी = ((बिंदु2[0] - बिंदु1[0])**2 + (बिंदु2[1] - बिंदु1[1])**2 + (बिंदु2[2] - बिंदु1[2])**2) ** 0.5
+    वापस दूरी
+"
+"
+import datetime
+
+def get_current_date_time():
+    now = datetime.datetime.now()
+    iso_format = now.strftime(""%Y-%m-%dT%H:%M:%S%z"")
+    day_of_week = now.strftime(""%A"")
+    return iso_format, day_of_week
+
+def calculate_days_between_dates(start_date, end_date):
+    try:
+        start_date = datetime.datetime.strptime(start_date, ""%Y-%m-%d"")
+        end_date = datetime.datetime.strptime(end_date, ""%Y-%m-%d"")
+        days = abs((end_date - start_date).days)
+        return days
+    except ValueError:
+        return ""Invalid date format. Please use YYYY-MM-DD.""
+
+# Print current date and time in ISO format with timezone offset and day of the week
+iso_format, day_of_week = get_current_date_time()
+print(""Current date and time (ISO format):"", iso_format)
+print(""Day of the week:"", day_of_week)
+
+# Calculate the number of days between two dates
+start_date = input(""Enter the start date (YYYY-MM-DD): "")
+end_date = input(""Enter the end date (YYYY-MM-DD): "")
+days_between = calculate_days_between_dates(start_date, end_date)
+print(""Number of days between the two dates:"", days_between)
+","
+आयात दिनांक_समय
+
+परिभाषा पाना_मौजूदा_तारीख_समय():
+    अब = दिनांक_समय.दिनांक_समय.अब()
+    आईएसओ_प्रारूप = अब.स्ट्रफटाइम(""%य-%एम-%डीटी%एच:%एम:%एस%जेड"")
+    दिन_का_सप्ताह = अब.स्ट्रफटाइम(""%ए"")
+    वापस आईएसओ_प्रारूप, दिन_का_सप्ताह
+
+परिभाषा calculate_दिन_बीच_में_खजूर(शुरू_तारीख, अंत_तारीख):
+    प्रयत्न:
+        शुरू_तारीख = दिनांक_समय.दिनांक_समय.स्ट्रिपटाइम(शुरू_तारीख, ""%य-%एम-%डी"")
+        अंत_तारीख = दिनांक_समय.दिनांक_समय.स्ट्रिपटाइम(अंत_तारीख, ""%य-%एम-%डी"")
+        दिन = निरपेक्ष_मान((अंत_तारीख - शुरू_तारीख).दिन)
+        वापस दिन
+    सिवाय मान_त्रुटि:
+        वापस ""अमान्य तारीख प्रारूप. कृपया उपयोग वर्ष-मिमी-डीडी.""
+
+#वर्तमान_दिनांक_और_समय_को_समय_क्षेत्र_ऑफसेट_और_सप्ताह_के_दिन_के_साथ_आईएसओ_प्रारूप_में_प्रिंट_करें
+आईएसओ_प्रारूप, दिन_का_सप्ताह = पाना_मौजूदा_तारीख_समय()
+छापिये_(""मौजूदा तारीख और समय (आईएसओ प्रारूप):"", आईएसओ_प्रारूप)
+छापिये_(""दिन का  सप्ताह:"", दिन_का_सप्ताह)
+
+#दो_तिथियों_के_बीच_दिनों_की_संख्या_की_गणना_करें
+शुरू_तारीख = इनपुट(""प्रवेश_करना  शुरू तारीख (वर्ष-मिमी-डीडी): "")
+अंत_तारीख = इनपुट(""प्रवेश_करना  अंत तारीख (वर्ष-मिमी-डीडी): "")
+दिन_बीच_में = calculate_दिन_बीच_में_खजूर(शुरू_तारीख, अंत_तारीख)
+छापिये_(""संख्या का दिन बीच_में  दो खजूर:"", दिन_बीच_में)
+"
+"
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(n - 1 - i):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+arr = [10, 2, 7, 8, 32, 4, 8, 7, 10, 2]
+sorted_arr = bubble_sort(arr)
+print(sorted_arr)
+","
+परिभाषा बुलबुला_क्रमित(आगमन):
+    एन = लंबाई(आगमन)
+    के_लिए ई में रेंज(एन):
+        के_लिए जे में रेंज(एन - 1 - ई):
+            यदि आगमन[जे] > आगमन[जे + 1]:
+                आगमन[जे], आगमन[जे + 1] = आगमन[जे + 1], आगमन[जे]
+    वापस आगमन
+
+आगमन = [10, 2, 7, 8, 32, 4, 8, 7, 10, 2]
+क्रमबद्ध_आगमन = बुलबुला_क्रमित(आगमन)
+छापिये_(क्रमबद्ध_आगमन)
+"
+"
+import math
+
+def calculate_standard_deviation(numbers):
+    if len(numbers) < 2:
+        raise ValueError(""Standard deviation requires at least two data points."")
+    
+    mean = sum(numbers) / len(numbers)
+    squared_diff_sum = 0
+    
+    for num in numbers:
+        squared_diff_sum += (num - mean) ** 2
+    
+    variance = squared_diff_sum / (len(numbers) - 1)
+    standard_deviation = math.sqrt(variance)
+    
+    return standard_deviation
+
+# Example usage
+numbers = [1, 2, 3, 4, 5]
+try:
+    std_dev = calculate_standard_deviation(numbers)
+    print(""Standard Deviation:"", std_dev)
+except ValueError as e:
+    print(e)
+","
+आयात गणित
+
+परिभाषा calculate_मानक_विचलन(नंबर):
+    यदि लंबाई(नंबर) < 2:
+        उठाओ मान_त्रुटि(""मानक विचलन आवश्यक_है पर कम_से_कम दो डेटा अंक."")
+
+    अर्थ = योग(नंबर) / लंबाई(नंबर)
+    Squared_अंतर_योग = 0
+
+    के_लिए संख्या में नंबर:
+        Squared_अंतर_योग += (संख्या - अर्थ) ** 2
+
+    झगड़ा = Squared_अंतर_योग / (लंबाई(नंबर) - 1)
+    मानक_विचलन = गणित.एसक्यूआरटी(झगड़ा)
+
+    वापस मानक_विचलन
+
+#उपयोग_का_उदाहरण
+नंबर = [1, 2, 3, 4, 5]
+प्रयत्न:
+    कक्षा_देव = calculate_मानक_विचलन(नंबर)
+    छापिये_(""मानक विचलन:"", कक्षा_देव)
+सिवाय मान_त्रुटि की_तरह ई:
+    छापिये_(ई)
+"
+"
+import random
+
+def generate_dictionary(n):
+    dictionary = {}
+    
+    # Generate a list of unique random strings as keys
+    keys = set()
+    while len(keys) < n:
+        key = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz', k=10))
+        keys.add(key)
+    
+    # Generate key-value pairs with random values
+    for key in keys:
+        value = random.randint(1, 1000)
+        dictionary[key] = value
+    
+    # Sort the dictionary by values in descending order
+    sorted_dict = {k: v for k, v in sorted(dictionary.items(), key=lambda item: item[1], reverse=True)}
+    
+    return sorted_dict
+
+# Generate a dictionary with 1000 key-value pairs
+dictionary = generate_dictionary(1000)
+
+# Print the dictionary
+for key, value in dictionary.items():
+    print(key, value)
+","
+आयात यादृच्छिक
+
+परिभाषा उत्पन्न_शब्दकोष(एन):
+    शब्दकोष = {}
+
+    #कुंजी_के_रूप_में_अद्वितीय_यादृच्छिक_स्ट्रिंग_की_सूची_बनाएं
+    कीज़ = सेट()
+    जबतक लंबाई(कीज़) < एन:
+        चाबी = ''.जोड़(यादृच्छिक.विकल्प('abcdefghijklmnopqrstuvwxyz', के=10))
+        कीज़.योग(चाबी)
+
+    #यादृच्छिक_मानों_के_साथ_कुंजी-मान_युग्म_उत्पन्न_करें
+    के_लिए चाबी में कीज़:
+        कीमत = यादृच्छिक.रैंडिंट(1, 1000)
+        शब्दकोष[चाबी] = कीमत
+
+    #शब्दकोश_को_मानों_के_आधार_पर_अवरोही_क्रम_में_क्रमबद्ध_करें
+    क्रमबद्ध_कोश = {के: वी के_लिए के, वी में क्रमबद्ध(शब्दकोष.सामान(), चाबी=लैम्ब्डा वस्तु: वस्तु[1], उलट=सत्य)}
+
+    वापस क्रमबद्ध_कोश
+
+#1000_कुंजी-मान_युग्मों_वाला_शब्दकोश_तैयार_करें
+शब्दकोष = उत्पन्न_शब्दकोष(1000)
+
+#शब्दकोश_प्रिंट_करें
+के_लिए चाबी, कीमत में शब्दकोष.सामान():
+    छापिये_(चाबी, कीमत)
+"
+"
+def partition(arr, low, high):
+    i = low - 1
+    pivot = arr[high]
+
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i = i + 1
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
+
+
+def quickselect(arr, low, high, k):
+    if low == high:
+        return arr[low]
+    
+    pivot_index = partition(arr, low, high)
+    if k == pivot_index:
+        return arr[k]
+    elif k < pivot_index:
+        return quickselect(arr, low, pivot_index - 1, k)
+    else:
+        return quickselect(arr, pivot_index + 1, high, k)
+
+
+def median(arr):
+    n = len(arr)
+    if n % 2 == 1:
+        return quickselect(arr, 0, n - 1, n // 2)
+    else:
+        return (quickselect(arr, 0, n - 1, n // 2) + quickselect(arr, 0, n - 1, n // 2 - 1)) / 2
+
+
+# Example usage:
+arr = [9, 2, 7, 4, 5, 8, 1, 6, 3]
+print(""Array:"", arr)
+print(""Median:"", median(arr))
+","
+परिभाषा विभाजन(आगमन, कम, उच्च):
+    ई = कम - 1
+    धुरी = आगमन[उच्च]
+
+    के_लिए जे में रेंज(कम, उच्च):
+        यदि आगमन[जे] <= धुरी:
+            ई = ई + 1
+            आगमन[ई], आगमन[जे] = आगमन[जे], आगमन[ई]
+
+    आगमन[ई + 1], आगमन[उच्च] = आगमन[उच्च], आगमन[ई + 1]
+    वापस ई + 1
+
+
+परिभाषा त्वरित_चयन(आगमन, कम, उच्च, के):
+    यदि कम == उच्च:
+        वापस आगमन[कम]
+
+    धुरी_सूचक = विभाजन(आगमन, कम, उच्च)
+    यदि के == धुरी_सूचक:
+        वापस आगमन[के]
+    वरना_यदि के < धुरी_सूचक:
+        वापस त्वरित_चयन(आगमन, कम, धुरी_सूचक - 1, के)
+    वरना:
+        वापस त्वरित_चयन(आगमन, धुरी_सूचक + 1, उच्च, के)
+
+
+परिभाषा MEDIAN(आगमन):
+    एन = लंबाई(आगमन)
+    यदि एन % 2 == 1:
+        वापस त्वरित_चयन(आगमन, 0, एन - 1, एन // 2)
+    वरना:
+        वापस (त्वरित_चयन(आगमन, 0, एन - 1, एन // 2) + त्वरित_चयन(आगमन, 0, एन - 1, एन // 2 - 1)) / 2
+
+
+#उदाहरण_उपयोग:
+आगमन = [9, 2, 7, 4, 5, 8, 1, 6, 3]
+छापिये_(""सरणी:"", आगमन)
+छापिये_(""मंझला:"", MEDIAN(आगमन))
+"
+"
+def access_nth_from_end(head, n):
+    fast = head
+    slow = head
+
+    # Move the fast pointer n positions forward
+    for _ in range(n):
+        fast = fast.next
+
+    # Check if the fast pointer reaches the end of the linked list
+    if fast is None:
+        return None  # Or raise an error
+
+    # Move both pointers simultaneously until the fast pointer reaches the end
+    while fast.next is not None:
+        fast = fast.next
+        slow = slow.next
+
+    # Return the value of the node pointed to by the slow pointer
+    return slow.value
+","
+परिभाषा पहुँच_n_वें_से_अंत(सिर, एन):
+    तेज़ = सिर
+    धीमा = सिर
+
+    #तेज़_पॉइंटर_को_n_स्थिति_आगे_ले_जाएँ
+    के_लिए  में रेंज(एन):
+        तेज़ = तेज़.अगला
+
+    #जाँच_करें_कि_क्या_तेज़_पॉइंटर_लिंक्ड_सूची_के_अंत_तक_पहुँचता_है
+    यदि तेज़ है कोई_नहीं:
+        वापस कोई_नहीं #या_कोई_त्रुटि_उठाएं
+
+    #दोनों_पॉइंटर्स_को_एक_साथ_तब_तक_घुमाएं_जब_तक_कि_तेज़_पॉइंटर_अंत_तक_न_पहुंच_जाए
+    जबतक तेज़.अगला है ना कोई_नहीं:
+        तेज़ = तेज़.अगला
+        धीमा = धीमा.अगला
+
+    #धीमे_पॉइंटर_द्वारा_इंगित_नोड_का_मान_लौटाएँ
+    वापस धीमा.कीमत
+"
+"
+import psycopg2
+from psycopg2 import OperationalError
+from psycopg2.pool import SimpleConnectionPool
+
+# Database connection details
+username = ""john""
+password = ""john123""
+ip = ""100.10.0.10""
+port = 5432
+database = ""your_database_name""
+
+# Connection pool settings
+min_connections = 1
+max_connections = 5
+
+# SSL/TLS settings
+sslmode = ""require""
+sslrootcert = ""/path/to/root.crt""  # Path to your root certificate file
+sslcert = ""/path/to/client.crt""  # Path to your client certificate file
+sslkey = ""/path/to/client.key""  # Path to your client key file
+
+# Create a connection pool
+connection_pool = SimpleConnectionPool(min_connections, max_connections,
+                                       host=ip, port=port, user=username, password=password,
+                                       database=database, sslmode=sslmode, sslrootcert=sslrootcert,
+                                       sslcert=sslcert, sslkey=sslkey)
+
+def get_connection():
+    # Try to get a connection from the pool
+    connection = connection_pool.getconn()
+    
+    # If the connection is None, it means the pool is full, so wait and try again
+    while connection is None:
+        connection = connection_pool.getconn()
+    
+    return connection
+
+def release_connection(connection):
+    # Release the connection back to the pool
+    connection_pool.putconn(connection)
+
+def execute_query(query, params=None):
+    try:
+        # Get a connection from the pool
+        connection = get_connection()
+        
+        # Create a cursor
+        cursor = connection.cursor()
+        
+        # Execute the query
+        if params:
+            cursor.execute(query, params)
+        else:
+            cursor.execute(query)
+        
+        # Commit the transaction
+        connection.commit()
+        
+        # Close the cursor
+        cursor.close()
+        
+        # Release the connection back to the pool
+        release_connection(connection)
+        
+    except (OperationalError, Exception) as e:
+        # Handle database errors and exceptions
+        if connection:
+            connection.rollback()
+            release_connection(connection)
+        raise e
+
+def main():
+    try:
+        # Example query
+        query = ""SELECT * FROM your_table""
+        
+        # Execute the query
+        execute_query(query)
+        
+        # Handle other operations...
+        
+    except (OperationalError, Exception) as e:
+        # Log and handle the error gracefully
+        print(""An error occurred:"", str(e))
+        # Add error logging and handling mechanisms here
+
+if __name__ == ""__main__"":
+    main()
+","
+आयात साइकोपीजी2
+से साइकोपीजी2 आयात परिचालनत्रुटि
+से साइकोपीजी2.पूल आयात सरल_कनेक्शन_पूल
+
+#डेटाबेस_कनेक्शन_विवरण
+उपयोगकर्ता_नाम = ""जॉन""
+पासवर्ड = ""जॉन123""
+आई_पी = ""100.10.0.10""
+पत्तन = 5432
+डेटाबेस = ""आपका_डेटाबेस_नाम""
+
+#कनेक्शन_पूल_सेटिंग्स
+न्यूनतम_कनेक्शन = 1
+अधिकतम_कनेक्शन = 5
+
+#एसएसएल/टीएलएस_सेटिंग्स
+एसएसएलमोड = ""ज़रूरत_होना""
+एसएसएलरूटसर्टिफिकेट = ""/पथ/को/जड़.सीआरटी"" #आपकी_रूट_प्रमाणपत्र_फ़ाइल_का_पथ
+एसएसएलसर्ट = ""/पथ/को/ग्राहक.सीआरटी"" #आपकी_क्लाइंट_प्रमाणपत्र_फ़ाइल_का_पथ
+एसएसएलकी = ""/पथ/को/ग्राहक.चाबी"" #आपकी_क्लाइंट_कुंजी_फ़ाइल_का_पथ
+
+#कनेक्शन_पूल_बनाएं
+कनेक्शन_पूल = सरल_कनेक्शन_पूल(न्यूनतम_कनेक्शन, अधिकतम_कनेक्शन,
+                                       मेज़बान=आई_पी, पत्तन=पत्तन, उपयोगकर्ता=उपयोगकर्ता_नाम, पासवर्ड=पासवर्ड,
+                                       डेटाबेस=डेटाबेस, एसएसएलमोड=एसएसएलमोड, एसएसएलरूटसर्टिफिकेट=एसएसएलरूटसर्टिफिकेट,
+                                       एसएसएलसर्ट=एसएसएलसर्ट, एसएसएलकी=एसएसएलकी)
+
+परिभाषा पाना_कनेक्शन():
+    #पूल_से_कनेक्शन_प्राप्त_करने_का_प्रयास_करें
+    कनेक्शन = कनेक्शन_पूल.गेटकॉन()
+
+    #यदि_कनेक्शन_नहीं_है,_तो_इसका_मतलब_है_कि_पूल_भर_गया_है,_इसलिए_प्रतीक्षा_करें_और_पुनः_प्रयास_करें
+    जबतक कनेक्शन है कोई_नहीं:
+        कनेक्शन = कनेक्शन_पूल.गेटकॉन()
+
+    वापस कनेक्शन
+
+परिभाषा मुक्त_करना_कनेक्शन(कनेक्शन):
+    #कनेक्शन_को_पूल_में_वापस_जारी_करें
+    कनेक्शन_पूल.पुटकॉन(कनेक्शन)
+
+परिभाषा निष्पादित_करना_सवाल(सवाल, पैरामीटर=कोई_नहीं):
+    प्रयत्न:
+        #पूल_से_कनेक्शन_प्राप्त_करें
+        कनेक्शन = पाना_कनेक्शन()
+
+        #कर्सर_बनाएं
+        कर्सर = कनेक्शन.कर्सर()
+
+        #क्वेरी_निष्पादित_करें
+        यदि पैरामीटर:
+            कर्सर.निष्पादित_करना(सवाल, पैरामीटर)
+        वरना:
+            कर्सर.निष्पादित_करना(सवाल)
+
+        #लेन-देन_को_प्रतिबद्ध_करें
+        कनेक्शन.प्रतिबद्ध()
+
+        #कर्सर_बंद_करें
+        कर्सर.बंद()
+
+        #कनेक्शन_को_पूल_में_वापस_जारी_करें
+        मुक्त_करना_कनेक्शन(कनेक्शन)
+
+    सिवाय (परिचालनत्रुटि, अपवाद) की_तरह ई:
+        #डेटाबेस_त्रुटियों_और_अपवादों_को_संभालें
+        यदि कनेक्शन:
+            कनेक्शन.रोलबैक()
+            मुक्त_करना_कनेक्शन(कनेक्शन)
+        उठाओ ई
+
+परिभाषा मुख्य():
+    प्रयत्न:
+        #उदाहरण_क्वेरी
+        सवाल = ""चुनना * से आपका_मेज़""
+
+        #क्वेरी_निष्पादित_करें
+        निष्पादित_करना_सवाल(सवाल)
+
+        #अन्य_कार्य_संभालें...
+
+    सिवाय (परिचालनत्रुटि, अपवाद) की_तरह ई:
+        #त्रुटि_को_सुचारू_रूप_से_लॉग_करें_और_संभालें
+        छापिये_(""एक गलती घटित_हुआ:"", स्ट्रिंग(ई))
+        #यहां_त्रुटि_लॉगिंग_और_हैंडलिंग_तंत्र_जोड़ें
+
+यदि नाम == ""मुख्य"":
+    मुख्य()
+"
+"
+def celsius_to_fahrenheit(celsius):
+    if celsius == 0:
+        return 32
+
+    fahrenheit = 0
+    increment = 1
+    if celsius < 0:
+        increment = -1
+
+    for i in range(abs(celsius)):
+        fahrenheit += increment
+        if fahrenheit % 5 == 0:
+            increment += 1 if celsius > 0 else -1
+
+    return fahrenheit
+","
+परिभाषा सेल्सियस_को_फ़ारेनहाइट(सेल्सियस):
+    यदि सेल्सियस == 0:
+        वापस 32
+
+    फ़ारेनहाइट = 0
+    वेतन_वृद्धि = 1
+    यदि सेल्सियस < 0:
+        वेतन_वृद्धि = -1
+
+    के_लिए ई में रेंज(निरपेक्ष_मान(सेल्सियस)):
+        फ़ारेनहाइट += वेतन_वृद्धि
+        यदि फ़ारेनहाइट % 5 == 0:
+            वेतन_वृद्धि += 1 यदि सेल्सियस > 0 वरना -1
+
+    वापस फ़ारेनहाइट
+"
+"
+from datetime import datetime
+import pytz
+
+def get_time_difference(date1, date2):
+    # Convert date strings to datetime objects
+    date1 = datetime.strptime(date1, '%Y-%m-%d %H:%M:%S')
+    date2 = datetime.strptime(date2, '%Y-%m-%d %H:%M:%S')
+
+    # Get the timezone for each datetime object
+    tz1 = pytz.timezone('BST')
+    tz2 = pytz.timezone('PST')
+
+    # Localize the datetime objects to their respective timezones
+    date1 = tz1.localize(date1)
+    date2 = tz2.localize(date2)
+
+    # Convert both datetime objects to a common timezone (UTC in this case)
+    date1 = date1.astimezone(pytz.UTC)
+    date2 = date2.astimezone(pytz.UTC)
+
+    # Calculate the time difference between the two datetime objects
+    time_diff = date1 - date2
+
+    # Extract the hours and minutes from the time difference
+    hours = time_diff.seconds // 3600
+    minutes = (time_diff.seconds // 60) % 60
+
+    # Return the time difference as hours and minutes
+    return f""Time difference: {hours} hours {minutes} minutes""
+
+# Example usage
+date1 = '2022-10-01 15:30:00'
+date2 = '2022-09-30 23:45:00'
+print(get_time_difference(date1, date2))
+
+date1 = '2022-10-01 15:30:00'
+date2 = '2022-09-30 15:45:00'
+print(get_time_difference(date1, date2))
+","
+से दिनांक_समय आयात दिनांक_समय
+आयात प्यत्ज़
+
+परिभाषा पाना_समय_अंतर(तारीख1, तारीख2):
+    #दिनांक_स्ट्रिंग_को_दिनांक-समय_ऑब्जेक्ट_में_बदलें
+    तारीख1 = दिनांक_समय.स्ट्रिपटाइम(तारीख1, '%य-%एम-%डी %एच:%एम:%एस')
+    तारीख2 = दिनांक_समय.स्ट्रिपटाइम(तारीख2, '%य-%एम-%डी %एच:%एम:%एस')
+
+    #प्रत्येक_datetime_ऑब्जेक्ट_के_लिए_समय_क्षेत्र_प्राप्त_करें
+    टीजेड1 = प्यत्ज़.समय_क्षेत्र('बीएसटी')
+    टीजेड2 = प्यत्ज़.समय_क्षेत्र('PST')
+
+    #दिनांक-समय_ऑब्जेक्ट_को_उनके_संबंधित_समय-क्षेत्रों_में_स्थानीयकृत_करें
+    तारीख1 = टीजेड1.स्थानीय_बनाना(तारीख1)
+    तारीख2 = टीजेड2.स्थानीय_बनाना(तारीख2)
+
+    #दोनों_datetime_ऑब्जेक्ट_को_एक_सामान्य_समयक्षेत्र_में_परिवर्तित_करें_(इस_मामले_में_utc)
+    तारीख1 = तारीख1.एस्टीमज़ोन(प्यत्ज़.UTC)
+    तारीख2 = तारीख2.एस्टीमज़ोन(प्यत्ज़.UTC)
+
+    #दो_datetime_ऑब्जेक्ट्स_के_बीच_समय_अंतर_की_गणना_करें
+    समय_अंतर = तारीख1 - तारीख2
+
+    #समय_के_अंतर_से_घंटे_और_मिनट_निकालें
+    घंटे = समय_अंतर.सेकंड // 3600
+    मिनट = (समय_अंतर.सेकंड // 60) % 60
+
+    #समय_का_अंतर_घंटों_और_मिनटों_के_रूप_में_लौटाएं
+    वापस एफ""समय अंतर: {घंटे} घंटे {मिनट} मिनट""
+
+#उपयोग_का_उदाहरण
+तारीख1 = '2022-10-01 15:30:00'
+तारीख2 = '2022-09-30 23:45:00'
+छापिये_(पाना_समय_अंतर(तारीख1, तारीख2))
+
+तारीख1 = '2022-10-01 15:30:00'
+तारीख2 = '2022-09-30 15:45:00'
+छापिये_(पाना_समय_अंतर(तारीख1, तारीख2))
+"
+"
+import random
+import string
+
+
+def load_font_style(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            font_style = file.read()
+            return font_style
+    except FileNotFoundError:
+        print(""Error: Font style file not found."")
+        return None
+    except Exception as e:
+        print(f""Error: {e}"")
+        return None
+
+
+def generate_standard_font(word, letter_sizes):
+    art = """"
+    for letter in word:
+        size = random.choice(letter_sizes)
+        art += letter * size + ""\n""
+    return art
+
+
+def generate_bold_font(word, letter_sizes):
+    art = """"
+    for letter in word:
+        size = random.choice(letter_sizes)
+        art += letter.upper() * size + ""\n""
+    return art
+
+
+def generate_italic_font(word, letter_sizes):
+    art = """"
+    for letter in word:
+        size = random.choice(letter_sizes)
+        art += ""/"" * size + ""\n""
+    return art
+
+
+def generate_underline_font(word, letter_sizes):
+    art = """"
+    for letter in word:
+        size = random.choice(letter_sizes)
+        art += ""_"" * size + ""\n""
+    return art
+
+
+def generate_ascii_art(word, font_style, letter_sizes):
+    art = """"
+    for letter in word:
+        if letter.isalpha():
+            art += font_style(letter, letter_sizes)
+        else:
+            art += letter + ""\n""
+    return art
+
+
+def main():
+    word = input(""Enter a word: "")
+    font_styles = [generate_standard_font, generate_bold_font, generate_italic_font, generate_underline_font]
+    font_style = random.choice(font_styles)
+    letter_sizes = [1, 2, 3]
+    ascii_art = generate_ascii_art(word, font_style, letter_sizes)
+    print(ascii_art)
+
+
+if __name__ == ""__main__"":
+    main()
+","आयात यादृच्छिक
+आयात डोरी
+
+
+परिभाषा भार_फ़ॉन्ट_शैली(फ़ाइल_पथ):
+    प्रयत्न:
+        साथ खोल(फ़ाइल_पथ, 'आर') की_तरह फ़ाइल:
+            फ़ॉन्ट_शैली = फ़ाइल.पढ़()
+            वापस फ़ॉन्ट_शैली
+    सिवाय फ़ाइलनहींमिलात्रुटि:
+        छापिये_(""गलती: फ़ॉन्ट शैली फ़ाइल ना मिला."")
+        वापस कोई_नहीं
+    सिवाय अपवाद की_तरह ई:
+        छापिये_(एफ""गलती: {ई}"")
+        वापस कोई_नहीं
+
+
+परिभाषा उत्पन्न_मानक_फ़ॉन्ट(शब्द, पत्र_आकार):
+    कला = """"
+    के_लिए पत्र में शब्द:
+        आकार = यादृच्छिक.पसंद(पत्र_आकार)
+        कला += पत्र * आकार + ""\n ""
+    वापस कला
+
+
+परिभाषा उत्पन्न_बोल्ड_फ़ॉन्ट(शब्द, पत्र_आकार):
+    कला = """"
+    के_लिए पत्र में शब्द:
+        आकार = यादृच्छिक.पसंद(पत्र_आकार)
+        कला += पत्र.बड़ा() * आकार + ""\n ""
+    वापस कला
+
+
+परिभाषा उत्पन्न_तिरछा_फ़ॉन्ट(शब्द, पत्र_आकार):
+    कला = """"
+    के_लिए पत्र में शब्द:
+        आकार = यादृच्छिक.पसंद(पत्र_आकार)
+        कला += ""/"" * आकार + ""\n ""
+    वापस कला
+
+
+परिभाषा उत्पन्न_रेखांकन_फ़ॉन्ट(शब्द, पत्र_आकार):
+    कला = """"
+    के_लिए पत्र में शब्द:
+        आकार = यादृच्छिक.पसंद(पत्र_आकार)
+        कला += """" * आकार + ""\n ""
+    वापस कला
+
+
+परिभाषा उत्पन्न_आस्की_कला(शब्द, फ़ॉन्ट_शैली, पत्र_आकार):
+    कला = """"
+    के_लिए पत्र में शब्द:
+        यदि पत्र.अक्षर_है():
+            कला += फ़ॉन्ट_शैली(पत्र, पत्र_आकार)
+        वरना:
+            कला += पत्र + ""\n ""
+    वापस कला
+
+
+परिभाषा मुख्य():
+    शब्द = इनपुट(""प्रवेश_करना ए शब्द: "")
+    फ़ॉन्ट_शैलियों = [उत्पन्न_मानक_फ़ॉन्ट, उत्पन्न_बोल्ड_फ़ॉन्ट, उत्पन्न_तिरछा_फ़ॉन्ट, उत्पन्न_रेखांकन_फ़ॉन्ट]
+    फ़ॉन्ट_शैली = यादृच्छिक.पसंद(फ़ॉन्ट_शैलियों)
+    पत्र_आकार = [1, 2, 3]
+    आस्की_कला = उत्पन्न_आस्की_कला(शब्द, फ़ॉन्ट_शैली, पत्र_आकार)
+    छापिये_(आस्की_कला)
+
+
+यदि नाम == ""मुख्य"":
+    मुख्य()"

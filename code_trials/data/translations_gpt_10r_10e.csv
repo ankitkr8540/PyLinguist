@@ -1,0 +1,383 @@
+English_code,Hindi_code
+"
+def multiply_matrices(A, B):
+    a, b, c = A[0][0], A[0][1], A[1][0]
+    d, e, f = B[0][0], B[0][1], B[1][0]
+    
+    return [
+        [a*d + b*e, a*e + b*f],
+        [c*d + e*d, c*e + e*f]
+    ]
+
+
+def power_matrix(A, n):
+    if n == 0:
+        return [[1, 0], [0, 1]]  # Identity matrix
+    
+    result = power_matrix(A, n // 2)
+    result = multiply_matrices(result, result)
+    
+    if n % 2 == 1:
+        result = multiply_matrices(result, A)
+    
+    return result
+
+
+def fibonacci(n):
+    if n == 0:
+        return 0
+    
+    matrix = [[1, 1], [1, 0]]
+    result = power_matrix(matrix, n - 1)
+    
+    return result[0][0]
+","परिभाषा गुणा_मैट्रिक्स(ए, बी):
+    ए, बी, सी = ए[0][0], ए[0][1], ए[1][0]
+    डी, ई, एफ = बी[0][0], बी[0][1], बी[1][0]
+    
+    वापस [
+        [ए*डी + बी*ई, ए*ई + बी*एफ],
+        [सी*डी + ई*डी, सी*ई + ई*एफ]
+    ]
+
+
+परिभाषा शक्ति_मैट्रिक्स(ए, एन):
+    यदि एन == 0:
+        वापस [[1, 0], [0, 1]]  # पहचान मैट्रिक्स
+    
+    परिणाम = शक्ति_मैट्रिक्स(ए, एन // 2)
+    परिणाम = गुणा_मैट्रिक्स(परिणाम, परिणाम)
+    
+    यदि एन % 2 == 1:
+        परिणाम = गुणा_मैट्रिक्स(परिणाम, ए)
+    
+    वापस परिणाम
+
+
+परिभाषा फिबोनाच्ची(एन):
+    यदि एन == 0:
+        वापस 0
+    
+    मैट्रिक्स = [[1, 1], [1, 0]]
+    परिणाम = शक्ति_मैट्रिक्स(मैट्रिक्स, एन - 1)
+    
+    वापस परिणाम[0][0]"
+"
+def debug_program(arr):
+    n = len(arr)
+    return binary_search(arr, 0, n - 1)
+
+def binary_search(arr, start, end):
+    if start > end:
+        return -1
+    
+    mid = (start + end) // 2
+    
+    if arr[mid] == mid:
+        return mid
+    
+    left_result = binary_search(arr, start, min(mid - 1, arr[mid]))
+    right_result = binary_search(arr, max(mid + 1, arr[mid]), end)
+    
+    return max(left_result, right_result)
+","परिभाषा डिबग_कार्यक्रम(आगमन):
+    एन = लंबाई(आगमन)
+    वापस बाइनरी_खोज(आगमन, 0, एन - 1)
+
+परिभाषा बाइनरी_खोज(आगमन, प्रारंभ, अंत):
+    यदि प्रारंभ > अंत:
+        वापस -1
+    
+    मध्य = (प्रारंभ + अंत) // 2
+    
+    यदि आगमन[मध्य] == मध्य:
+        वापस मध्य
+    
+    बायाँ_परिणाम = बाइनरी_खोज(आगमन, प्रारंभ, न्यूनतम(मध्य - 1, आगमन[मध्य]))
+    दायाँ_परिणाम = बाइनरी_खोज(आगमन, अधिकतम(मध्य + 1, आगमन[मध्य]), अंत)
+    
+    वापस अधिकतम(बायाँ_परिणाम, दायाँ_परिणाम)"
+"
+import math
+
+def power(x, y):
+    # Check for invalid inputs
+    if not isinstance(x, (int, float)) or not isinstance(y, int):
+        return ""Error: Invalid input. Please enter numeric values for x and y.""
+
+    # Check if x is between 1 and 10
+    if not 1 <= x <= 10:
+        return ""Error: x should be between 1 and 10.""
+
+    # Check if y is between 0 and 5
+    if not 0 <= y <= 5:
+        return ""Error: y should be between 0 and 5.""
+
+    # Custom algorithm for calculating power
+    result = x ** y
+
+    # Check if result exceeds threshold for scientific notation
+    if result > 1e6:
+        return ""{:.2e}"".format(result)
+    else:
+        return result
+
+# Example usage
+x = 2.5
+y = 3
+result = power(x, y)
+print(result)
+","आयात गणित
+
+परिभाषा शक्ति(एक्स, वाई):
+    #अमान्य इनपुट के लिए जाँचें
+    यदि ना उदाहरण_है(एक्स, (अंक, दश)) या ना उदाहरण_है(वाई, अंक):
+        वापस ""गलती: अमान्य इनपुट. कृपया संख्या मान के लिए एक्स और वाई दर्ज करें।""
+
+    #जाँचें यदि एक्स 1 और 10 के बीच है
+    यदि ना 1 <= एक्स <= 10:
+        वापस ""गलती: एक्स 1 और 10 के बीच होना चाहिए।""
+
+    #जाँचें यदि वाई 0 और 5 के बीच है
+    यदि ना 0 <= वाई <= 5:
+        वापस ""गलती: वाई 0 और 5 के बीच होना चाहिए।""
+
+    #शक्ति की गणना के लिए कस्टम एल्गोरिदम
+    परिणाम = एक्स ** वाई
+
+    #वैज्ञानिक संकेतन के लिए थ्रेशोल्ड को पार करने की जाँच करें
+    यदि परिणाम > 1e6:
+        वापस ""{:.2e}"".प्रारूप(परिणाम)
+    वरना:
+        वापस परिणाम
+
+#उपयोग का उदाहरण
+एक्स = 2.5
+वाई = 3
+परिणाम = शक्ति(एक्स, वाई)
+छापिये(परिणाम)"
+"
+def bubble_sort_descending(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if arr[j] < arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+arr = [3, 2, 1, 5, 4]
+sorted_arr = bubble_sort_descending(arr)
+print(sorted_arr)
+","परिभाषा बुलबुला_क्रम_उल्टा(arr):
+    एन = लंबाई(arr)
+    के_लिए ई में रेंज(एन - 1):
+        के_लिए जे में रेंज(एन - ई - 1):
+            यदि arr[जे] < arr[जे + 1]:
+                arr[जे], arr[जे + 1] = arr[जे + 1], arr[जे]
+    वापस arr
+
+arr = [3, 2, 1, 5, 4]
+sorted_arr = बुलबुला_क्रम_उल्टा(arr)
+छापिये(sorted_arr)"
+"
+def sum_prime_numbers(arr):
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    prime_sum = 0
+    for num in arr:
+        if is_prime(num):
+            prime_sum += num
+    return prime_sum
+","परिभाषा योग_मुख्य_संख्याएँ(आगमन):
+    परिभाषा है_मुख्य(एन):
+        यदि एन <= 1:
+            वापस असत्य
+        के_लिए ई में रेंज(2, अंक(एन**0.5) + 1):
+            यदि एन % ई == 0:
+                वापस असत्य
+        वापस सत्य
+
+    मुख्य_योग = 0
+    के_लिए संख्या में आगमन:
+        यदि है_मुख्य(संख्या):
+            मुख्य_योग += संख्या
+    वापस मुख्य_योग"
+"
+def calculate_factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * calculate_factorial(n - 1)
+
+def calculate_factorials(arr):
+    result = []
+    for num in arr:
+        result.append(calculate_factorial(num))
+    return result
+
+arr = [1, 2, 3, 4, 5]
+factorials = calculate_factorials(arr)
+print(factorials)
+","परिभाषा calculate_फैक्टोरियल(एन):
+    यदि एन == 0:
+        वापस 1
+    वरना:
+        वापस एन * calculate_फैक्टोरियल(एन - 1)
+
+परिभाषा calculate_फैक्टोरियल्स(आगमन):
+    परिणाम = []
+    के_लिए संख्या में आगमन:
+        परिणाम.संलग्न(calculate_फैक्टोरियल(संख्या))
+    वापस परिणाम
+
+आगमन = [1, 2, 3, 4, 5]
+फैक्टोरियल्स = calculate_फैक्टोरियल्स(आगमन)
+छापिये(फैक्टोरियल्स)"
+"
+def count_vowels(text):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    vowel_counts = {vowel: 0 for vowel in vowels}
+    
+    for char in text:
+        if char.lower() in vowels:
+            vowel_counts[char.lower()] += 1
+    
+    return vowel_counts
+
+text = ""Hello World!""
+result = count_vowels(text)
+print(result)
+","परिभाषा गिनें_स्वर(पाठ):
+    स्वर = ['अ', 'इ', 'ई', 'ओ', 'उ']
+    स्वर_गणना = {स्वर: 0 के_लिए स्वर में स्वर}
+    
+    के_लिए चार में पाठ:
+        यदि चार.छोटा() में स्वर:
+            स्वर_गणना[चार.छोटा()] += 1
+    
+    वापस स्वर_गणना
+
+पाठ = ""नमस्ते दुनिया!""
+परिणाम = गिनें_स्वर(पाठ)
+छापिये(परिणाम)"
+"
+import random
+
+def generate_random_number():
+    num = 0
+    while bin(num).count('1') != 4:
+        num = random.randint(0, 15)
+    return num
+
+random_number = generate_random_number()
+print(random_number)
+","आयात यादृच्छिक
+
+परिभाषा उत्पन्न_यादृच्छिक_संख्या():
+    संख्या = 0
+    जबतक द्वि(संख्या).गिनें('1') != 4:
+        संख्या = यादृच्छिक.randint(0, 15)
+    वापस संख्या
+
+यादृच्छिक_संख्या = उत्पन्न_यादृच्छिक_संख्या()
+छापिये(यादृच्छिक_संख्या)"
+"
+def multiply(a, b):
+    # Calculate the sign of the result
+    sign = -1 if (a < 0) ^ (b < 0) else 1
+
+    # Convert both numbers to positive
+    a = abs(a)
+    b = abs(b)
+
+    # Initialize the result
+    result = 0
+
+    # Multiply the numbers using bitwise operations
+    while b:
+        # If b is odd, add a to the result
+        if b & 1:
+            result += a
+
+        # Shift a to the left by 1 bit
+        a <<= 1
+
+        # Shift b to the right by 1 bit
+        b >>= 1
+
+    return sign * result
+","परिभाषा गुणा(ए, बी):
+    # परिणाम का संकेत निकालें
+    संकेत = -1 यदि (ए < 0) ^ (बी < 0) वरना 1
+
+    # दोनों संख्याओं को सकारात्मक में बदलें
+    ए = निरपेक्ष_मान(ए)
+    बी = निरपेक्ष_मान(बी)
+
+    # परिणाम को आरंभ करें
+    परिणाम = 0
+
+    # बिटवाइज ऑपरेशनों का उपयोग करके संख्याओं को गुणा करें
+    जबतक बी:
+        # यदि बी विषम है, परिणाम में ए जोड़ें
+        यदि बी & 1:
+            परिणाम += ए
+
+        # ए को 1 बिट बाईं ओर शिफ्ट करें
+        ए <<= 1
+
+        # बी को 1 बिट दाईं ओर शिफ्ट करें
+        बी >>= 1
+
+    वापस संकेत * परिणाम"
+"
+def find_longest_element(lst):
+    longest_element = ''
+    longest_index = -1
+    longest_count = 0
+    
+    for i, element in enumerate(lst):
+        if len(str(element)) > len(longest_element):
+            longest_element = str(element)
+            longest_index = i
+            longest_count = 1
+        elif len(str(element)) == len(longest_element):
+            longest_count += 1
+    
+    return longest_element, longest_index, longest_count
+
+# Example usage:
+lst = [1, 2.5, 'abc', 'defg', 10.25, -5, 'abcdefg']
+longest_element, longest_index, longest_count = find_longest_element(lst)
+
+print(""Longest Element:"", longest_element)
+print(""Index of Longest Element:"", longest_index)
+print(""Total Occurrences of Longest Element:"", longest_count)
+","परिभाषा खोजें_सबसे_लंबा_तत्व(lst):
+    सबसे_लंबा_तत्व = ''
+    सबसे_लंबा_सूचकांक = -1
+    सबसे_लंबा_गिनती = 0
+    
+    के_लिए i, तत्व में गणना(lst):
+        यदि लंबाई(स्ट्रिंग(तत्व)) > लंबाई(सबसे_लंबा_तत्व):
+            सबसे_लंबा_तत्व = स्ट्रिंग(तत्व)
+            सबसे_लंबा_सूचकांक = i
+            सबसे_लंबा_गिनती = 1
+        वरना_यदि लंबाई(स्ट्रिंग(तत्व)) == लंबाई(सबसे_लंबा_तत्व):
+            सबसे_लंबा_गिनती += 1
+    
+    वापस सबसे_लंबा_तत्व, सबसे_लंबा_सूचकांक, सबसे_लंबा_गिनती
+
+#उपयोग का उदाहरण:
+lst = [1, 2.5, 'abc', 'defg', 10.25, -5, 'abcdefg']
+सबसे_लंबा_तत्व, सबसे_लंबा_सूचकांक, सबसे_लंबा_गिनती = खोजें_सबसे_लंबा_तत्व(lst)
+
+छापिये(""सबसे लंबा तत्व:"", सबसे_लंबा_तत्व)
+छापिये(""सबसे लंबा तत्व का सूचकांक:"", सबसे_लंबा_सूचकांक)
+छापिये(""सबसे लंबा तत्व की कुल घटनाएँ:"", सबसे_लंबा_गिनती)"
