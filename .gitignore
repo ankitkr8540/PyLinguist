@@ -4,6 +4,10 @@
 *.log
 *.out
 *.synctex.gz
+**/*.bst
+**/*.bbl
+**/*.blg
+
 
 __pycache__/
 .DS_Store
