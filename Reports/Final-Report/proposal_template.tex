@@ -40,36 +40,73 @@
   G01436204\\
   \texttt{akumar37@gmu.edu}\\\And
   Third Author \\
-  Ankit Kumar\\ 
+  Homa Haghighi\\ 
   G01436204\\
   \texttt{akumar37@gmu.edu}}
 
-\date{}
+\date{December 6,2024}
 
 \begin{document}
 \maketitle
 
 \section{Introduction}
-
-The paper addresses a fundamental challenge in natural language processing: how to effectively train text classification models with very limited labeled data and whether the knowledge contained in pre-trained language models can be leveraged more effectively for few-shot learning by reformulating input examples as cloze-style phrases.
+Python is a popular programming language, which has gained its popularity due to many factors, which include its readability and intuitive English-like syntax that makes the code accessible to English speakers. However, this can be a significant barrier for non-English speakers who have to grapple with both the programming concepts and learning a new language. Our project addresses this issue by developing a comprehensive translation system that converts Python code from English to Hindi, making Python programming more accessible to Hindi speakers while maintaining code functionality and readability.
             \subsection{Task / Research Question Description} 
             Core research questions are-\\
-            - Can natural language task descriptions be effectively combined with supervised learning to improve few-shot text classification?\\
-            - How can we exploit the implicit knowledge in pre-trained language models through carefully designed patterns?\\
-            - Is it possible to achieve better performance than standard supervised learning with as few as 10 labeled examples per class?
+            - How can we effectively translate Python's syntax, keywords, and natural language elements while preserving code functionality?\\
+            - What combination of translation techniques provides optimal results for code translation??\\
+            - How can we quantitatively and qualitatively evaluate the effectiveness of code translation?\\ \\
+            Our project implements a three-stage translation pipeline combining keyword dictionaries, Google Translate API, and GPT models, with comprehensive evaluation metrics to assess translation quality and code functionality preservation.
             \subsection{Motivation \& Limitations of existing work} 
-            The need for this research is driven by practical limitations in current NLP applications-
-            \begin{itemize}
-              \item \textit{Standard supervised learning}: Requires large amounts of labeled training data, performs poorly in few-shot scenarios, and fails to leverage the implicit knowledge in pre-trained language models.
+            While Python's pseudo-code nature simplifies programming for English speakers, it presents significant challenges for non-English speakers who comprise the majority of the global population. Research has shown that students learn programming concepts more effectively when using a coding language based on their native language. Current solutions like CodeInternational partially address this issue by translating comments and identifiers, but they fall short of providing a complete solution that encompasses Python's built-in functions, keywords, and error messages.\\ \\ 
+            Limitations of existing work include:
+            \begin{itemize}[itemsep=0pt, topsep=0pt]
+                \item Incomplete coverage of Python's language elements
+                \item Lack of consistency in technical term translation
+                \item Limited handling of language-specific challenges
+                \item Insufficient preservation of code functionality
+                \item Absence of comprehensive evaluation metrics
             \end{itemize} 
             \subsection{Proposed Approach} 
-            Briefly describe the core contribution of the paper's proposed approach.
+            Our solution implements a three-stage pipeline that combines rule-based translation, neural machine translation and large language model enhancements:
+            \begin{itemize}[itemsep=0pt, topsep=0pt]
+                \item \textbf{Stage 0: Data Preprocessing}\\ 
+                Initial stage aimed to prepare high-quality Python code data for training and evaluation purposes. We used the "python-code-dataset-500k" dataset from hugging face \cite{jtatman2021python} which provides a diverse collection of Python code exmaples. This stage involves-\\ \\ 
+                - Downloading and cleaning the dataset\\ 
+                - Extracting Python code that was enclosed in the \texttt{<pythoncode>} tags using regex\\ 
+                - Storing the cleaned code in a structured CSV format with \texttt{English\_code} column.
+                \item \textbf{Stage 1: Initial Translation}\\
+                The first translation stage combines keyword mapping with neural machine translation:
+                \begin{itemize}[itemsep=0pt, topsep=0pt]
+                    \item Used curated keyword dictionary created by Joshua Otten \cite{otten2021unipy} which 223 keywords in python and their Hindi translations.
+                    \item Direct translation of keywords using this dictionary
+                    \item Then, we apply Google Translate API for translating the comments, strings and natural language elements.
+                    \item Special handling of compound variables with underscores by splitting, translating split components individually, and rejoining them.
+                    \item This gives us an initial Hindi code version with basic translations.
+                \end{itemize}
+                \item \textbf{Stage 2: GPT Enhancement}\\
+                The second stage leverages GPT-4o Mini to refine and improve translations through example-based learning:
+                \begin{itemize}[itemsep=0pt, topsep=0pt]
+                    \item Using the Hindi code generated in Stage 1 output as reference examples for the model
+                    \item Creating a customized prompt that shows the desired translation patterns to GPT model
+                    \item We provide both the English code and the partially translated Hindi code from Stage 1
+                    \item We use GPT to enhance the translation while preserving code functionality and structure
+                    \item This generates a more natural and contexually appropriate Hindi version 
+                \end{itemize}
+            \end{itemize}
             \subsection{Likely challenges and mitigations} 
-            What is hard about this task / research question? What are your contingency plans if the reproduction turns out to be harder than expected or experiments do not go as planned? 
-
+            There are several challenges in trying to translate Python code between English and Hindi. Our implementation tackles these through specific mitigation strategies:-
+            \begin{itemize}[itemsep=0pt, topsep=0pt]
+              \item \textbf{Compound Word Translation}: Code often contains compound words separated by underscores. The \texttt{translate\_token} method in the \texttt{CodeTranslator} class handles this by splitting compound words, translating individual components, and rejoining them with underscores to maintain code readability.
+              \item \textbf{Code Structure Preservation}: Maintaining code formatting and structure is crucial for readability and execution. The \texttt{translate\_line} method preserves indentation and line structure by measuring leading whitespace before translation and restoring it afterward.
+              \item \textbf{Translation Reliability}: To handle potential translation failures, we apply two important features in our code. The \texttt{safe\_translate} method, which includes a retry mechanism for failed translations. Next is the \texttt{CheckpointManager} class which maintains translation progress. This allows longer translation tasks to be resumed if they are interrupted.
+              \item \textbf{Keyword Translation}: Python keywords and built-in functions need consistent translation. The \texttt{KeywordManager} class maintains a dictionary mapping between English and Hindi keywords, which use Joshua Otten's curated dataset \cite{otten2021unipy}.
+              \item \textbf{Comments and String Handling}: Code comments need a different handling than executable code. The \texttt{translate\_line} method identifies comments by looking at the \texttt{'\#'} character and applying separate translation rules for code and comment sections. This preserves the comments. 
+            \end{itemize}
+            These challenges are addressed through specific implementation, though future work can definitely improve these solutions.
 
 \section{Related Work}
-Include 3-4 sentence descriptions of no less than 4 relevant papers (as applicable). Also mention how your work differs from these. Note that prior work should be properly cited in References, e.g., when you use the BERT model \cite{devlin2019bert} you could cite it in this way; if you want to refer to the authors of a certain paper, you should use \texttt{citet}, e.g., "\citet{devlin2019bert} proposed the BERT model." See \url{https://acl-org.github.io/ACLPUB/formatting.html} for instructions.
+
 
 \section{Experiments}
 
@@ -91,7 +128,7 @@ Please provide a link to a repo of your reimplementation (if applicable) and app
 \end{itemize}
 \subsection{Human Evaluation Framework}
 Two bilingual evaluators (Hindi-English) with 4 years of experience in Python programming evaluated 20 code samples generated by our model. They followed the following rating scale-\\ 
-Rating Scale(1-5):
+\textit{\underline{Rating Scale(1-5)}}:
 \begin{itemize}[itemsep=0pt, topsep=0pt]
     \item \textbf{1}: Unusable and incorrect translation
     \item \textbf{2}: Partially correct translation, major revisions needed
@@ -99,7 +136,31 @@ Rating Scale(1-5):
     \item \textbf{4}: Good translations with minimal revisions needed
     \item \textbf{5}: Perfect translation, no revisions needed
 \end{itemize}
-
+\textit{\underline{Evaluation Criteria}}:
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+    \item \textbf{Syntax Correctness (SC)}: Proper keyword translation, code structure preservation and indentation accuracy
+    \item \textbf{Semantic Preservation (SP)}: Logic preservation, variable scope maintenance and function behavior consistency
+    \item \textbf{Hindi Language Quality (HLQ)}: Evaluating natural hindi expressions, the technical term consistency, comment clarity and code readability
+\end{itemize}
+\subsection{Technical Evaluation Framework}
+\textit{\underline{Syntax Validation}}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+    \item \textbf{AST(Abstract Syntax Tree) Validation}: Tests if translated code produces valid Python AST and gives a binary outcome of Valid/Invalid\\
+    - Result: ????
+    \item \textbf{Token Structure Analysis}: Compares token types between original and translated code, uses Python's tokenize module\\
+    Similarity score: 0.6250 ????
+\end{itemize}
+\textit{\underline{Semantic Testing}}\\We use the \texttt{SemanticTester} class to text the following:
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+    \item \textbf{Execution Equivalence}:Runs both original and translated code, compares outputs for identical inputs\\
+    - Success rate: 0.5999 across test cases ????
+    \item \textbf{Runtime Behavior}: Tests error handling, verifies output types and memory usage patterns
+\end{itemize}
+\textit{\underline{Translation Quality Metrics}}
+\begin{itemize}
+  \item \textbf{BLEU Score Evaluation}:INSERT GRAPH HERE and Explain
+  \item \textbf{Back Translation Validation}:INSERT GRAPH HERE and Explain
+\end{itemize}
 \section{Results}
 Provide a table comparing your results to the published results.
 
