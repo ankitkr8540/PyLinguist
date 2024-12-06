@@ -5,10 +5,87 @@
   howpublished = {\url{https://github.com/jtatman/python-code-dataset-500k}},
   note         = {Accessed: 05-12-2024}
 }
-@misc{otten2021unipy,
+@misc{otten2023unipy,
   author       = {Joshua Otten and Antonios Anastasopoulos and Kevin Moran},
   title        = {Unipy web tool},
-  year         = {2021},
+  year         = {2023},
   howpublished = {\url{https://universal-pl.github.io/UniPy/}},
   note         = {[Online; accessed 10-October-2023]}
+}
+@inproceedings{otten-etal-23-unipy,
+  title     = {Towards a Universal Python: Translating the Natural Modality of Python into Other Human Languages},
+  author    = {Otten, Joshua and Anastasopoulos, Antonios and Moran, Kevin P},
+  booktitle = {Proceedings of ICSME 2023},
+  month     = oct,
+  year      = {2023},
+  address   = {Bogota, Colombia},
+  publisher = {ICSME},
+  url       = {#}
+}
+}
+@article{Piech2019HumanLI,
+  title   = {Human Languages in Source Code: Auto-Translation for Localized Instruction},
+  author  = {Chris Piech and Sami Abu-El-Haija},
+  journal = {Proceedings of the Seventh ACM Conference on Learning @ Scale},
+  year    = {2019},
+  url     = {https://api.semanticscholar.org/CorpusID:202542769}
+}
+@inproceedings{10.5555/2819009.2819097,
+  author    = {Devanbu, Premkumar},
+  title     = {New initiative: the naturalness of software},
+  year      = {2015},
+  publisher = {IEEE Press},
+  abstract  = {This paper describes a new research consortium, studying the Naturalness of Software. This initiative is supported by a pair of grants by the US National Science Foundation, totaling $2,600,000: the first, exploratory ("EAGER") grant of $600,000 helped kickstart an inter-disciplinary effort, and demonstrate feasibility; a follow-on full grant of $2,000,000 was recently awarded. The initiative is led by the author, who is at UC Davis, and includes investigators from Iowa State University and Carnegie-Mellon University (Language Technologies Institute).},
+  booktitle = {Proceedings of the 37th International Conference on Software Engineering - Volume 2},
+  pages     = {543–546},
+  numpages  = {4},
+  location  = {Florence, Italy},
+  series    = {ICSE '15}
+}
+@inproceedings{10.1145/3196398.3196402,
+  author    = {Ott, Jordan and Atchison, Abigail and Harnack, Paul and Bergh, Adrienne and Linstead, Erik},
+  title     = {A deep learning approach to identifying source code in images and video},
+  year      = {2018},
+  isbn      = {9781450357166},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3196398.3196402},
+  doi       = {10.1145/3196398.3196402},
+  abstract  = {While substantial progress has been made in mining code on an Internet scale, efforts to date have been overwhelmingly focused on data sets where source code is represented natively as text. Large volumes of source code available online and embedded in technical videos have remained largely unexplored, due in part to the complexity of extraction when code is represented with images. Existing approaches to code extraction and indexing in this environment rely heavily on computationally intense optical character recognition. To improve the ease and efficiency of identifying this embedded code, as well as identifying similar code examples, we develop a deep learning solution based on convolutional neural networks and autoencoders. Focusing on Java for proof of concept, our technique is able to identify the presence of typeset and handwritten source code in thousands of video images with 85.6\%-98.6\% accuracy based on syntactic and contextual features learned through deep architectures. When combined with traditional approaches, this provides a more scalable basis for video indexing that can be incorporated into existing software search and mining tools.},
+  booktitle = {Proceedings of the 15th International Conference on Mining Software Repositories},
+  pages     = {376–386},
+  numpages  = {11},
+  keywords  = {convolutional neural networks, deep learning, programming tutorials, video mining},
+  location  = {Gothenburg, Sweden},
+  series    = {MSR '18}
+}
+@inproceedings{10.1109/ASE56229.2023.00076,
+  author    = {Tang, Ze and Ge, Jidong and Liu, Shangqing and Zhu, Tingwei and Xu, Tongtong and Huang, Liguo and Luo, Bin},
+  title     = {Domain Adaptive Code Completion via Language Models and Decoupled Domain Databases},
+  year      = {2024},
+  isbn      = {9798350329964},
+  publisher = {IEEE Press},
+  url       = {https://doi.org/10.1109/ASE56229.2023.00076},
+  doi       = {10.1109/ASE56229.2023.00076},
+  abstract  = {Large Language Models (LLMs) have demonstrated remarkable performance in code completion. However, due to the lack of domain-specific knowledge, they may not be optimal in completing code that requires intensive domain knowledge for example completing the library names. Although there are several works that have confirmed the effectiveness of fine-tuning techniques to adapt language models for code completion in specific domains. They are limited by the need for constant fine-tuning of the model when the project is in constant iteration.To address this limitation, in this paper, we propose kNM-LM, a retrieval-augmented language model (R-LM), that integrates domain knowledge into language models without fine-tuning. Different from previous techniques, our approach is able to automatically adapt to different language models and domains. Specifically, it utilizes the in-domain code to build the retrieval-based database decoupled from LM, and then combines it with LM through Bayesian inference to complete the code. The extensive experiments on the completion of intra-project and intra-scenario have confirmed that kNM-LM brings about appreciable enhancements when compared to CodeGPT and UnixCoder. A deep analysis of our tool including the responding speed, storage usage, specific type code completion, and API invocation completion has confirmed that kNM-LM provides satisfactory performance, which renders it highly appropriate for domain adaptive code completion. Furthermore, our approach operates without the requirement for direct access to the language model's parameters. As a result, it can seamlessly integrate with black-box code completion models, making it easy to integrate our approach as a plugin to further enhance the performance of these models.},
+  booktitle = {Proceedings of the 38th IEEE/ACM International Conference on Automated Software Engineering},
+  pages     = {421–433},
+  numpages  = {13},
+  keywords  = {domain adaptive code completion, retrieval-augment language model},
+  location  = {Echternach, Luxembourg},
+  series    = {ASE '23}
+}
+@misc{googletranslateapi,
+  author       = {{Google}},
+  year         = {2024},
+  title        = {Google Translate},
+  howpublished = {\url{http://translate.google.com}},
+  note         = {Accessed: 3-December-2024}
+}
+@misc{gpt4omini,
+  author       = {OpenAI},
+  year         = {2024},
+  title        = {GPT-4o Mini},
+  howpublished = {\url{https://www.openai.com}},
+  note         = {Accessed: 3-December-2024}
 }
