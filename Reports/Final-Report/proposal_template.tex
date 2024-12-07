@@ -54,8 +54,8 @@
   \texttt{akumar37@gmu.edu}\\\And
   Third Author \\
   Homa Haghighi\\ 
-  G01436204\\
-  \texttt{akumar37@gmu.edu}}
+  G01145449\\
+  \texttt{hhaghigh@gmu.edu}}
 
 \date{December 6,2024}
 
@@ -118,7 +118,7 @@ Python is a popular programming language, which has gained its popularity due to
 
 \section {Methodology}
 \subsection{Pipeline Overview}
-approach for translating Python code between English and Hindi consists of two main stages: initial translation, and GPT-based enhancement. Each stage builds upon the previous one, ensuring quality translations while preserving code functionality.
+The approach for translating Python code between English and Hindi consists of two main stages: initial translation, and GPT-based enhancement. Each stage builds upon the previous one, ensuring quality translations while preserving code functionality.
 \subsubsection{Stage 0: Data Preprocessing}
 The dataset that we use is the python-code-dataset-500k from Hugging Face \cite{jtatman2021python}. We load this dataset using Hugging Face datasets library. We first clean the dataset by removing unnecessary columns, like 'instruction' and 'system', to focus on the code content.\\ 
 
@@ -151,7 +151,9 @@ The second stage uses GPT-4o mini model \cite{gpt4omini} to refine and improve t
 
 The \texttt{create\_prompt} creates carefully formatted prompts for the GPT model (Appendix \ref{sec:appendix}). Each prompt contains three key sections: example translations showing the desired transformation pattern, explicit instructions for maintaining code structure and handling translations, and the partially translated code that needs enhancement. This structured approach helps guide the model toward producing consistent and reliable translations.\\ 
 
-The translation process is done by \texttt{translate\_code} method, which applied they keyword replacement strategy from Stage 1, then creates an appropriate prompt for GPT 4o Mini. The model runs with tempaerature 0 to maximize the consistency in output.
+The translation process is done by \texttt{translate\_code} method, which applied they keyword replacement strategy from Stage 1, then creates an appropriate prompt for GPT 4o Mini. The model runs with tempaerature 0 to maximize the consistency in output.\\ 
+
+Our test case for the translation process is 10 rows of English code. When we ask GPT model to translate these 10 rows of code, we give to it 5,10,20 and 30 examples of code translation from Stage 1 as a reference in the prompt. After adding refined prompts, we run the model to get the translated code. Keeping the test case of 10 rows of code as constant, we are able to generate metrics for different example counts.\\
 \subsection{Evaluation Framework}
 \subsubsection{Dataset and Test Configuration}
 \begin{itemize}[itemsep=0pt, topsep=0pt]
@@ -179,21 +181,40 @@ Two bilingual evaluators (Hindi-English) with 4 years of experience in Python pr
     \item \textbf{Hindi Language Quality (HLQ)}: Evaluating natural hindi expressions, the technical term consistency, comment clarity and code readability
 \end{itemize}
 \subsubsection{Technical Evaluation Framework}
+% \textit{\underline{Syntax Validation}}
+% \begin{itemize}[itemsep=0pt, topsep=0pt]
+%     \item \textbf{AST(Abstract Syntax Tree) Validation}: Tests if translated code produces valid Python AST and gives a binary outcome of Valid/Invalid
+%     \item \textbf{Token Structure Analysis}: Compares token types between original and translated code, uses Python's tokenize module
+% \end{itemize}
+% \textit{\underline{Semantic Testing}}\\We use the \texttt{SemanticTester} class to test the following:
+% \begin{itemize}[itemsep=0pt, topsep=0pt]
+%     \item \textbf{Execution Equivalence}:Runs both original and translated code, compares outputs for identical inputs
+%     \item \textbf{Runtime Behavior}: Tests error handling, verifies output types and memory usage patterns
+% \end{itemize}
+% \textit{\underline{Translation Quality Metrics}}
+% \begin{itemize}
+%   \item \textbf{BLEU Score Evaluation}: Compares the translated code with the original code using BLEU score.
+%   \item \textbf{Back Translation Validation}: Translates the translated code back to English and compares it with the original code. We use the same Pipeline as the main translation task, but in reverse.
+% \end{itemize}
+Our technical evaluation framework consists of the following key components:\\
 \textit{\underline{Syntax Validation}}
 \begin{itemize}[itemsep=0pt, topsep=0pt]
-    \item \textbf{AST(Abstract Syntax Tree) Validation}: Tests if translated code produces valid Python AST and gives a binary outcome of Valid/Invalid
-    \item \textbf{Token Structure Analysis}: Compares token types between original and translated code, uses Python's tokenize module
+    \item \textbf{AST(Abstract Syntax Tree) Validation}: Tests if translated code produces valid Python AST, providing a binary outcome (Valid/Invalid) and capturing specific syntax errors. This is crucial as it verifies that our translations maintain Python's syntactic rules, ensuring the code remains executable.
+    \item \textbf{Token Structure Analysis}: Analyzes code structure using Python's tokenize module to quantify token distributions (NAME, STRING, NUMBER, NEWLINE). This helps verify that the structural integrity of the code is preserved during translation, particularly important for maintaining code readability and debugging capabilities.
 \end{itemize}
-\textit{\underline{Semantic Testing}}\\We use the \texttt{SemanticTester} class to text the following:
+\textit{\underline{Semantic Testing}}
 \begin{itemize}[itemsep=0pt, topsep=0pt]
-    \item \textbf{Execution Equivalence}:Runs both original and translated code, compares outputs for identical inputs
-    \item \textbf{Runtime Behavior}: Tests error handling, verifies output types and memory usage patterns
+\item \textbf{Component-level Similarity}: Rather than relying on unit tests which would be impractical given the diverse nature of code samples, we evaluate semantic preservation through component analysis:\\ 
+- \underline{Comment preservation}: ensures maintenance of code documentation\\ 
+- \underline{Function name consistency}: verifies logical structure preservation\\ 
+- \underline{String literal preservation}: confirms data integrity
 \end{itemize}
 \textit{\underline{Translation Quality Metrics}}
-\begin{itemize}
-  \item \textbf{BLEU Score Evaluation}: Compares the translated code with the original code using BLEU score.
-  \item \textbf{Back Translation Validation}: Translates the translated code back to English and compares it with the original code. We use the same Pipeline as the main translation task, but in reverse.
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+    \item \textbf{BLEU Score}: Computes sentence-level BLEU score between original and back-translated code after tokenization. While BLEU scores are traditionally used for natural language translation, they provide a standardized metric for comparing code structure preservation.
+    \item \textbf{Back Translation Assessment}: Evaluates round-trip translation quality using a composite score combining BLEU score, syntax validation, and semantic similarity. This approach provides a comprehensive view of translation quality that wouldn't be possible with unit tests alone, as it considers both structural and semantic aspects of the code.
 \end{itemize}
+
 \section{Experiments}
 
 \subsection{Datasets}
@@ -219,7 +240,7 @@ Our implementation builds upon the Universal Python framework proposed by \cite{
 
 \section{Results}
 \subsection{Discussion}
-Our evaluation of the Python-to-Hindi translation system yielded consistent performance across different configurations, as shown in \ref{tab:translation-results} and visualized in Fig. \ref{fig:metrics-analysis}(a), with all metrics maintaining scores above 0.65. The violin plots in Fig.  \ref{fig:metrics-analysis}(b) reveal the distribution characteristics of our evaluation metrics, showing wider variation in BLEU scores compared to more tightly clustered semantic and overall scores, while maintaining consistent median values across configurations. The semantic similarity analysis, depicted in the heatmap in Fig. \ref{fig:syntax-and-semantic-analysis}(a), demonstrates robust performance with mean scores ranging from 0.907 to 0.937, maximum scores consistently reaching 1.0, and low standard deviations between 0.111 and 0.209. Fig. \ref{fig:syntax-and-semantic-analysis} illustrates the syntax validation results, showing near-perfect syntax validity across all configurations, with only the 20-example configuration showing a slight 0.1\% invalid syntax rate while all other configurations maintained 100\% validity. This comprehensive evaluation, supported by both the tabulated results in \ref{tab:translation-results} and the visual representations across all four figures, indicates strong and stable performance of our translation system, particularly in maintaining semantic similarity and syntactic correctness across different example counts.
+Our evaluation of the Python-to-Hindi translation system yielded consistent performance across different configurations, as shown in Table~\ref{tab:translation-results} and visualized in Fig. \ref{fig:metrics-analysis}(a), with all metrics maintaining scores above 0.65. The violin plots in Fig.  \ref{fig:metrics-analysis}(b) reveal the distribution characteristics of our evaluation metrics, showing wider variation in BLEU scores compared to more tightly clustered semantic and overall scores, while maintaining consistent median values across configurations. The semantic similarity analysis, depicted in the heatmap in Fig. \ref{fig:syntax-and-semantic-analysis}(a), demonstrates robust performance with mean scores ranging from 0.907 to 0.937, maximum scores consistently reaching 1.0, and low standard deviations between 0.111 and 0.209. Fig. \ref{fig:syntax-and-semantic-analysis} illustrates the syntax validation results, showing near-perfect syntax validity across all configurations, with only the 20-example configuration showing a slight 0.1\% invalid syntax rate while all other configurations maintained 100\% validity. This comprehensive evaluation, supported by both the tabulated results in \ref{tab:translation-results} and the visual representations across all four figures, indicates strong and stable performance of our translation system, particularly in maintaining semantic similarity and syntactic correctness across different example counts.
 \subsubsection{Human Evaluation Results}
 \begin{figure}
     \centering
@@ -227,7 +248,7 @@ Our evaluation of the Python-to-Hindi translation system yielded consistent perf
     \caption{Human Evaluation Results}
     \label{fig:human-evaluation-results}
 \end{figure}
-The human evaluation of the translated code samples revealed consistently strong performance across all metrics. Syntax Correctness achieved a perfect score of 5.0 across all example set configurations (5, 10, 20, and 30 examples), indicating flawless preservation of code structure and keyword translation. Semantic Preservation also maintained near-perfect scores (averaging 4.95 out of 5.0), with only a slight dip to 4.8 in the 20-example configuration, demonstrating robust preservation of program logic and function behavior. Hindi Language Quality, while still scoring well, showed relatively lower scores ranging from 4.0 to 4.6, with the highest quality observed in the 5-example configuration. Notably, increasing the number of example sets did not necessarily improve translation quality, with the 5-example configuration achieving the best overall balance across all metrics. The evaluation revealed that while the system excels in maintaining code functionality and structure, there remains room for improvement in Hindi language quality, particularly in technical term consistency and natural expression.
+The human evaluation of the translated code samples revealed consistently strong performance across all metrics, as shown in Figure~\ref{fig:human-evaluation-results} and detailed in our evaluation data \cite{pylinguisthumanfeedback}. Syntax Correctness achieved a perfect score of 5.0 across all example set configurations (5, 10, 20, and 30 examples), indicating flawless preservation of code structure and keyword translation. Semantic Preservation also maintained near-perfect scores (averaging 4.95 out of 5.0), with only a slight dip to 4.8 in the 20-example configuration, demonstrating robust preservation of program logic and function behavior. Hindi Language Quality, while still scoring well, showed relatively lower scores ranging from 4.0 to 4.6, with the highest quality observed in the 5-example configuration. Notably, increasing the number of example sets did not necessarily improve translation quality, with the 5-example configuration achieving the best overall balance across all metrics. The evaluation revealed that while the system excels in maintaining code functionality and structure, there remains room for improvement in Hindi language quality, particularly in technical term consistency and natural expression.
 \begin{table}[htbp]
     \small  % Makes the font slightly smaller to fit
     \centering
@@ -348,7 +369,7 @@ Each of the figures (Figure \ref{fig:failure-cases-1} and \ref{fig:failure-cases
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.9\linewidth,height=7cm,keepaspectratio]{Images/success-cases.png}
+    \includegraphics[width=1.0\linewidth,height=7cm,keepaspectratio]{Images/success-cases.png}
     \caption{Success Cases}
     \label{fig:success-cases}
 \end{figure}
@@ -361,7 +382,19 @@ Each of the figures (Figure \ref{fig:failure-cases-1} and \ref{fig:failure-cases
 \end{itemize}
 
 \section{Conclusion}
-summarize your contribution in three sentences
+Our research presents a novel approach to Python code translation between English and Hindi using a combination of rule-based keyword translation and GPT-based contextual translation. Through comprehensive human and technical evaluations, we demonstrate that this hybrid approach effectively maintains both code functionality and linguistic naturalness.
+summarize your contribution in three sentences.\\ 
+
+The evaluation framework revealed several key findings:
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+    \item Perfect syntax preservation (5.0/5.0) across all test configurations indicates robust maintenance of code structure
+    \item High semantic preservation scores (averaging 4.95/5.0) demonstrate successful retention of program logic
+    \item Good but slightly lower Hindi language quality scores (4.0-4.6/5.0) suggest room for improvement in natural language aspects
+\end{itemize}
+
+Some limitations of our word include reliance on pre-translated keyword mappings, potential scalability challenges with larger codebases, and room for improvement in Hindi language quality. Future work could focus on expanding the keyword dictionary, enhancing the GPT model's training data, and refining the translation pipeline to address these limitations.\\ 
+
+All team members contributed equally to the development and reporting of this project.\\
 \appendix
 \label{sec:appendix}
 \section{Prompts and Generation Configurations}
