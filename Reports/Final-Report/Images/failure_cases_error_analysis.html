@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation System Failure Cases</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+        }
+        .failure-case {
+            background-color: white;
+            border: 1px solid #fee2e2;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .failure-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .warning-icon {
+            color: #ef4444;
+            margin-right: 8px;
+        }
+        .case-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .code-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .code-block {
+            background-color: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        .code-label {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+        .code {
+            background-color: white;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+        .error-section {
+            background-color: #fef2f2;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        .error-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #991b1b;
+            margin-bottom: 4px;
+        }
+        .error-text {
+            font-size: 14px;
+            color: #dc2626;
+            margin-bottom: 8px;
+        }
+        .explanation {
+            font-size: 14px;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Translation System Failure Cases</h1>
+        
+        <!-- Failure Case 1 -->
+         <!-- Failure Case 1: Complex Function Translation -->
+        <div class="failure-case">
+            <div class="failure-header">
+                <span class="warning-icon">⚠️</span>
+                <h2 class="case-title">Complex Function Translation</h2>
+            </div>
+            <div class="code-grid">
+                <div class="code-block">
+                    <div class="code-label">Original Code:</div>
+                    <pre class="code">def isOddPrimeGreaterThan100(number):
+    if number <= 100 or number % 2 == 0:  # Check if number is less than or equal to 100 or even
+        return False
+    for i in range(3, int(number**0.5) + 1, 2):  # Check divisibility by odd numbers only
+        if number % i == 0:
+            return False
+    return True
+
+def findSecondSmallestOddPrimeGreaterThan100(array):
+    smallest = secondSmallest = float('inf')
+    for number in array:
+        if isOddPrimeGreaterThan100(number):
+            if number < smallest:
+                secondSmallest = smallest
+                smallest = number
+            elif number < secondSmallest:
+                secondSmallest = number
+    return secondSmallest</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">Translated Code:</div>
+                    <pre class="code">परिभाषा है_विषम_मुख्य_100_से_बड़ा(संख्या):
+    यदि संख्या <= 100 या संख्या % 2 == 0:  # जाँचें यदि संख्या 100 से कम या बराबर है या विषम है
+        वापस असत्य
+    के_लिए ई में रेंज(3, अंक(संख्या**0.5) + 1, 2):  # केवल विषम संख्याओं द्वारा विभाज्यता की जाँच करें
+        यदि संख्या % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा ढूँढो_दूसरा_सबसे_छोटा_विषम_मुख्य_100_से_बड़ा(आगमन):
+    सबसे_छोटा = दूसरा_सबसे_छोटा = दश('असीमित')
+    के_लिए संख्या में आगमन:
+        यदि है_विषम_मुख्य_100_से_बड़ा(संख्या):
+            यदि संख्या < सबसे_छोटा:
+                दूसरा_सबसे_छोटा = सबसे_छोटा
+                सबसे_छोटा = संख्या
+            वरना_यदि संख्या < दूसरा_सबसे_छोटा:
+                दूसरा_सबसे_छोटा = संख्या
+    वापस दूसरा_सबसे_छोटा</pre>
+                </div>
+            </div>
+            <div class="error-section">
+                <div class="error-title">Issues:</div>
+                <div class="explanation">1. Variable 'i' translated to 'ई' which could cause confusion with Hindi vowel<br>
+                2. Mathematical terms and operators remain untranslated<br>
+                3. Inconsistent treatment of compound terms (e.g., isOddPrimeGreaterThan100)</div>
+            </div>
+        </div>
+
+        <!-- Failure Case 2: String Processing Function -->
+        <div class="failure-case">
+            <div class="failure-header">
+                <span class="warning-icon">⚠️</span>
+                <h2 class="case-title">String Processing Function</h2>
+            </div>
+            <div class="code-grid">
+                <div class="code-block">
+                    <div class="code-label">Original String Processing Code:</div>
+                    <pre class="code">def filter_and_replace(string):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    filtered_words = []
+    words = string.split()
+    for word in words:
+        if any(char.isdigit() or not char.isalpha() for char in word):
+            continue</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">Translated Code:</div>
+                    <pre class="code">परिभाषा फ़िल्टर_और_बदलें(डोरी):
+    स्वर = ['ए', 'ई', 'आई', 'ओ', 'यू']
+    फ़िल्टर_किए_गए_शब्द = []
+    शब्द = डोरी.बाँट()
+    के_लिए शब्द में शब्द:
+        यदि कोई(चार.अंक_है() या ना चार.अक्षर_है() के_लिए चार में शब्द):
+            जारी</pre>
+                </div>
+            </div>
+            <div class="error-section">
+                <div class="error-title">Issues:</div>
+                <div class="error-text">Character and String Processing Inconsistencies</div>
+                <div class="explanation">1. Character ('char') mistranslated as number 'चार'<br>
+                2. String methods translation inconsistencies<br>
+                3. Vowel representation differs between languages causing syntax issues</div>
+            </div>
+        </div>
+        <div class="failure-case">
+            <div class="failure-header">
+                <span class="warning-icon">⚠️</span>
+                <h2 class="case-title">Character Translation Error</h2>
+            </div>
+            <div class="code-grid">
+                <div class="code-block">
+                    <div class="code-label">Original Code:</div>
+                    <pre class="code">char = input_string[0]</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">Translated Code:</div>
+                    <pre class="code">चार = इनपुट_स्ट्रिंग[0]</pre>
+                </div>
+            </div>
+            <div class="error-section">
+                <div class="error-title">Error:</div>
+                <div class="error-text">Semantic Error: Incorrect Translation Context</div>
+                <div class="explanation">The system translated 'char' to 'चार' (meaning number 4) instead of maintaining its programming context as character.</div>
+            </div>
+        </div>
+
+        <!-- Failure Case 2 -->
+        <div class="failure-case">
+            <div class="failure-header">
+                <span class="warning-icon">⚠️</span>
+                <h2 class="case-title">Vowel Set Syntax Error</h2>
+            </div>
+            <div class="code-grid">
+                <div class="code-block">
+                    <div class="code-label">Original Code:</div>
+                    <pre class="code">if char.isalpha() and char not in 'aeiou':</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">Translated Code:</div>
+                    <pre class="code">यदि चार.अक्षर_है() और चार ना में 'ए', 'ई', 'आई', 'ओ', 'यू':</pre>
+                </div>
+            </div>
+            <div class="error-section">
+                <div class="error-title">Error:</div>
+                <div class="error-text">SyntaxError: Invalid syntax in vowel set definition</div>
+                <div class="explanation">The translation broke Python syntax by converting the vowel string into separate comma-separated strings.</div>
+            </div>
+        </div>
+
+        <!-- Failure Case 3 -->
+        <div class="failure-case">
+            <div class="failure-header">
+                <span class="warning-icon">⚠️</span>
+                <h2 class="case-title">Context Confusion Error</h2>
+            </div>
+            <div class="code-grid">
+                <div class="code-block">
+                    <div class="code-label">Original Code:</div>
+                    <pre class="code">current_state = process.state</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">Translated Code:</div>
+                    <pre class="code">वर्तमान_राज्य_अमेरिका = प्रक्रिया.राज्य_अमेरिका</pre>
+                </div>
+            </div>
+            <div class="error-section">
+                <div class="error-title">Error:</div>
+                <div class="error-text">Semantic Error: Incorrect Domain Context</div>
+                <div class="explanation">The system used geographical context for 'state' instead of its programming context.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

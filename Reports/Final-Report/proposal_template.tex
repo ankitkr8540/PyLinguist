@@ -218,6 +218,7 @@ Our implementation builds upon the Universal Python framework proposed by \cite{
 \textbf{Link to our repository}:\href{https://github.com/StringAna/PyLinguist/blob/main/code_trials/Project.ipynb}{PyLinguist Code}
 
 \section{Results}
+\subsection{Discussion}
 Our evaluation of the Python-to-Hindi translation system yielded consistent performance across different configurations, as shown in \ref{tab:translation-results} and visualized in Fig. \ref{fig:metrics-analysis}(a), with all metrics maintaining scores above 0.65. The violin plots in Fig.  \ref{fig:metrics-analysis}(b) reveal the distribution characteristics of our evaluation metrics, showing wider variation in BLEU scores compared to more tightly clustered semantic and overall scores, while maintaining consistent median values across configurations. The semantic similarity analysis, depicted in the heatmap in Fig. \ref{fig:syntax-and-semantic-analysis}(a), demonstrates robust performance with mean scores ranging from 0.907 to 0.937, maximum scores consistently reaching 1.0, and low standard deviations between 0.111 and 0.209. Fig. \ref{fig:syntax-and-semantic-analysis} illustrates the syntax validation results, showing near-perfect syntax validity across all configurations, with only the 20-example configuration showing a slight 0.1\% invalid syntax rate while all other configurations maintained 100\% validity. This comprehensive evaluation, supported by both the tabulated results in \ref{tab:translation-results} and the visual representations across all four figures, indicates strong and stable performance of our translation system, particularly in maintaining semantic similarity and syntactic correctness across different example counts.
 \begin{table}[htbp]
     \small  % Makes the font slightly smaller to fit
@@ -278,16 +279,78 @@ Our evaluation of the Python-to-Hindi translation system yielded consistent perf
     \label{fig:syntax-and-semantic-analysis}
 \end{figure}
 
-\subsection{Discussion}
-Discuss any issues you faced. Do your results differ from the published ones? If yes, why do you think that is? Did you do a sensitivity analysis (e.g. multiple runs with different random seeds)?
-
 \subsection{Resources}
-Discuss the cost of your reproduction in terms of resources: computation, time, people, development effort, communication with the authors (if applicable).
-
+This project was developed using the following resources:
+\subsubsection{Computational Resources}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+    \item Python environment with standard libraries and specific packages like nltk, transformers, and deep-translator
+    \item OpenAI's GPT-4o-mini model for translation enhancement
+    \item Local CPU computation
+    \item Streamlit for frontend development
+\end{itemize}
+\subsubsection{Time and Development}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+    \item Development Time: 4-5 weeks
+    \item Total Development Hours: 120 hours
+    \item Development Environment: Jupyter Notebook, VSCode
+\end{itemize}
 
 \subsection{Error Analysis}
-Perform an error analysis on the model. Include at least 2-3 instances where the model fails. Discuss the error analysis in the paper -- what other analyses could the authors have ran? If you were able to perform additional error analyses, report it here.
+Our analysis revealed several interesting cases where our translation system both succeeded and failed. Here we discuss key examples to highlight the system's strengths and limitations.
+\subsubsection{Failure Cases}
+Each of the figures (Figure \ref{fig:failure-cases-1} and \ref{fig:failure-cases-2}) illustrates a different type of failure case, where the translation system struggled to convert a specific code snippet to its contextual Hindi meaning. The pipeline converts it to the Hindi equivalent of the most used english word (string, char, state, etc.) which is not always the correct translation in the context of the code. This leads to a loss of readability in the translated code.
+\begin{figure}[!t]
+    \centering
+    \begin{minipage}{0.95\columnwidth}
+        \includegraphics[width=0.7\linewidth,height=4cm,keepaspectratio]{Images/char_translation_error.png}
+        \vspace{-0.2cm}
+        \caption*{(a) Character Translation Error}
+        \label{fig:char-translation-error}
+    \end{minipage}
+    \vspace{0.1cm}  
+    \begin{minipage}{0.95\columnwidth}
+        \includegraphics[width=0.7\linewidth,height=4cm,keepaspectratio]{Images/context_confusion_error.png}
+        \vspace{-0.2cm}
+        \caption*{(b) Context Confusion Error}
+        \label{fig:context-confusion-error}
+    \end{minipage}
+    \vspace{-0.2cm}
 
+    \caption{Failure Cases - 1}
+    \label{fig:failure-cases-1}
+\end{figure}
+\begin{figure}[!t]
+\begin{minipage}{0.95\columnwidth}
+    \includegraphics[width=0.7\linewidth,height=4cm,keepaspectratio]{Images/vowel_set_syntax_error.png}
+    \vspace{-0.2cm}
+    \caption*{(c) Vowel Set Syntax Error}
+    \label{fig:vowel-set-syntax-error}
+\end{minipage}
+\vspace{0.2cm}
+
+\begin{minipage}{0.95\columnwidth}
+    \includegraphics[width=1.1\linewidth,height=8cm,keepaspectratio]{Images/complex-function-translation.png}
+    \vspace{-0.2cm}
+    \caption*{(d) Complex Function Translation}
+    \label{fig:complex-function-translation}
+\end{minipage}
+\vspace{-0.2cm}
+\caption{Failure Cases - 2}
+\label{fig:failure-cases-2}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth,height=7cm,keepaspectratio]{Images/success-cases.png}
+    \caption{Success Cases}
+    \label{fig:success-cases}
+\end{figure}
+\subsubsection{Success Cases}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+    \item \textbf{Keyword Translation and Syntax Preservation}: The system demonstrated robust performance in maintaining syntactic validity across different configurations. As shown in Table \ref{tab:translation-results}, three out of four configurations achieved a perfect syntax valid rate of 1.0000, with only a slight decrease to 0.9000 for the 20-example configuration. This is further visualized in Figure \ref{fig:syntax-and-semantic-analysis}(b), which illustrates the consistently high syntax validation rates.
+    \item \textbf{Semantic Preservation}:The system showed strong capability in preserving the semantic meaning of code during translation. According to Table \ref{tab:translation-results}, semantic similarity scores remained high across all configurations, with the 10-example configuration achieving the highest score of 0.9370. The semantic similarity heatmap in Figure \ref{fig:syntax-and-semantic-analysis}(a) provides a detailed view of this performance, showing consistent results across different metrics including mean scores and standard deviations.
+    \item \textbf{Overall Translation Quality}: The system maintained high overall translation quality, as evidenced by the comprehensive metrics shown in Figure \ref{fig:metrics-analysis}(a). The overall scores remained consistently above 0.81 across all configurations, with the 5-example configuration achieving the highest score of 0.8815 (Table \ref{tab:translation-results}). The BLEU scores, while slightly lower, still maintained respectable values ranging from 0.6860 to 0.7357, indicating good translation fidelity.
+    The score distributions shown in Figure \ref{fig:metrics-analysis}(b) further support these findings, demonstrating consistent performance across different evaluation metrics and confirming the robustness of our translation system.
+\end{itemize}
 \section{Robustness Study}
 Explain your approach for Evaluating the Model Robustness. Describe what robustness analysis you have performed. Provide sufficient details about your perturbation data, how you created it, how you used it as a robustness benchmark to evaluate the model, in what metrics, etc.
 
@@ -297,12 +360,8 @@ Describe the evaluation results of your reproduced model on the robustness bench
 \subsection{Discussion} 
 Provide any further discussion here, e.g., what challenges did you face when performing the analysis, and what could have been done if you will have more time on this project? Imagine you are writing this report to future researchers; be sure to include "generalizable insights" (e.g., broadly speaking, any tips or advice you'd like to share for researchers trying to analyze the robustness of an NLP model).
 
-\section{Workload Clarification}
-Describe how  the team divides the workload in this checkpoint. Note that each team member should contribute roughly the same amount of work to this assignment.
-
 \section{Conclusion}
-Is the paper reproducible?
-
+summarize your contribution in three sentences
 \appendix
 \label{sec:appendix}
 \section{Prompts and Generation Configurations}
