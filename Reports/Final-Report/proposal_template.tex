@@ -69,7 +69,7 @@ Python is a popular programming language, which has gained its popularity due to
             - How can we effectively translate Python's syntax, keywords, and natural language elements while preserving code functionality?\\
             - What combination of translation techniques provides optimal results for code translation??\\
             - How can we quantitatively and qualitatively evaluate the effectiveness of code translation?\\ \\
-            Our project implements a three-stage translation pipeline combining keyword dictionaries, Google Translate API, and GPT models, with comprehensive evaluation metrics to assess translation quality and code functionality preservation.
+            Our project implements a two-stage translation pipeline combining keyword dictionaries, Google Translate API, and GPT models, with comprehensive evaluation metrics to assess translation quality and code functionality preservation.
             \subsection{Motivation \& Limitations of existing work} 
             While Python's pseudo-code nature simplifies programming for English speakers, it presents significant challenges for non-English speakers who comprise the majority of the global population. Research has shown that students learn programming concepts more effectively when using a coding language based on their native language. Current solutions like CodeInternational partially address this issue by translating comments and identifiers, but they fall short of providing a complete solution that encompasses Python's built-in functions, keywords, and error messages.\\ \\ 
             Limitations of existing work include:
@@ -81,7 +81,7 @@ Python is a popular programming language, which has gained its popularity due to
                 \item Absence of comprehensive evaluation metrics
             \end{itemize} 
             \subsection{Proposed Approach} 
-            We propose a three-stage pipeline for translating Python code between English and Hindi while preserving functionality. Stage 0 involves preprocessing Python code from the Hugging Face dataset to extract clean samples. In Stage 1, we use a combination of rule-based translation with a keyword dictionary and the Google Translate API, where a KeywordManager maps Python keywords and a CodeTranslator handles compound words, comments, and strings. Stage 2 refines the translations using GPT-4o Mini, which enhances the initial translations through example-based learning. This hybrid approach leverages precise keyword mapping, neural machine translation for natural language, and contextual enhancement via GPT, ensuring reliable and functional translations.
+            We propose a two-stage pipeline for translating Python code between English and Hindi while preserving functionality. Stage 0 involves preprocessing Python code from the Hugging Face dataset to extract clean samples. In Stage 1, we use a combination of rule-based translation with a keyword dictionary and the Google Translate API, where a KeywordManager maps Python keywords and a CodeTranslator handles compound words, comments, and strings. Stage 2 refines the translations using GPT-4o Mini, which enhances the initial translations through example-based learning. This hybrid approach leverages precise keyword mapping, neural machine translation for natural language, and contextual enhancement via GPT, ensuring reliable and functional translations.
             
             \subsection{Likely challenges and mitigations} 
             There are several challenges in trying to translate Python code between English and Hindi. Our implementation tackles these through specific mitigation strategies:-
@@ -98,7 +98,7 @@ Python is a popular programming language, which has gained its popularity due to
 \begin{itemize}
   \item \cite{otten-etal-23-unipy}
   
-  This paper introduced the PyLinguist framework to address the challenges of making Python accessible to non-English speakers. Their work demonstrates that Python's pseudo-code nature, while beneficial for English speakers, creates barriers for others who must master both programming concepts and English simultaneously. They propose automatically translating Python's natural language elements (keywords, error messages, identifiers) into other human languages. Their preliminary implementation enables coding in 5 additional languages and provides a roadmap for developing automated translation frameworks. Our work builds upon their vision by implementing a specific English-Hindi translation pipeline that combines rule-based translation with neural methods.
+  This paper introduced the PyLinguist framework to address the challenges of making Python accessible to non-English speakers. Their work demonstrates that Python's pseudo-code nature, while beneficial for English speakers, creates barriers for others who must master both programming concepts and English simultaneously. They propose automatically translating Python's natural language elements (keywords, error messages, identifiers) into other human languages. Their preliminary implementation enables coding in 7 additional languages and provides a roadmap for developing automated translation frameworks. Our work builds upon their vision by implementing a specific English-Hindi translation pipeline that combines rule-based translation with neural methods.
   \item \cite{Piech2019HumanLI}
   
   This paper introduces CodeInternational, a tool designed to translate code comments and identifiers across multiple human languages, helping non-English speakers learn programming more easily. The study emphasizes the importance of making code accessible in native languages but primarily focuses on Java and comments/identifiers. Our project differs by aiming to translate the entire Python syntax, not just comments or identifiers, providing a more comprehensive solution for Python programming education in non-English languages.
@@ -118,7 +118,7 @@ Python is a popular programming language, which has gained its popularity due to
 
 \section {Methodology}
 \subsection{Pipeline Overview}
-approach for translating Python code between English and Hindi consists of three main stages: data preprocessing, initial translation, and GPT-based enhancement. Each stage builds upon the previous one, ensuring quality translations while preserving code functionality.
+approach for translating Python code between English and Hindi consists of two main stages: initial translation, and GPT-based enhancement. Each stage builds upon the previous one, ensuring quality translations while preserving code functionality.
 \subsubsection{Stage 0: Data Preprocessing}
 The dataset that we use is the python-code-dataset-500k from Hugging Face \cite{jtatman2021python}. We load this dataset using Hugging Face datasets library. We first clean the dataset by removing unnecessary columns, like 'instruction' and 'system', to focus on the code content.\\ 
 
@@ -220,6 +220,14 @@ Our implementation builds upon the Universal Python framework proposed by \cite{
 \section{Results}
 \subsection{Discussion}
 Our evaluation of the Python-to-Hindi translation system yielded consistent performance across different configurations, as shown in \ref{tab:translation-results} and visualized in Fig. \ref{fig:metrics-analysis}(a), with all metrics maintaining scores above 0.65. The violin plots in Fig.  \ref{fig:metrics-analysis}(b) reveal the distribution characteristics of our evaluation metrics, showing wider variation in BLEU scores compared to more tightly clustered semantic and overall scores, while maintaining consistent median values across configurations. The semantic similarity analysis, depicted in the heatmap in Fig. \ref{fig:syntax-and-semantic-analysis}(a), demonstrates robust performance with mean scores ranging from 0.907 to 0.937, maximum scores consistently reaching 1.0, and low standard deviations between 0.111 and 0.209. Fig. \ref{fig:syntax-and-semantic-analysis} illustrates the syntax validation results, showing near-perfect syntax validity across all configurations, with only the 20-example configuration showing a slight 0.1\% invalid syntax rate while all other configurations maintained 100\% validity. This comprehensive evaluation, supported by both the tabulated results in \ref{tab:translation-results} and the visual representations across all four figures, indicates strong and stable performance of our translation system, particularly in maintaining semantic similarity and syntactic correctness across different example counts.
+\subsubsection{Human Evaluation Results}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth,height=7cm,keepaspectratio]{Graphs/human_eval_graph.png}
+    \caption{Human Evaluation Results}
+    \label{fig:human-evaluation-results}
+\end{figure}
+The human evaluation of the translated code samples revealed consistently strong performance across all metrics. Syntax Correctness achieved a perfect score of 5.0 across all example set configurations (5, 10, 20, and 30 examples), indicating flawless preservation of code structure and keyword translation. Semantic Preservation also maintained near-perfect scores (averaging 4.95 out of 5.0), with only a slight dip to 4.8 in the 20-example configuration, demonstrating robust preservation of program logic and function behavior. Hindi Language Quality, while still scoring well, showed relatively lower scores ranging from 4.0 to 4.6, with the highest quality observed in the 5-example configuration. Notably, increasing the number of example sets did not necessarily improve translation quality, with the 5-example configuration achieving the best overall balance across all metrics. The evaluation revealed that while the system excels in maintaining code functionality and structure, there remains room for improvement in Hindi language quality, particularly in technical term consistency and natural expression.
 \begin{table}[htbp]
     \small  % Makes the font slightly smaller to fit
     \centering
@@ -351,14 +359,6 @@ Each of the figures (Figure \ref{fig:failure-cases-1} and \ref{fig:failure-cases
     \item \textbf{Overall Translation Quality}: The system maintained high overall translation quality, as evidenced by the comprehensive metrics shown in Figure \ref{fig:metrics-analysis}(a). The overall scores remained consistently above 0.81 across all configurations, with the 5-example configuration achieving the highest score of 0.8815 (Table \ref{tab:translation-results}). The BLEU scores, while slightly lower, still maintained respectable values ranging from 0.6860 to 0.7357, indicating good translation fidelity.
     The score distributions shown in Figure \ref{fig:metrics-analysis}(b) further support these findings, demonstrating consistent performance across different evaluation metrics and confirming the robustness of our translation system.
 \end{itemize}
-\section{Robustness Study}
-Explain your approach for Evaluating the Model Robustness. Describe what robustness analysis you have performed. Provide sufficient details about your perturbation data, how you created it, how you used it as a robustness benchmark to evaluate the model, in what metrics, etc.
-
-\subsection{Results of Robustness Evaluation}
-Describe the evaluation results of your reproduced model on the robustness benchmark that you created. Include at least 2 examples where the model performs well and 2 examples where it fails (i.e., being not robust). Provide sufficient analysis and your thoughts on the observations.
-
-\subsection{Discussion} 
-Provide any further discussion here, e.g., what challenges did you face when performing the analysis, and what could have been done if you will have more time on this project? Imagine you are writing this report to future researchers; be sure to include "generalizable insights" (e.g., broadly speaking, any tips or advice you'd like to share for researchers trying to analyze the robustness of an NLP model).
 
 \section{Conclusion}
 summarize your contribution in three sentences
