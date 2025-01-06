@@ -1,0 +1,411 @@
+English_code,Hindi_code
+"
+def reverse_matrix(matrix):
+    new_matrix = []
+    for i in range(len(matrix)):
+        new_matrix.append([])
+        for j in range(len(matrix[i])):
+            new_matrix[i].insert(0, matrix[i][j])
+    return new_matrix
+
+
+# Test case 1
+matrix1 = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]]
+# Expected output: [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+print(reverse_matrix(matrix1))
+
+# Test case 2
+matrix2 = [[1, 2, 3, 4],
+           [5, 6, 7, 8]]
+# Expected output: [[8, 7, 6, 5], [4, 3, 2, 1]]
+print(reverse_matrix(matrix2))
+
+# Test case 3
+matrix3 = [[1, 2],
+           [3, 4],
+           [5, 6]]
+# Expected output: [[6, 5], [4, 3], [2, 1]]
+print(reverse_matrix(matrix3))
+","परिभाषा उलटें_मैट्रिक्स(मैट्रिक्स):
+    नया_मैट्रिक्स = []
+    के_लिए ई में रेंज(लंबाई(मैट्रिक्स)):
+        नया_मैट्रिक्स.संलग्न([])
+        के_लिए जे में रेंज(लंबाई(मैट्रिक्स[ई])):
+            नया_मैट्रिक्स[ई].डाल(0, मैट्रिक्स[ई][जे])
+    वापस नया_मैट्रिक्स
+
+
+# परीक्षण_केस 1
+मैट्रिक्स1 = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]]
+# अपेक्षित आउटपुट: [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+छापिये(उलटें_मैट्रिक्स(मैट्रिक्स1))
+
+# परीक्षण_केस 2
+मैट्रिक्स2 = [[1, 2, 3, 4],
+           [5, 6, 7, 8]]
+# अपेक्षित आउटपुट: [[8, 7, 6, 5], [4, 3, 2, 1]]
+छापिये(उलटें_मैट्रिक्स(मैट्रिक्स2))
+
+# परीक्षण_केस 3
+मैट्रिक्स3 = [[1, 2],
+           [3, 4],
+           [5, 6]]
+# अपेक्षित आउटपुट: [[6, 5], [4, 3], [2, 1]]
+छापिये(उलटें_मैट्रिक्स(मैट्रिक्स3))"
+"
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+# Example usage
+n = 10
+fibonacci_number = fibonacci(n)
+print(f""The Fibonacci number at index {n} is {fibonacci_number}."")
+","परिभाषा फिबोनाच्ची(एन):
+    यदि एन == 0:
+        वापस 0
+    वरना_यदि एन == 1:
+        वापस 1
+    वरना:
+        वापस फिबोनाच्ची(एन-1) + फिबोनाच्ची(एन-2)
+
+#उपयोग का उदाहरण
+एन = 10
+फिबोनाच्ची_संख्या = फिबोनाच्ची(एन)
+छापिये (एफ"" फिबोनाच्ची संख्या सूचक {एन} है {फिबोनाच्ची_संख्या}."")"
+"
+def count_unique_consonants(string):
+    consonants = set()
+    lowercase_string = string.lower()
+    for char in lowercase_string:
+        if char.isalpha() and char not in 'aeiou':
+            consonants.add(char)
+    return len(consonants)
+","परिभाषा गिनें_विशिष्ट_व्यंजन(डोरी):
+    व्यंजन = सेट()
+    छोटे_डोरी = डोरी.छोटा()
+    के_लिए चार में छोटे_डोरी:
+        यदि चार.अक्षर_है() और चार ना में 'aeiou':
+            व्यंजन.योग(चार)
+    वापस लंबाई(व्यंजन)"
+"
+def filter_and_replace(string):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    filtered_words = []
+    
+    words = string.split()
+    
+    for word in words:
+        if any(char.isdigit() or not char.isalpha() for char in word):
+            continue
+        
+        if len(word) > 3 and any(char in vowels for char in word):
+            filtered_word = """"
+            for char in word:
+                if char in vowels:
+                    vowel_index = vowels.index(char)
+                    next_vowel = vowels[(vowel_index + 1) % len(vowels)]
+                    filtered_word += next_vowel
+                else:
+                    filtered_word += char
+            filtered_words.append(filtered_word)
+    
+    return "" "".join(filtered_words)
+
+
+# Example usage:
+input_string = ""Hello world! This is a test string. Filter me out if I contain numbers or special characters.""
+output_string = filter_and_replace(input_string)
+print(output_string)
+","परिभाषा फ़िल्टर_और_बदलें(डोरी):
+    स्वर = ['ए', 'ई', 'आई', 'ओ', 'यू']
+    फ़िल्टर_किए_गए_शब्द = []
+    
+    शब्द = डोरी.बाँट()
+    
+    के_लिए शब्द में शब्द:
+        यदि कोई(चार.अंक_है() या ना चार.अक्षर_है() के_लिए चार में शब्द):
+            जारी
+        
+        यदि लंबाई(शब्द) > 3 और कोई(चार में स्वर के_लिए चार में शब्द):
+            फ़िल्टर_किया_गया_शब्द = """"
+            के_लिए चार में शब्द:
+                यदि चार में स्वर:
+                    स्वर_सूचकांक = स्वर.सूचक(चार)
+                    अगला_स्वर = स्वर[(स्वर_सूचकांक + 1) % लंबाई(स्वर)]
+                    फ़िल्टर_किया_गया_शब्द += अगला_स्वर
+                वरना:
+                    फ़िल्टर_किया_गया_शब्द += चार
+            फ़िल्टर_किए_गए_शब्द.संलग्न(फ़िल्टर_किया_गया_शब्द)
+    
+    वापस "" "".जोड़(फ़िल्टर_किए_गए_शब्द)
+
+
+#उपयोग का उदाहरण:
+इनपुट_डोरी = ""नमस्ते दुनिया! यह एक परीक्षण डोरी है। मुझे फ़िल्टर करें यदि मैं संख्याएँ या विशेष अक्षर शामिल करता हूँ।""
+आउटपुट_डोरी = फ़िल्टर_और_बदलें(इनपुट_डोरी)
+छापिये(आउटपुट_डोरी)"
+"
+def isOddPrimeGreaterThan100(number):
+    if number <= 100 or number % 2 == 0:  # Check if number is less than or equal to 100 or even
+        return False
+    for i in range(3, int(number**0.5) + 1, 2):  # Check divisibility by odd numbers only
+        if number % i == 0:
+            return False
+    return True
+
+def findSecondSmallestOddPrimeGreaterThan100(array):
+    smallest = secondSmallest = float('inf')
+    for number in array:
+        if isOddPrimeGreaterThan100(number):
+            if number < smallest:
+                secondSmallest = smallest
+                smallest = number
+            elif number < secondSmallest:
+                secondSmallest = number
+    return secondSmallest
+","परिभाषा है_विषम_मुख्य_100_से_बड़ा(संख्या):
+    यदि संख्या <= 100 या संख्या % 2 == 0:  # जाँचें यदि संख्या 100 से कम या बराबर है या सम है
+        वापस असत्य
+    के_लिए ई में रेंज(3, अंक(संख्या**0.5) + 1, 2):  # केवल विषम संख्याओं द्वारा विभाज्यता की जाँच करें
+        यदि संख्या % ई == 0:
+            वापस असत्य
+    वापस सत्य
+
+परिभाषा खोजें_दूसरा_सबसे_छोटा_विषम_मुख्य_100_से_बड़ा(सरणी):
+    सबसे_छोटा = दूसरा_सबसे_छोटा = दश('inf')
+    के_लिए संख्या में सरणी:
+        यदि है_विषम_मुख्य_100_से_बड़ा(संख्या):
+            यदि संख्या < सबसे_छोटा:
+                दूसरा_सबसे_छोटा = सबसे_छोटा
+                सबसे_छोटा = संख्या
+            वरना_यदि संख्या < दूसरा_सबसे_छोटा:
+                दूसरा_सबसे_छोटा = संख्या
+    वापस दूसरा_सबसे_छोटा"
+"
+class SeparatorNotFoundError(Exception):
+    pass
+
+class MultipleSeparatorsError(Exception):
+    pass
+
+try:
+    mystring = ""Hello, World!""
+    separator = ""#""
+
+    # Incorrect way to split the string on a separator
+    split_string = mystring.split(separator, 1)
+    if not split_string:
+        raise SeparatorNotFoundError(""Separator not found in string"")
+
+    # Additional Requirement:
+    # If the separator is found more than once in the string, raise a custom exception called ""MultipleSeparatorsError""
+
+    # Incorrect way to split the string on a separator
+    split_string = mystring.split(separator)
+    if len(split_string) > 2:
+        raise MultipleSeparatorsError(""Multiple separators found in string"")
+
+except SeparatorNotFoundError as e:
+    print(""Error:"", e)
+
+except MultipleSeparatorsError as e:
+    print(""Error:"", e)
+
+except Exception as e:
+    print(""Error:"", e)
+","वर्ग SeparatorNotFoundError(अपवाद):
+    जाने_दो
+
+वर्ग MultipleSeparatorsError(अपवाद):
+    जाने_दो
+
+प्रयत्न:
+    मेरी_डोरी = ""नमस्ते, दुनिया!""
+    विभाजक = ""#""
+
+    #गलत तरीका से डोरी को विभाजक पर बाँटें
+    विभाजित_डोरी = मेरी_डोरी.बाँट(विभाजक, 1)
+    यदि ना विभाजित_डोरी:
+        उठाओ SeparatorNotFoundError(""विभाजक डोरी में नहीं मिला"")
+
+    # अतिरिक्त आवश्यकता:
+    # यदि विभाजक डोरी में एक से अधिक बार मिला है, तो एक कस्टम अपवाद उठाएँ ""MultipleSeparatorsError""
+
+    #गलत तरीका से डोरी को विभाजक पर बाँटें
+    विभाजित_डोरी = मेरी_डोरी.बाँट(विभाजक)
+    यदि लंबाई(विभाजित_डोरी) > 2:
+        उठाओ MultipleSeparatorsError(""डोरी में कई विभाजक मिले"")
+
+सिवाय SeparatorNotFoundError की_तरह ई:
+    छापिये (""गलती:"", ई)
+
+सिवाय MultipleSeparatorsError की_तरह ई:
+    छापिये (""गलती:"", ई)
+
+सिवाय अपवाद की_तरह ई:
+    छापिये (""गलती:"", ई)"
+"
+def create_index_dictionary(list_one, list_two):
+    if len(list_one) != len(list_two):
+        raise ValueError(""Input lists must be of equal length"")
+    
+    index_dict = {}
+    for i in range(len(list_one)):
+        if isinstance(list_one[i], (list, dict, tuple)) and isinstance(list_two[i], (list, dict, tuple)):
+            if isinstance(list_one[i], set) or isinstance(list_two[i], set):
+                raise ValueError(""Input lists cannot contain sets"")
+            
+            nested_dict = {}
+            if isinstance(list_one[i], dict) and isinstance(list_two[i], dict):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""Nested dictionaries must have the same number of elements"")
+                
+                for key in list_one[i].keys():
+                    if key not in list_two[i]:
+                        raise ValueError(""Keys in nested dictionaries must be the same"")
+                    nested_dict[key] = (list_one[i][key], list_two[i][key])
+            elif isinstance(list_one[i], list) and isinstance(list_two[i], list):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""Nested lists must have the same length"")
+                
+                for j in range(len(list_one[i])):
+                    nested_dict[j] = (list_one[i][j], list_two[i][j])
+            elif isinstance(list_one[i], tuple) and isinstance(list_two[i], tuple):
+                if len(list_one[i]) != len(list_two[i]):
+                    raise ValueError(""Tuples must have the same length"")
+                
+                for j in range(len(list_one[i])):
+                    nested_dict[j] = (list_one[i][j], list_two[i][j])
+            
+            index_dict[i] = nested_dict
+        else:
+            index_dict[i] = (list_one[i], list_two[i])
+    
+    return index_dict
+","परिभाषा बनाएं_सूचकांक_शब्दकोश(सूची_एक, सूची_दो):
+    यदि लंबाई(सूची_एक) != लंबाई(सूची_दो):
+        उठाओ मान_त्रुटि(""इनपुट सूचियाँ समान लंबाई की होनी चाहिए"")
+    
+    सूचकांक_शब्दकोश = {}
+    के_लिए ई में रेंज(लंबाई(सूची_एक)):
+        यदि उदाहरण_है(सूची_एक[ई], (सूची, कोश, ट्यूपल)) और उदाहरण_है(सूची_दो[ई], (सूची, कोश, ट्यूपल)):
+            यदि उदाहरण_है(सूची_एक[ई], सेट) या उदाहरण_है(सूची_दो[ई], सेट):
+                उठाओ मान_त्रुटि(""इनपुट सूचियों में सेट नहीं हो सकते"")
+            
+            नेस्टेड_शब्दकोश = {}
+            यदि उदाहरण_है(सूची_एक[ई], कोश) और उदाहरण_है(सूची_दो[ई], कोश):
+                यदि लंबाई(सूची_एक[ई]) != लंबाई(सूची_दो[ई]):
+                    उठाओ मान_त्रुटि(""नेस्टेड कोशों में समान संख्या के तत्व होने चाहिए"")
+                
+                के_लिए कुंजी में सूची_एक[ई].कीज़():
+                    यदि कुंजी ना में सूची_दो[ई]:
+                        उठाओ मान_त्रुटि(""नेस्टेड कोशों में कुंजी समान होनी चाहिए"")
+                    नेस्टेड_शब्दकोश[कुंजी] = (सूची_एक[ई][कुंजी], सूची_दो[ई][कुंजी])
+            वरना_यदि उदाहरण_है(सूची_एक[ई], सूची) और उदाहरण_है(सूची_दो[ई], सूची):
+                यदि लंबाई(सूची_एक[ई]) != लंबाई(सूची_दो[ई]):
+                    उठाओ मान_त्रुटि(""नेस्टेड सूचियों की समान लंबाई होनी चाहिए"")
+                
+                के_लिए जे में रेंज(लंबाई(सूची_एक[ई])):
+                    नेस्टेड_शब्दकोश[जे] = (सूची_एक[ई][जे], सूची_दो[ई][जे])
+            वरना_यदि उदाहरण_है(सूची_एक[ई], ट्यूपल) और उदाहरण_है(सूची_दो[ई], ट्यूपल):
+                यदि लंबाई(सूची_एक[ई]) != लंबाई(सूची_दो[ई]):
+                    उठाओ मान_त्रुटि(""ट्यूपल की समान लंबाई होनी चाहिए"")
+                
+                के_लिए जे में रेंज(लंबाई(सूची_एक[ई])):
+                    नेस्टेड_शब्दकोश[जे] = (सूची_एक[ई][जे], सूची_दो[ई][जे])
+            
+            सूचकांक_शब्दकोश[ई] = नेस्टेड_शब्दकोश
+        वरना:
+            सूचकांक_शब्दकोश[ई] = (सूची_एक[ई], सूची_दो[ई])
+    
+    वापस सूचकांक_शब्दकोश"
+"
+def find_maximum(a, b, c):
+    # Convert the numbers to binary
+    a_bin = bin(a)
+    b_bin = bin(b)
+    c_bin = bin(c)
+    
+    # Count the number of 1s in the binary representation of each number
+    a_count = a_bin.count('1')
+    b_count = b_bin.count('1')
+    c_count = c_bin.count('1')
+    
+    # Compare the counts to find the maximum
+    if a_count > b_count and a_count > c_count:
+        return a
+    elif b_count > a_count and b_count > c_count:
+        return b
+    else:
+        return c
+","परिभाषा ढूँढो_अधिकतम(ए, बी, सी):
+    #संख्याओं_को_द्विआधारी_में_बदलें
+    ए_द्वि = द्वि(ए)
+    बी_द्वि = द्वि(बी)
+    सी_द्वि = द्वि(सी)
+    
+    #प्रत्येक_संख्या_के_द्विआधारी_प्रतिनिधित्व_में_1s_की_संख्या_गिनें
+    ए_गिनें = ए_द्वि.गिनें('1')
+    बी_गिनें = बी_द्वि.गिनें('1')
+    सी_गिनें = सी_द्वि.गिनें('1')
+    
+    #गिनती_की_तुलना_करें_ताकि_अधिकतम_को_ढूँढा_जा_सके
+    यदि ए_गिनें > बी_गिनें और ए_गिनें > सी_गिनें:
+        वापस ए
+    वरना_यदि बी_गिनें > ए_गिनें और बी_गिनें > सी_गिनें:
+        वापस बी
+    वरना:
+        वापस सी"
+"
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr, 0
+    else:
+        pivot = arr[0]
+        less = [x for x in arr[1:] if x <= pivot]
+        greater = [x for x in arr[1:] if x > pivot]
+        sorted_less, comparisons_less = quick_sort(less)
+        sorted_greater, comparisons_greater = quick_sort(greater)
+        comparisons = len(arr) - 1 + comparisons_less + comparisons_greater
+        sorted_arr = sorted_greater + [pivot] + sorted_less
+        return sorted_arr, comparisons
+
+# Testing the code
+arr = [5, 3, 9, 5, 2, 8, 4]
+sorted_arr, comparisons = quick_sort(arr)
+print(""Sorted Array:"", sorted_arr)
+print(""Number of Comparisons:"", comparisons)
+","परिभाषा त्वरित_क्रम(आगमन):
+    यदि लंबाई(आगमन) <= 1:
+        वापस आगमन, 0
+    वरना:
+        ध्रुव = आगमन[0]
+        कम = [x के_लिए x में आगमन[1:] यदि x <= ध्रुव]
+        अधिक = [x के_लिए x में आगमन[1:] यदि x > ध्रुव]
+        क्रमबद्ध_कम, तुलना_कम = त्वरित_क्रम(कम)
+        क्रमबद्ध_अधिक, तुलना_अधिक = त्वरित_क्रम(अधिक)
+        तुलना = लंबाई(आगमन) - 1 + तुलना_कम + तुलना_अधिक
+        क्रमबद्ध_आगमन = क्रमबद्ध_अधिक + [ध्रुव] + क्रमबद्ध_कम
+        वापस क्रमबद्ध_आगमन, तुलना
+
+#कोड का परीक्षण
+आगमन = [5, 3, 9, 5, 2, 8, 4]
+क्रमबद्ध_आगमन, तुलना = त्वरित_क्रम(आगमन)
+छापिये(""क्रमबद्ध सरणी:"", क्रमबद्ध_आगमन)
+छापिये(""तुलनाओं की संख्या:"", तुलना)"
+"
+def calculate_distance(point1, point2):
+    distance = ((point2[0] - point1[0])**2 + (point2[1] - point1[1])**2 + (point2[2] - point1[2])**2) ** 0.5
+    return distance
+","परिभाषा calculate_दूरी(बिंदु1, बिंदु2):
+    दूरी = ((बिंदु2[0] - बिंदु1[0])**2 + (बिंदु2[1] - बिंदु1[1])**2 + (बिंदु2[2] - बिंदु1[2])**2) ** 0.5
+    वापस दूरी"
