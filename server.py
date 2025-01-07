@@ -28,7 +28,7 @@ def get_language_code(language):
 def load_examples(source_language, target_language):
     """Load translation examples for the specified language pair"""
     try:
-        examples_df = pd.read_csv('code_example.csv')
+        examples_df = pd.read_csv('few_shot_learning_data.csv')
         
         source_col = f'{source_language}_code'
         target_col = f'{target_language}_code'

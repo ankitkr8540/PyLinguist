@@ -1,12 +1,6 @@
 import streamlit as st
-import pandas as pd
 import streamlit_ace
-import time
-import os
-import sys
 from server import test_translation
-# Import the service module
-import service as serv
 
 # Initialize session state
 if 'swap_requested' not in st.session_state:
@@ -49,7 +43,7 @@ st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center; padding: 50px'>PyLinguist</h1>", unsafe_allow_html=True)
 
 # Available languages
-languages = ['English', 'Hindi', 'French', 'Spanish', 'Kurdish', 'Bengali', 'Mandarin', 'Greek']
+languages = ['English', 'Hindi', 'French', 'Spanish', 'Bengali', 'Mandarin', 'Greek']
 
 # Language selection with swap button
 col1, col2, col3 = st.columns([4, 1, 4])
@@ -63,11 +57,11 @@ with col1:
     )
     source_language_code = source_language
 
-with col2:
-    st.write("")
-    st.write("")
-    if st.button('🔄 Swap Languages', on_click=request_swap):
-        st.rerun()
+# with col2:
+#     st.write("")
+#     st.write("")
+#     if st.button('🔄 Swap Languages', on_click=request_swap):
+#         st.rerun()
 
 with col3:
     target_language = st.selectbox(
