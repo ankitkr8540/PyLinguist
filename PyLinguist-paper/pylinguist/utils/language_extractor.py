@@ -29,9 +29,9 @@ LANGUAGE_CODES = {
 # extract language based on the google language codes
 def extract_keyword_header(code):
     """Extract language from Google language code."""
-    return JOSHUA_KEYWORD.get(code, 'UnknownKey')
+    return JOSHUA_KEYWORD.get(code, f'{code} Key not found')
 
 def extract_language(code):
     """Extract language from Google language code."""
-    return LANGUAGE_CODES.get(code, 'Unknown')
+    return LANGUAGE_CODES.get(code, f'{code} Key not found')
     

@@ -85,7 +85,7 @@ def run_partial_translation(args):
     try:
        
         
-        logger.info("No partial translation found starting partial translation using Joshua keywords...")
+        logger.info("Starting partial translation using Joshua keywords...")
         
         dataset_path = Path("data/input/samples/python_code_dataset.csv")
         

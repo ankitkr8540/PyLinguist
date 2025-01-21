@@ -8,6 +8,7 @@ import logging
 from ..utils.language_extractor import extract_keyword_header, extract_language
 from ..utils.logger import setup_logger
 from tqdm import tqdm
+import sys
 
 logger = setup_logger()
 
@@ -36,13 +37,14 @@ class PartialTranslator:
                 if pd.notna(source_word) and pd.notna(target_word):
                     translation_dict[source_word] = target_word
                     
-            logger.info(f"Loaded {len(translation_dict)} keywords for {extract_language(self.source_lang)} "
+            logger.info(f"Loaded keywords dictionary for {extract_language(self.source_lang)} "
                      f"to {extract_language(self.target_lang)}")
                      
             return translation_dict
             
         except Exception as e:
             logger.error(f"Error loading keywords: {str(e)}")
+            sys.exit(1)
             raise
     
     def translate_word(self, word: str) -> str:
