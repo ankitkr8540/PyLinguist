@@ -14,7 +14,7 @@ JOSHUA_KEYWORD = {
         'el': 'GreekKey'
     }
 
-LANGUAGE_CODES ={
+LANGUAGE_CODES = {
     'fr': 'French',
     'es': 'Spanish',
     'ku': 'Kurdish',
