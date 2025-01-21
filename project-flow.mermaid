@@ -1,0 +1,50 @@
+flowchart TD
+    subgraph Input ["Input Layer"]
+        A[Input Code Files] --> |Load| B[File Handler]
+        K[Joshua Keywords CSV] --> |Load| L[Keyword Manager]
+    end
+
+    subgraph Translation ["Translation Pipeline"]
+        subgraph Stage1 ["Stage 1 Translation"]
+            G[Google Translator]
+            D[DeepL Translator]
+        end
+        
+        subgraph Stage2 ["Stage 2 Translation"]
+            GPT[GPT Model]
+            LLM[Llama Model]
+            C[Claude Model]
+        end
+    end
+
+    subgraph Processing ["Processing Layer"]
+        B --> |Parse| P[Pipeline Manager]
+        L --> |Provide Keywords| P
+        P --> |Route| Stage1
+        Stage1 --> |Output| Stage2
+    end
+
+    subgraph Output ["Output & Evaluation"]
+        Stage1 --> |Store| S1[Stage 1 Results]
+        Stage2 --> |Store| S2[Stage 2 Results]
+        
+        subgraph Eval ["Evaluation System"]
+            M[Metrics Calculator]
+            SV[Syntax Validator]
+            SE[Semantic Evaluator]
+        end
+        
+        S1 --> Eval
+        S2 --> Eval
+        Eval --> R[Final Results]
+    end
+
+    classDef input fill:#e1f5fe,stroke:#01579b
+    classDef process fill:#f3e5f5,stroke:#4a148c
+    classDef translate fill:#fff3e0,stroke:#e65100
+    classDef output fill:#e8f5e9,stroke:#1b5e20
+    
+    class A,K input
+    class B,L,P process
+    class G,D,GPT,LLM,C translate
+    class S1,S2,M,SV,SE,R output

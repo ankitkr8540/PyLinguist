@@ -15,3 +15,5 @@ __pycache__/
 */data/translation_checkpoint.json
 .streamlit/
 API.txt
+*/workspaceArchiver.txt
+*/ignore_files.txt
